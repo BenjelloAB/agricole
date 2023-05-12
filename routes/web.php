@@ -46,6 +46,12 @@ Route::delete('employe/delete',[EmployeController::class, 'destroy'])->name('emp
 /* le route pour le culture */
 Route::get('/culture',[CulturController::class, 'index'])->name('culture.index');
 Route::get('culture/store',[CulturController::class, 'store'])->name('culture.store');
+Route::post('culture/creat',[CulturController::class, 'creat'])->name('culture.creat');
+Route::delete('culture/delete',[CulturController::class, 'destroy'])->name('culture.delete');
 
+Route::get('ressource',[CulturController::class, 'show'])->name('culture.ressource');
+Route::post('ressource/store',[CulturController::class, 'add'])->name('culture.storeRessource');
+Route::put('ressource/update',[CulturController::class, 'edit'])->name('culture.updateRessource');
+Route::delete('ressource/delete',[CulturController::class, 'delet'])->name('culture.deleteRessource');
 
 /* la fin de route */

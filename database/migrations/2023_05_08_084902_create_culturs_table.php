@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('culturs', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('parcelle_id');
-            $table->unsignedBigInteger('employe_id');
+            $table->string('parcelle_id');
+            $table->string('employe_id');
+            $table->string('nom');
             $table->string('type');
             $table->string('date_de_plantation_culture');
             $table->string('date_de_récolte_prévue_culture');
@@ -23,8 +24,8 @@ return new class extends Migration
             $table->string('besoin_en_pesticides_culture');
             $table->string('état_de_santé_culture');
             $table->timestamps();
-            $table->foreign('parcelle_id')->references('id')->on('parcelles')->onDelete('cascade');
-            $table->foreign('employe_id')->references('id')->on('employes')->onDelete('cascade');
+            // $table->foreign('parcelle_id')->references('id')->on('parcelles')->onDelete('cascade');
+            // $table->foreign('employe_id')->references('id')->on('employes')->onDelete('cascade');
         });
     }
 

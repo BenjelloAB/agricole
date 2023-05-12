@@ -50,7 +50,7 @@
                         </a>
                         <ul id="chart" class="collapse" data-parent="#sidebarnav">
                             <li> <a href="{{ route('culture.index') }}">Culture</a> </li>
-                            <li> <a href="chart-.html">Ressource</a> </li>
+                            <li> <a href="{{route('culture.ressource')}}">Ressource</a> </li>
 
                         </ul>
                     </li>

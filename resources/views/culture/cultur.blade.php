@@ -40,6 +40,7 @@
                                 <th>id</th>
                                 <th>nom_parcelle</th>
                                 <th>nom_employe</th>
+                                <th>nom</th>
                                 <th>type</th>
                                 <th>date_de_plantation_culture</th>
                                 <th>date_de_récolte_prévue_culture</th>
@@ -53,37 +54,36 @@
 
                         <tbody>
                             <?php $i = 0; ?>
-
+                            @foreach ($culture as $culture)
                                 <?php $i++; ?>
                                 <tr>
                                     <td>{{ $i }}</td>
-                                    <td>ggg</td>
-                                    <td>hh</td>
-                                    <td>yy</td>
-                                    <td>pp</td>
-                                    <td>tt</td>
-                                    <td>qq</td>
-                                    <td>ww</td>
-                                    <td>åå</td>
-                                    <td>åå</td>
-                                    <td> <button type="button" class="btn btn-info btn-sm" data-toggle="modal"
-                                            data-target="#edit" title="mise à jour"><i
-                                                class="fa fa-edit"></i></button>
+                                    <td>{{ $culture->parcelle_id }}</td>
+                                    <td>{{ $culture->employe_id }}</td>
+                                    <td>{{ $culture->nom }}</td>
+                                    <td>{{ $culture->type }}</td>
+                                    <td>{{ $culture->date_de_plantation_culture }}</td>
+                                    <td>{{ $culture->date_de_récolte_prévue_culture }}</td>
+                                    <td>{{ $culture->besoin_en_eau }}</td>
+                                    <td>{{ $culture->besoin_en_nutriments_culture }}</td>
+                                    <td>{{ $culture->besoin_en_pesticides_culture }}</td>
+                                    <td>{{ $culture->état_de_santé_culture }}</td>
+                                    <td>
                                         <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
-                                            data-target="#delete" title="supprimer"><i
+                                            data-target="#delete{{ $culture->id }}" title="supprimer"><i
                                                 class="fa fa-trash"></i></button>
                                     </td>
                                 </tr>
                                 <!-- edit_modal_parcelle -->
-                                <div class="modal fade" id="edit" tabindex="-1" role="dialog"
+                                <!-- delete_modal_parcelle -->
+                                <div class="modal fade" id="delete{{ $culture->id }}" tabindex="-1" role="dialog"
                                     aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <h5 style="font-family: 'Cairo', sans-serif;" class="modal-title"
                                                     id="exampleModalLabel">
-                                                    <span style="color:rgb(0, 0, 0)"> changer les informations de
-                                                        parcelle de terrain</span>
+                                                    <span style="color: rgb(0, 0, 0)"> Supprimer le culture</span>
                                                 </h5>
                                                 <button type="button" class="close" data-dismiss="modal"
                                                     aria-label="Close">
@@ -91,131 +91,13 @@
                                                 </button>
                                             </div>
                                             <div class="modal-body">
-                                                <!-- add_form -->
-                                                <form action="" method="POST">
-                                                    @csrf
-                                                    @method('PUT')
-                                                    <div class="row">
-                                                        <input id="id" type="hidden" name="id"
-                                                            class="form-control" value="">
-                                                        <div class="col">
-                                                            <label for="Name" class="mr-sm-2">
-                                                                Nom
-                                                            </label>
-                                                            <input id="nom" type="text" name="nom"
-                                                                class="form-control" required>
-                                                        </div>
-
-                                                        <div class="col">
-                                                            <label for="Name_en" class="mr-sm-2">Prenom
-                                                            </label>
-                                                            <input type="text" class="form-control" name="prenom"
-                                                                required>
-                                                        </div>
-                                                        <div class="col">
-                                                            <label for="Name" class="mr-sm-2">
-                                                                Date_Naissance
-                                                            </label>
-                                                            <input id="date" type="date" name="date"
-                                                                class="form-control" required>
-                                                        </div>
-                                                        <div class="col">
-                                                            <label for="Name_en" class="mr-sm-2">Lieu_Naissance
-                                                            </label>
-                                                            <input type="text" class="form-control" name="lieu"
-                                                                required>
-                                                        </div>
-                                                        <div class="col">
-                                                            <label for="Name_en" class="mr-sm-2">Situation_familial
-                                                            </label>
-                                                            <input type="text" class="form-control" name="situation"
-                                                                required>
-                                                        </div>
-                                                        <div class="col">
-                                                            <label for="Name" class="mr-sm-2">
-                                                                adress_postal
-                                                            </label>
-                                                            <input id="Name" type="text" name="adress"
-                                                                class="form-control" required>
-                                                        </div>
-
-                                                        <div class="col">
-                                                            <label for="Name_en" class="mr-sm-2">CIN
-                                                            </label>
-                                                            <input type="text" class="form-control" name="cin"
-                                                                required>
-                                                        </div>
-                                                        <div class="col">
-                                                            <label for="Name" class="mr-sm-2">
-                                                                Telephone
-                                                            </label>
-                                                            <input id="Name" type="text" name="tele"
-                                                                class="form-control" required>
-                                                        </div>
-                                                        <div class="col">
-                                                            <label for="Name_en" class="mr-sm-2">mail
-                                                            </label>
-                                                            <input type="text" class="form-control"
-                                                                name="mail">
-                                                        </div>
-                                                        <div class="col">
-                                                            <label for="Name_en" class="mr-sm-2">Niveau_scolaire
-                                                            </label>
-                                                            <input type="text" class="form-control"
-                                                                name="scolaire">
-                                                        </div>
-                                                        <div class="col">
-                                                            <label for="Name" class="mr-sm-2">
-                                                                experiance
-                                                            </label>
-                                                            <input id="Name" type="text" name="experiance"
-                                                                class="form-control" required>
-                                                        </div>
-
-                                                        <div class="col">
-                                                            <label for="Name_en" class="mr-sm-2">Dernier_employer
-                                                            </label>
-                                                            <input type="text" class="form-control"
-                                                                name="employe">
-                                                        </div>
-                                                    </div>
-
-
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary"
-                                                    data-dismiss="modal">Ferme</button>
-                                                <button type="submit" class="btn btn-success">Valide</button>
-                                            </div>
-                                            </form>
-
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- delete_modal_parcelle -->
-                                <div class="modal fade" id="delete" tabindex="-1"
-                                    role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 style="font-family: 'Cairo', sans-serif;" class="modal-title"
-                                                    id="exampleModalLabel">
-                                                    <span style="color: rgb(0, 0, 0)"> Supprimer l'employe</span>
-                                                </h5>
-                                                <button type="button" class="close" data-dismiss="modal"
-                                                    aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <form action="" method="post">
+                                                <form action="{{ route('culture.delete') }}" method="post">
                                                     @method('DELETE')
                                                     @csrf
                                                     <span style="color: red">Voullez-vous effacer cette
                                                         operation</span>
                                                     <input id="id" type="hidden" name="id"
-                                                        class="form-control" value="">
+                                                        class="form-control" value="{{ $culture->id }}">
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary"
                                                             data-dismiss="modal">ferme</button>
@@ -226,7 +108,7 @@
                                         </div>
                                     </div>
                                 </div>
-
+                            @endforeach
                         </tbody>
 
                     </table>

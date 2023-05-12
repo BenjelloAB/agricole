@@ -4,16 +4,33 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Cultur extends Model
 {
     use HasFactory;
-    public function parcelle()
-    {
-        return $this->belongsTo(Parcelle::class);
-    }
-    public function employe()
-    {
-        return $this->belongsTo(Employe::class);
-    }
+    protected $fillable = [
+        'parcelle_id',
+        'employe_id',
+        'nom',
+        'type',
+        'date_de_plantation_culture',
+        'date_de_récolte_prévue_culture',
+        'besoin_en_eau',
+        'besoin_en_nutriments_culture',
+        'besoin_en_pesticides_culture',
+        'état_de_santé_culture',
+    ];
+    // public function parcelle()
+    // {
+    //     return $this->belongsTo(Parcelle::class);
+    // }
+    // public function employe()
+    // {
+    //     return $this->belongsTo(Employe::class);
+    // }
+    // public function Ressourceculture(): HasOne
+    // {
+    //     return $this->hasOne(Ressourceculture::class);
+    // }
 }
