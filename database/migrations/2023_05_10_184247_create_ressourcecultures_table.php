@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('ressourcecultures', function (Blueprint $table) {
             $table->id();
-            $table->string('culture_id');
+            // $table->string('culture_id');
+            $table->foreignId('cultur_id')->references('id')->on('culturs')->onDelete('cascade');
             $table->string('semences');
             $table->string('engrais');
             $table->string('pesticides');

@@ -3,6 +3,7 @@
 use App\Http\Controllers\CulturController;
 use App\Http\Controllers\EmployeController;
 use App\Http\Controllers\ParcelleController;
+use App\Http\Controllers\RecolteController;
 use App\Models\Employe;
 use Illuminate\Support\Facades\Route;
 
@@ -55,3 +56,30 @@ Route::put('ressource/update',[CulturController::class, 'edit'])->name('culture.
 Route::delete('ressource/delete',[CulturController::class, 'delet'])->name('culture.deleteRessource');
 
 /* la fin de route */
+
+/* le route pour le recolte */
+Route::get('/recolte',[RecolteController::class, 'index'])->name('recolte.index');
+Route::get('recolte/store',[RecolteController::class, 'store'])->name('recolte.store');
+Route::post('recolte/creat',[RecolteController::class, 'creat'])->name('recolte.creat');
+Route::delete('recolte/delete',[RecolteController::class, 'destroy'])->name('recolte.delete');
+
+/* la fin de route */
+
+
+
+
+
+
+
+
+
+
+
+
+Route::get('/empty',function(){
+    return view('empty');
+});
+
+Route::fallback(function () {
+    return view('404');
+});

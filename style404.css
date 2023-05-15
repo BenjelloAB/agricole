@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300;400;500;600;700&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+#pic404{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-image: url(pic2404.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+#pic404 button{
+    color: white;
+    margin-top: 547px;
+    text-align: center;
+    height: 52px;
+    font-size: 22px;
+    font-family: 'Poppins', sans-serif;
+    background: #000;
+    border-radius: 43px;
+    padding: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+    border: none;
+}
+#pic404 button a{
+    color: white;
+    text-decoration: none;
+}

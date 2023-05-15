@@ -64,7 +64,7 @@
                             <div class="clearfix"></div>
                         </a>
                         <ul id="font-icon" class="collapse" data-parent="#sidebarnav">
-                            <li> <a href="fontawesome-icon.html">récolté </a> </li>
+                            <li> <a href="{{route('recolte.index')}}">récolté </a> </li>
                             <li> <a href="themify-icons.html">Ressource</a> </li>
 
                         </ul>

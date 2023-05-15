@@ -32,22 +32,15 @@ class CulturController extends Controller
                 'nom_employe' => 'required',
                  ]);
 
-                //  foreach ($request->nom_parcelle as $valeur_case) {
+                //   foreach ($request->nom_employe as $valeur_case) {
                 //     // Vérifiez si la case à cocher a été cochée
                 //     if ($valeur_case) {
-                //       $cases_coches[] = $valeur_case;
+                //       $case[] = $valeur_case;
                 //     }
                 //   }
-                  foreach ($request->nom_employe as $valeur_case) {
-                    // Vérifiez si la case à cocher a été cochée
-                    if ($valeur_case) {
-                      $case[] = $valeur_case;
-                    }
-                  }
-
+                //   $employeeIds = implode(',',$case);
                  $so = Cultur::create([
                     'parcelle_id' => $request->nom_parcelle,
-                    'employe_id' =>implode(',',$case),
                     'nom'=>$request->nom,
                     'type' =>  $request->type,
                     'date_de_plantation_culture' => $request->date_de_plantation_culture,
@@ -58,7 +51,7 @@ class CulturController extends Controller
                     'état_de_santé_culture' => $request->état_de_santé_culture,
                 ]);
 
-
+                $so->employes()->attach($request->nom_employe);
 
             return redirect()->route('culture.index')->with('success', 'Les données ont été enregistrées avec succès!');
          }catch (\Exception $e){
@@ -95,8 +88,7 @@ class CulturController extends Controller
     {
         try {
             $so = Ressourceculture::create([
-                'culture_id' => $request->cultur,
-
+                'cultur_id' => $request->cultur,
                 'semences'=>$request->semences,
                 'engrais' =>  $request->engrais,
                 'pesticides' => $request->pesticides,
@@ -114,7 +106,7 @@ public function edit(Request $request)
     try {
         $ressource = Ressourceculture::findOrFail($request->id);
         $ressource->update([
-            'culture_id' => $request->cultur,
+            'cultur_id' => $request->cultur,
             'semences'=>$request->semences,
             'engrais' =>  $request->engrais,
             'pesticides' => $request->pesticides,

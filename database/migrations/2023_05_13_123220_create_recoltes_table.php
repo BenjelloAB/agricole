@@ -11,17 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('culturs', function (Blueprint $table) {
+        Schema::create('recoltes', function (Blueprint $table) {
             $table->id();
             $table->foreignId('parcelle_id')->references('id')->on('parcelles')->onDelete('cascade');
-            $table->string('nom');
-            $table->string('type');
-            $table->string('date_de_plantation_culture');
-            $table->string('date_de_récolte_prévue_culture');
-            $table->string('besoin_en_eau');
-            $table->string('besoin_en_nutriments_culture');
-            $table->string('besoin_en_pesticides_culture');
-            $table->string('état_de_santé_culture');
+            $table->string('quantité_récoltée');
+            $table->string('date_récolte');
+            $table->string('coût_récolte');
+            $table->string('Moyen_rendement');
+            $table->string('qualité_récolte');
+            $table->string('prix_de_vente');
             $table->timestamps();
         });
     }
@@ -31,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('culturs');
+        Schema::dropIfExists('recoltes');
     }
 };

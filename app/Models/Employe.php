@@ -24,6 +24,10 @@ class Employe extends Model
     ];
     public function cultur()
     {
-        return $this->hasMany(Cultur::class);
+        return $this->belongsToMany(Cultur::class);
+    }
+    public function recolte()
+    {
+        return $this->belongsToMany(Recolte::class);
     }
 }

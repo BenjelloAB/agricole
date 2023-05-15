@@ -64,7 +64,7 @@
                                 <?php $i++; ?>
                                 <tr>
                                     <td>{{ $i }}</td>
-                                    <td>{{ $ressorce->culture_id }}</td>
+                                    <td>{{ $ressorce->cultur->nom}}</td>
                                     <td>{{ $ressorce->semences }}</td>
                                     <td>{{ $ressorce->engrais }}</td>
                                     <td>{{ $ressorce->pesticides }}</td>
@@ -109,7 +109,7 @@
 
                                                             <select name="cultur" id="" class="form-control">
                                                                 @foreach ($cultur as $item)
-                                                                    <option value="{{ $item->nom }}">
+                                                                    <option value="{{ $item->id }}">
                                                                         {{ $item->nom }}</option>
                                                                 @endforeach
 
@@ -221,7 +221,7 @@
                                 </label>
                                 <select name="cultur" id="" class="form-control">
                                     @foreach ($cultur as $cultur)
-                                        <option value="{{ $cultur->nom }}">{{ $cultur->nom }}</option>
+                                        <option value="{{ $cultur->id }}">{{ $cultur->nom }}</option>
                                     @endforeach
 
                                 </select>

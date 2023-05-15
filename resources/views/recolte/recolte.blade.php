@@ -15,7 +15,7 @@
         <div class="col-sm-6">
             <ol class="breadcrumb pt-0 pr-0 float-left float-sm-right ">
                 <li class="breadcrumb-item"><a href="#" class="default-color">dashboard</a></li>
-                <li class="breadcrumb-item active">culture</li>
+                <li class="breadcrumb-item active">recolte</li>
             </ol>
         </div>
     </div>
@@ -28,8 +28,8 @@
     <div class="col-md-12 mb-30">
         <div class="card card-statistics h-100">
             <div class="card-body">
-                <a href="{{ route('culture.store') }}"> <button type="button" class="button x-small">
-                        ajouter un culture
+                <a href="{{ route('recolte.store') }}"> <button type="button" class="button x-small">
+                        ajouter un recolte
                     </button>
                 </a>
                 <br><br>
@@ -40,50 +40,46 @@
                                 <th>id</th>
                                 <th>nom_parcelle</th>
                                 <th>nom_employe</th>
-                                <th>nom</th>
-                                <th>type</th>
-                                <th>date_de_plantation_culture</th>
-                                <th>date_de_récolte_prévue_culture</th>
-                                <th>besoin_en_eau</th>
-                                <th>besoin_en_nutriments_culture</th>
-                                <th>besoin_en_pesticides_culture</th>
-                                <th>état_de_santé_culture</th>
+                                <th>quantité_récoltée</th>
+                                <th>date_récolte</th>
+                                <th>coût_récolte</th>
+                                <th>Moyen_rendement</th>
+                                <th>qualité_récolte</th>
+                                <th>prix_de_vente</th>
                                 <th>status</th>
                             </tr>
                         </thead>
 
                         <tbody>
                             <?php $i = 0; ?>
-                            @foreach ($culture as $culture)
+                            @foreach ($recolte as $recolte)
                                 <?php $i++; ?>
                                 <tr>
                                     <td>{{ $i }}</td>
-                                    <td>{{ $culture->parcelle->nom }}</td>
+                                    <td>{{ $recolte->parcelle->nom }}</td>
                                     <td>
-                                        @foreach ($culture->employes as $employe)
+                                        @foreach ($recolte->employes as $employe)
                                             {{ $employe->nom }} {{ $employe->prenom }}
                                             @if (!$loop->last)
                                                 <br>
                                             @endif
                                         @endforeach
                                     </td>
-                                    <td>{{ $culture->nom }}</td>
-                                    <td>{{ $culture->type }}</td>
-                                    <td>{{ $culture->date_de_plantation_culture }}</td>
-                                    <td>{{ $culture->date_de_récolte_prévue_culture }}</td>
-                                    <td>{{ $culture->besoin_en_eau }}</td>
-                                    <td>{{ $culture->besoin_en_nutriments_culture }}</td>
-                                    <td>{{ $culture->besoin_en_pesticides_culture }}</td>
-                                    <td>{{ $culture->état_de_santé_culture }}</td>
+                                    <td>{{ $recolte->quantité_récoltée }}</td>
+                                    <td>{{ $recolte->date_récolte }}</td>
+                                    <td>{{ $recolte->coût_récolte }}</td>
+                                    <td>{{ $recolte->Moyen_rendement }}</td>
+                                    <td>{{ $recolte->qualité_récolte }}</td>
+                                    <td>{{ $recolte->prix_de_vente }}</td>
                                     <td>
                                         <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
-                                            data-target="#delete{{ $culture->id }}" title="supprimer"><i
+                                            data-target="#delete{{ $recolte->id }}" title="supprimer"><i
                                                 class="fa fa-trash"></i></button>
                                     </td>
                                 </tr>
                                 <!-- edit_modal_parcelle -->
                                 <!-- delete_modal_parcelle -->
-                                <div class="modal fade" id="delete{{ $culture->id }}" tabindex="-1" role="dialog"
+                                <div class="modal fade" id="delete{{ $recolte->id }}" tabindex="-1" role="dialog"
                                     aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
@@ -98,13 +94,13 @@
                                                 </button>
                                             </div>
                                             <div class="modal-body">
-                                                <form action="{{ route('culture.delete') }}" method="post">
+                                                <form action="{{route('recolte.delete')}}" method="post">
                                                     @method('DELETE')
                                                     @csrf
                                                     <span style="color: red">Voullez-vous effacer cette
                                                         operation</span>
                                                     <input id="id" type="hidden" name="id"
-                                                        class="form-control" value="{{ $culture->id }}">
+                                                        class="form-control" value="{{$recolte->id}}">
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary"
                                                             data-dismiss="modal">ferme</button>

@@ -11,7 +11,6 @@ class Cultur extends Model
     use HasFactory;
     protected $fillable = [
         'parcelle_id',
-        'employe_id',
         'nom',
         'type',
         'date_de_plantation_culture',
@@ -21,16 +20,16 @@ class Cultur extends Model
         'besoin_en_pesticides_culture',
         'état_de_santé_culture',
     ];
-    // public function parcelle()
-    // {
-    //     return $this->belongsTo(Parcelle::class);
-    // }
-    // public function employe()
-    // {
-    //     return $this->belongsTo(Employe::class);
-    // }
-    // public function Ressourceculture(): HasOne
-    // {
-    //     return $this->hasOne(Ressourceculture::class);
-    // }
+    public function parcelle()
+    {
+        return $this->belongsTo(Parcelle::class);
+    }
+    public function employes()
+    {
+        return $this->belongsToMany(Employe::class);
+    }
+    public function ressourceculture(): HasOne
+    {
+        return $this->hasOne(Ressourceculture::class);
+    }
 }

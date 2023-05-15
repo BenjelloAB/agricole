@@ -1,68 +1,5 @@
 @extends('layouts.master')
 @section('css')
-    {{-- <link rel="stylesheet" href="{{ asset('select-css.css') }}"> --}}
-
-    {{-- <style>
-        .input-selector {
-            outline: none;
-            border: none;
-
-            background-color: #f6f7f8
-        }
-
-        .multi-selector {
-            width: max-content;
-        }
-
-        .select-field {
-            border: 1px solid rgb(187, 187, 187);
-        }
-
-        .select-field,
-        .task,
-        .list {
-            width: 100%;
-            background-color: #f6f7f8;
-            padding: 0.3rem;
-            outline: none;
-            border: none;
-        }
-
-        .list {
-            box-shadow: 0 30px 60px rgb(0, 0, 0, 0.2);
-            display: none;
-        }
-
-        .down-arrow {
-            font-size: 1.2rem;
-            display: inline-block;
-            cursor: pointer;
-            transition: 0.2s linear;
-        }
-
-        .task {
-            display: block;
-            padding-left: 0;
-        }
-
-        .task span {
-            float: right;
-            font-size: 0.6rem;
-            padding-top: 6px;
-        }
-
-        .task:hover {
-            background-color: aliceblue;
-        }
-
-        .show {
-            display: block;
-        }
-
-        .rotate180 {
-            transform: rotate(-60deg);
-        }
-    </style> --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.16.17/dist/css/uikit.min.css" />
 
 @section('title')
@@ -102,7 +39,7 @@
                         </ul>
                     </div>
                 @endif
-                <form action="{{ route('culture.creat') }}" method="POST" class="was-validated">
+                <form action="{{ route('recolte.creat') }}" method="POST" class="was-validated">
                     @csrf
                     @method('POST')
                     <div class="form-row">
@@ -160,51 +97,37 @@
 
                         </div>
                         <div class="col-sm-3 mb-3">
-                            <label for="validationDefault01"><span style="color: red">*</span>nom</label>
-                            <input type="text" class="form-control" id="validationDefault01" name="nom" required>
+                            <label for="validationDefault01"><span style="color: red">*</span>quantité_récoltée</label>
+                            <input type="text" class="form-control" id="validationDefault01" name="quantité_récoltée" required>
                         </div>
                         <div class="col-sm-3 mb-3">
-                            <label for="validationDefault01"><span style="color: red">*</span>type</label>
-                            <input type="text" class="form-control" id="validationDefault01" name="type" required>
+                            <label for="validationDefault01"><span style="color: red">*</span>date_récolte</label>
+                            <input type="text" class="form-control" id="validationDefault01" name="date_récolte" required>
                         </div>
                         <div class="col-sm-3 mb-3">
                             <label for="validationDefault02"><span
-                                    style="color: red">*</span>date_de_plantation_culture</label>
+                                    style="color: red">*</span>coût_récolte</label>
                             <input type="text" class="form-control" id="validationDefault02"
-                                name="date_de_plantation_culture" required>
+                                name="coût_récolte" required>
                         </div>
                         <div class="col-sm-3 mb-3">
                             <label for="validationDefault01"><span
-                                    style="color: red">*</span>date_de_récolte_prévue_culture</label>
+                                    style="color: red">*</span>Moyen_rendement</label>
                             <input type="text" class="form-control" id="validationDefault01"
-                                name="date_de_récolte_prévue_culture" required>
+                                name="Moyen_rendement" required>
                         </div>
                         <div class="col-sm-3 mb-3">
-                            <label for="validationDefault02"><span style="color: red">*</span>besoin_en_eau</label>
-                            <input type="text" class="form-control" id="validationDefault02" name="besoin_en_eau"
+                            <label for="validationDefault02"><span style="color: red">*</span>qualité_récolte</label>
+                            <input type="text" class="form-control" id="validationDefault02" name="qualité_récolte"
                                 required>
                         </div>
                         <div class="col-sm-3 mb-3">
                             <label for="validationDefault01"><span
-                                    style="color: red">*</span>besoin_en_nutriments_culture</label>
+                                    style="color: red">*</span>prix_de_vente</label>
                             <input type="text" class="form-control" id="validationDefault01"
-                                name="besoin_en_nutriments_culture" required>
-                        </div>
-                        <div class="col-sm-3 mb-3">
-                            <label for="validationDefault02"><span
-                                    style="color: red">*</span>besoin_en_pesticides_culture</label>
-                            <input type="text" class="form-control" id="validationDefault02"
-                                name="besoin_en_pesticides_culture" required>
+                                name="prix_de_vente" required>
                         </div>
 
-
-                        <div class="col-sm-3 mb-3">
-
-                            <label for="validationDefault03"><span
-                                    style="color: red">*</span>état_de_santé_culture</label>
-                            <input type="text" class="form-control" id="validationDefault03"
-                                name="état_de_santé_culture" required>
-                        </div>
                     </div>
                     <div class="form-group">
                         <div class="form-check">

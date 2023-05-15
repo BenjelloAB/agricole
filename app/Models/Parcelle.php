@@ -20,4 +20,8 @@ class Parcelle extends Model
     {
         return $this->hasMany(Cultur::class);
     }
+    public function recolte()
+    {
+        return $this->hasMany(Recolte::class);
+    }
 }
