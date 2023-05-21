@@ -30,4 +30,8 @@ class Employe extends Model
     {
         return $this->belongsToMany(Recolte::class);
     }
+    public function finance_employe()
+    {
+        return $this->hasMany(Finance_employe::class);
+    }
 }

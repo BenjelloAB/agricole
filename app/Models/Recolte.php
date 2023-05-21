@@ -26,4 +26,17 @@ class Recolte extends Model
     {
         return $this->belongsToMany(Employe::class);
     }
+    public function ressourcerecolte()
+    {
+        return $this->hasMany(Ressourcerecolte::class);
+    }
+
+    public function control()
+    {
+        return $this->hasMany(Control::class);
+    }
+    public function finance_recolte()
+    {
+        return $this->hasOne(Finance_Recolte::class);
+    }
 }

@@ -8,7 +8,7 @@
                             document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
                         </script>
                     </span>. <a href="mailto:saadboutirhiten@gmail.com" style="color: rgb(7, 87, 192);font-weight: 700">Les architectes de la
-                        technologie de SAAD, YOUNESS, ABDERRAHMANE et MEHDI</a> Tous les droits sont réservés.  . </p>
+                        technologie de S.A.M.Y</a></p>
             </div>
         </div>
         <div class="col-md-6">

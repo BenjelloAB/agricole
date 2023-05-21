@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\CqualiteController;
 use App\Http\Controllers\CulturController;
 use App\Http\Controllers\EmployeController;
+use App\Http\Controllers\FinanceCultureController;
 use App\Http\Controllers\ParcelleController;
 use App\Http\Controllers\RecolteController;
 use App\Models\Employe;
@@ -63,18 +65,40 @@ Route::get('recolte/store',[RecolteController::class, 'store'])->name('recolte.s
 Route::post('recolte/creat',[RecolteController::class, 'creat'])->name('recolte.creat');
 Route::delete('recolte/delete',[RecolteController::class, 'destroy'])->name('recolte.delete');
 
+Route::get('/ressource/show',[RecolteController::class, 'show'])->name('ressource.show');
+Route::post('ressource/recolet/store',[RecolteController::class, 'add'])->name('ressource.storeRessource');
+Route::put('ressource/recolte/update',[RecolteController::class, 'update'])->name('ressource.updateRessource');
+Route::delete('ressource/recolte/delete',[RecolteController::class, 'delete'])->name('ressource.deleteRessource');
+
+/* la fin de route */
+
+/* le route pour le control de qualite */
+Route::get('/control_qualite',[CqualiteController::class, 'index'])->name('control_qualite.index');
+Route::post('control_qualite/store',[CqualiteController::class, 'add'])->name('control_qualite.store');
+Route::put('control_qualite/update',[CqualiteController::class, 'update'])->name('control_qualite.update');
+Route::delete('control_qualite/delete',[CqualiteController::class, 'destroy'])->name('control_qualite.delete');
+
 /* la fin de route */
 
 
+/* le route pour le finance */
+Route::get('/finance',[FinanceCultureController::class, 'index'])->name('finance.index');
+Route::post('finance/store',[FinanceCultureController::class, 'store'])->name('finance.store');
+Route::put('finance/update',[FinanceCultureController::class, 'updat'])->name('finance.update');
+Route::delete('finance/delete',[FinanceCultureController::class, 'destroy'])->name('finance.delete');
+
+Route::get('/finance_recolte',[FinanceCultureController::class, 'show'])->name('finance_recolte.show');
+Route::post('finance/add',[FinanceCultureController::class, 'add'])->name('finance_recolte.add');
+Route::put('finance/edit',[FinanceCultureController::class, 'edit'])->name('finance_recolte.edit');
+Route::delete('finance/delete',[FinanceCultureController::class, 'delete'])->name('finance_recolte.delete');
+
+Route::get('/finance_employe',[FinanceCultureController::class, 'show2'])->name('finance_employe.show');
+Route::post('finance_employe/add',[FinanceCultureController::class, 'add2'])->name('finance_employe.add');
+Route::put('finance_employe/edit',[FinanceCultureController::class, 'edit2'])->name('finance_employe.edit');
+Route::delete('finance_employe/delete',[FinanceCultureController::class, 'delete2'])->name('finance_employe.delete');
 
 
-
-
-
-
-
-
-
+/* la fin de route */
 
 Route::get('/empty',function(){
     return view('empty');

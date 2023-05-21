@@ -36,7 +36,7 @@ class ParcelleController extends Controller
         try{
 
         $request->validate([
-            'nom' => 'required',
+            'nom' => 'required|alpha',
             'emplacement' => 'required',
             'taille' => 'required',
             'type_de_sol' => 'required',

@@ -2,7 +2,7 @@
 @section('css')
 
 @section('title')
-    parcelle
+    empty
 @stop
 @endsection
 @section('page-header')
@@ -10,12 +10,12 @@
 <div class="page-title">
     <div class="row">
         <div class="col-sm-6">
-            <h4 class="mb-0">Parcelle de terrain</h4>
+            <h4 class="mb-0"> ressource</h4>
         </div>
         <div class="col-sm-6">
             <ol class="breadcrumb pt-0 pr-0 float-left float-sm-right ">
-                <li class="breadcrumb-item"><a href="#" class="default-color">Dashboard</a></li>
-                <li class="breadcrumb-item active">Parcelle</li>
+                <li class="breadcrumb-item"><a href="#" class="default-color">dashboard</a></li>
+                <li class="breadcrumb-item active">ressource</li>
             </ol>
         </div>
     </div>
@@ -32,7 +32,7 @@
                     <div class="alert alert-danger">
                         <ul>
                             @foreach ($errors->all() as $error)
-                                <li style="list-style: none;">{{ $error }}</li>
+                                <li>{{ $error }}</li>
                             @endforeach
                         </ul>
                     </div>
@@ -40,8 +40,8 @@
                 <button type="button" class="button x-small" data-toggle="modal" data-target="#exampleModal">
                     Parcelle de terrain
                 </button>
+
                 <br><br>
-                <?php $i = 0; ?>
                 <div class="table-responsive">
                     <table id="datatable" class="table table-striped table-bordered p-0">
 
@@ -49,37 +49,30 @@
                         <thead>
                             <tr>
                                 <th>id</th>
-                                <th>nom</th>
-                                <th>emplacement</th>
-                                <th>taille</th>
-                                <th>type_de_sol</th>
-                                <th>niveau_dirrigation</th>
-                                <th>état_de_santé</th>
+                                <th>nom_recolte</th>
+                                <th>machines_culture</th>
                                 <th>status</th>
                             </tr>
                         </thead>
 
                         <tbody>
-                            @foreach ($parcelle as $parcelles)
+                            <?php $i = 0; ?>
+                            @foreach ($ressource as $ressource)
                                 <?php $i++; ?>
                                 <tr>
                                     <td>{{ $i }}</td>
-                                    <td>{{ $parcelles->nom }}</td>
-                                    <td>{{ $parcelles->emplacement }}</td>
-                                    <td>{{ $parcelles->taille }}</td>
-                                    <td>{{ $parcelles->type_de_sol }}</td>
-                                    <td>{{ $parcelles->niveau_dirrigation }}</td>
-                                    <td>{{ $parcelles->état_de_santé }}</td>
-                                    <td> <button type="button" class="btn btn-info btn-sm" data-toggle="modal"
-                                            data-target="#edit{{ $parcelles->id }}" title="mise à jour"><i
-                                                class="fa fa-edit"></i></button>
+                                    <td>{{ $ressource->recolte->parcelle->nom }}</td>
+                                    <td>{{ $ressource->machine_recolte }}</td>
+                                    <td>
+                                        <button type="button" class="btn btn-info btn-sm" data-toggle="modal"
+                                            data-target="#edit{{ $ressource->id }}" title="mise à jour"><i class="fa fa-edit"></i></button>
                                         <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
-                                            data-target="#delete{{ $parcelles->id }}" title="supprimer"><i
+                                            data-target="#delete{{ $ressource->id }}" title="supprimer"><i
                                                 class="fa fa-trash"></i></button>
                                     </td>
                                 </tr>
                                 <!-- edit_modal_parcelle -->
-                                <div class="modal fade" id="edit{{ $parcelles->id }}" tabindex="-1" role="dialog"
+                                <div class="modal fade" id="edit{{ $ressource->id }}" tabindex="-1" role="dialog"
                                     aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
@@ -96,51 +89,37 @@
                                             </div>
                                             <div class="modal-body">
                                                 <!-- add_form -->
-                                                <form action="{{ route('parcelle.update') }}" method="POST">
+                                                <form action="{{ route('ressource.updateRessource') }}" method="POST">
                                                     @csrf
                                                     @method('PUT')
 
-                                                    <div class="form-group">
-                                                        <label for="Name" class="mr-sm-2">
-                                                            Nom
-                                                        </label>
-                                                        <input id="Name" type="text" name="nom"
-                                                            class="form-control">
-                                                    </div>
                                                     <input id="id" type="hidden" name="id"
-                                                        class="form-control" value="{{ $parcelles->id }}">
-                                                    <div class="form-group">
-                                                        <label for="Name_en" class="mr-sm-2">emplacement
-                                                        </label>
-                                                        <input type="text" class="form-control" name="emplacement"
-                                                            required>
-                                                    </div>
-                                                    <div class="form-group">
+                                                        class="form-control" value="{{ $ressource->id }}">
+                                                    <div class="col">
                                                         <label for="Name" class="mr-sm-2">
-                                                            taille
+                                                            Nom_recolte
                                                         </label>
-                                                        <input id="Name" type="text" name="taille"
-                                                            class="form-control" required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="Name_en" class="mr-sm-2">type_de_sol
-                                                        </label>
-                                                        <input type="text" class="form-control" name="type_de_sol"
-                                                            required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="Name_en" class="mr-sm-2">niveau_dirrigation
-                                                        </label>
-                                                        <input type="text" class="form-control"
-                                                            name="niveau_dirrigation" required>
+                                                        <select name="recolte_id" id="" class="form-control">
+                                                            <option value="selectioner le parcelle">selectioner le
+                                                                recolte</option>
+                                                            @foreach ($recolte as $item)
+                                                                <option value="{{ $item->id }}">{{ $item->id }}
+                                                                </option>
+                                                            @endforeach
+
+                                                        </select>
                                                     </div>
 
-                                                    <div class="form-group">
-                                                        <label for="exampleFormControlTextarea1">état_de_santé
+
+
+                                                    <div class="col">
+                                                        <label for="Name_en" class="mr-sm-2">machine_recolte
                                                         </label>
-                                                        <textarea class="form-control" name="état_de_santé" id="exampleFormControlTextarea1" rows="3" required></textarea>
+                                                        <input type="number" class="form-control"
+                                                            name="machine_recolte" required>
                                                     </div>
-                                                    <br><br>
+
+
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
@@ -153,17 +132,15 @@
                                     </div>
                                 </div>
 
-
                                 <!-- delete_modal_parcelle -->
-                                <div class="modal fade" id="delete{{ $parcelles->id }}" tabindex="-1"
-                                    role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal fade" id="delete{{ $ressource->id }}" tabindex="-1" role="dialog"
+                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <h5 style="font-family: 'Cairo', sans-serif;" class="modal-title"
                                                     id="exampleModalLabel">
-                                                    <span style="color: rgb(0, 0, 0)"> Supprimer le parcelle de
-                                                        terrain</span>
+                                                    <span style="color: rgb(0, 0, 0)"> Supprimer l'employe</span>
                                                 </h5>
                                                 <button type="button" class="close" data-dismiss="modal"
                                                     aria-label="Close">
@@ -171,13 +148,14 @@
                                                 </button>
                                             </div>
                                             <div class="modal-body">
-                                                <form action="{{ route('parcelle.delete') }}" method="post">
+                                                <form action="{{ route('ressource.deleteRessource') }}"
+                                                    method="post">
                                                     @method('DELETE')
                                                     @csrf
                                                     <span style="color: red">Voullez-vous effacer cette
                                                         operation</span>
                                                     <input id="id" type="hidden" name="id"
-                                                        class="form-control" value="{{ $parcelles->id }}">
+                                                        class="form-control" value="{{ $ressource->id }}">
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary"
                                                             data-dismiss="modal">ferme</button>
@@ -194,17 +172,17 @@
                     </table>
 
                 </div>
+
             </div>
         </div>
     </div>
-    <!-- add_modal_Grade -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 style="font-family: 'Cairo', sans-serif;" class="modal-title" id="exampleModalLabel">
-                        hhhhh
+                        hhhhhhhhhhhhhh
                     </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -212,41 +190,33 @@
                 </div>
                 <div class="modal-body">
                     <!-- add_form -->
-                    <form action="{{ route('parcelle.store') }}" method="POST">
+                    <form action="{{ route('ressource.storeRessource') }}" method="POST">
                         @csrf
                         @method('POST')
-                        <div class="form-group">
+
+                        <div class="col">
                             <label for="Name" class="mr-sm-2">
-                                Nom
+                                Nom_recolte
                             </label>
-                            <input id="Name" type="text" name="nom" class="form-control">
+                            <select name="recolte_id" id="" class="form-control">
+                                <option value="selectioner le parcelle">selectioner le recolte</option>
+                                @foreach ($recolte as $recolte)
+                                    <option value="{{ $recolte->id }}">{{ $recolte->id }}</option>
+                                @endforeach
+
+                            </select>
                         </div>
-                        <div class="form-group">
-                            <label for="Name_en" class="mr-sm-2">emplacement
+
+
+
+                        <div class="col">
+                            <label for="Name_en" class="mr-sm-2">machine_recolte
                             </label>
-                            <input type="text" class="form-control" name="emplacement" required>
+                            <input type="number" class="form-control" name="machine_recolte" required>
                         </div>
-                        <div class="form-group">
-                            <label for="Name" class="mr-sm-2">
-                                taille
-                            </label>
-                            <input id="Name" type="text" name="taille" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="Name_en" class="mr-sm-2">niveau_dirrigation
-                            </label>
-                            <input type="text" class="form-control" name="niveau_dirrigation" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="Name_en" class="mr-sm-2">type_de_sol
-                            </label>
-                            <input type="text" class="form-control" name="type_de_sol" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleFormControlTextarea1">état_de_santé
-                            </label>
-                            <textarea class="form-control" name="état_de_santé" id="exampleFormControlTextarea1" rows="3" required></textarea>
-                        </div>
+
+
+
                         <br><br>
                 </div>
                 <div class="modal-footer">

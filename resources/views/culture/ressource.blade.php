@@ -99,7 +99,7 @@
                                                 <form action="{{route('culture.updateRessource')}}" method="POST">
                                                     @csrf
                                                     @method('PUT')
-                                                    <div class="row">
+
                                                         <input id="id" type="hidden" name="id"
                                                             class="form-control" value="{{ $ressorce->id }}">
                                                         <div class="col">
@@ -108,7 +108,9 @@
                                                             </label>
 
                                                             <select name="cultur" id="" class="form-control">
+                                                               <option value="selectioner le parcelle">selectioner le parcelle</option>
                                                                 @foreach ($cultur as $item)
+
                                                                     <option value="{{ $item->id }}">
                                                                         {{ $item->nom }}</option>
                                                                 @endforeach
@@ -141,7 +143,7 @@
                                                             <input type="text" class="form-control" name="pesticides"
                                                                 required>
                                                         </div>
-                                                    </div>
+                                                   
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
@@ -214,12 +216,13 @@
                     <form action="{{ route('culture.storeRessource') }}" method="POST">
                         @csrf
                         @method('POST')
-                        <div class="row">
+
                             <div class="col">
                                 <label for="Name" class="mr-sm-2">
                                     Nom_culture
                                 </label>
                                 <select name="cultur" id="" class="form-control">
+                                    <option value="selectioner le parcelle">selectioner le culture</option>
                                     @foreach ($cultur as $cultur)
                                         <option value="{{ $cultur->id }}">{{ $cultur->nom }}</option>
                                     @endforeach
@@ -248,7 +251,7 @@
                                 </label>
                                 <input type="text" class="form-control" name="pesticides" required>
                             </div>
-                        </div>
+
 
                         <br><br>
                 </div>

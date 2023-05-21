@@ -50,7 +50,7 @@
                         </a>
                         <ul id="chart" class="collapse" data-parent="#sidebarnav">
                             <li> <a href="{{ route('culture.index') }}">Culture</a> </li>
-                            <li> <a href="{{route('culture.ressource')}}">Ressource</a> </li>
+                            <li> <a href="{{ route('culture.ressource') }}">Ressource</a> </li>
 
                         </ul>
                     </li>
@@ -64,8 +64,8 @@
                             <div class="clearfix"></div>
                         </a>
                         <ul id="font-icon" class="collapse" data-parent="#sidebarnav">
-                            <li> <a href="{{route('recolte.index')}}">récolté </a> </li>
-                            <li> <a href="themify-icons.html">Ressource</a> </li>
+                            <li> <a href="{{ route('recolte.index') }}">récolté </a> </li>
+                            <li> <a href="{{ route('ressource.show') }}">Ressource</a> </li>
 
                         </ul>
                     </li>
@@ -73,7 +73,8 @@
                     {{-- <li class="mt-10 mb-10 text-muted pl-4 font-medium menu-title">Widgets, Forms & Tables </li> --}}
                     <!-- menu item Widgets-->
                     <li>
-                        <a href="timeline.html"><i class="ti-support"></i><span class="right-nav-text">Contrôle
+                        <a href="{{ route('control_qualite.index') }}"><i class="ti-support"></i><span
+                                class="right-nav-text">Contrôle
                                 qualité</span>
                         </a>
                     </li>
@@ -86,9 +87,9 @@
                             <div class="clearfix"></div>
                         </a>
                         <ul id="Form" class="collapse" data-parent="#sidebarnav">
-                            <li> <a href="editor.html">Finance-culture</a> </li>
-                            <li> <a href="editor-markdown.html">Finance-récolté </a> </li>
-                            <li> <a href="form-input.html">Finance-employee</a> </li>
+                            <li> <a href="{{ route('finance.index') }}">Finance-culture</a> </li>
+                            <li> <a href="{{ route('finance_recolte.show') }}">Finance-récolté </a> </li>
+                            <li> <a href="{{ route('finance_employe.show') }}">Finance-employee</a> </li>
 
                         </ul>
                     </li>

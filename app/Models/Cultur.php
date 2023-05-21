@@ -32,4 +32,8 @@ class Cultur extends Model
     {
         return $this->hasOne(Ressourceculture::class);
     }
+    public function finance_culture()
+    {
+        return $this->hasMany(Finance_Culture::class);
+    }
 }

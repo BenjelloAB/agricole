@@ -119,7 +119,7 @@
                                                 <form action="{{ route('employe.update') }}" method="POST">
                                                     @csrf
                                                     @method('PUT')
-                                                    <div class="row">
+
                                                         <input id="id" type="hidden" name="id"
                                                             class="form-control" value="{{ $employes->id }}">
                                                         <div class="col">
@@ -202,7 +202,7 @@
                                                             <input type="text" class="form-control"
                                                                 name="employe">
                                                         </div>
-                                                    </div>
+                                                    
 
 
                                             </div>

@@ -21,4 +21,9 @@ class Ressourceculture extends Model
     {
         return $this->belongsTo(Cultur::class);
     }
+
+    public function finance_culture()
+    {
+        return $this->hasMany(Finance_Culture::class);
+    }
 }

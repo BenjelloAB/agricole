@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Employe;
 use App\Models\Parcelle;
 use App\Models\Recolte;
+use App\Models\Ressourcerecolte;
 use Illuminate\Http\Request;
 
 class RecolteController extends Controller
@@ -55,5 +56,44 @@ class RecolteController extends Controller
         $recolte->delete();
         return redirect()->route('recolte.index')->with('warning', 'Les données ont été supprimer avec succès!');
     }
+
+
+    public function show()
+    {
+
+        $recolte=Recolte::all();
+        $ressource=Ressourcerecolte::all();
+        return view('recolte.ressource',compact('recolte','ressource'));
+    }
+
+    public function add(Request $request)
+    {
+        try {
+            $so = Ressourcerecolte::create([
+                'recolte_id' => $request->recolte_id,
+                'machine_recolte' => $request->machine_recolte,
+            ]);
+
+            return redirect()->route('ressource.show')->with('success', 'Les données ont été enregistrées avec succès!');
+         }catch (\Exception $e){
+              return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+          }
+    }
+
+    public function update(Request $request){
+        $ressource=Ressourcerecolte::find($request->id);
+        $ressource->update([
+            'recolte_id' => $request->recolte_id,
+            'machine_recolte' => $request->machine_recolte,
+        ]);
+        return redirect()->route('ressource.show')->with('success', 'Les données ont été modifiées avec succès!');
+    }
+
+    public function delete(Request $request){
+        $ressource=Ressourcerecolte::find($request->id);
+        $ressource->delete();
+        return redirect()->route('ressource.show')->with('warning', 'Les données ont été supprimer avec succès!');
+    }
+
 
 }

@@ -3,10 +3,12 @@
         <nav class="admin-header navbar navbar-default col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
             <!-- logo -->
             <div class="text-left navbar-brand-wrapper">
-                <a class="navbar-brand brand-logo" href="index.html"><img src="{{asset('2.png')}}" alt="error"></a>
-                <a class="navbar-brand brand-logo-mini" href="index.html"><img src="{{asset('iconagri.png')}}"
-                        alt=""></a>
+                <a class="navbar-brand brand-logo" href="  {{ route('dashboard') }}"><img src="{{ asset('2.png') }}"
+                        alt="error"></a>
+                <a class="navbar-brand brand-logo-mini" href="  {{ route('dashboard') }}"><img
+                        src="{{ asset('iconagri.png') }}" alt=""></a>
             </div>
+
             <!-- Top bar left -->
             <ul class="nav navbar-nav mr-auto">
                 <li class="nav-item">
@@ -19,7 +21,8 @@
                         <div class="search-box not-click">
                             <input type="text" class="not-click form-control" placeholder="Search" value=""
                                 name="search">
-                            <button class="search-button" type="submit"> <i class="fa fa-search not-click"></i></button>
+                            <button class="search-button" type="submit"> <i
+                                    class="fa fa-search not-click"></i></button>
                         </div>
                     </div>
                 </li>
@@ -30,8 +33,8 @@
                     <a id="btnFullscreen" href="#" class="nav-link"><i class="ti-fullscreen"></i></a>
                 </li>
                 <li class="nav-item dropdown ">
-                    <a class="nav-link top-nav" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-                        aria-expanded="false">
+                    <a class="nav-link top-nav" data-toggle="dropdown" href="#" role="button"
+                        aria-haspopup="true" aria-expanded="false">
                         <i class="ti-bell"></i>
                         <span class="badge badge-danger notification-status"> </span>
                     </a>
@@ -47,15 +50,17 @@
                                 class="float-right text-muted time">22 mins</small> </a>
                         <a href="#" class="dropdown-item">Server error report<small
                                 class="float-right text-muted time">7 hrs</small> </a>
-                        <a href="#" class="dropdown-item">Database report<small class="float-right text-muted time">1
+                        <a href="#" class="dropdown-item">Database report<small
+                                class="float-right text-muted time">1
                                 days</small> </a>
-                        <a href="#" class="dropdown-item">Order confirmation<small class="float-right text-muted time">2
+                        <a href="#" class="dropdown-item">Order confirmation<small
+                                class="float-right text-muted time">2
                                 days</small> </a>
                     </div>
                 </li>
                 <li class="nav-item dropdown ">
-                    <a class="nav-link top-nav" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-                        aria-expanded="true"> <i class=" ti-view-grid"></i> </a>
+                    <a class="nav-link top-nav" data-toggle="dropdown" href="#" role="button"
+                        aria-haspopup="true" aria-expanded="true"> <i class=" ti-view-grid"></i> </a>
                     <div class="dropdown-menu dropdown-menu-right dropdown-big">
                         <div class="dropdown-header">
                             <strong>Quick Links</strong>
@@ -82,7 +87,7 @@
                 <li class="nav-item dropdown mr-30">
                     <a class="nav-link nav-pill user-avatar" data-toggle="dropdown" href="#" role="button"
                         aria-haspopup="true" aria-expanded="false">
-                        <img src="assets/images/profile-avatar.jpg" alt="avatar">
+                        <img src="iconagri.png" alt="avatar">
                     </a>
                     <div class="dropdown-menu dropdown-menu-right">
                         <div class="dropdown-header">
