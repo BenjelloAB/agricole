@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('coût_engrais');
             $table->string('coût_pesticides');
             $table->string('coût_machines_culture');
+            $table->string('user_id');
             $table->timestamps();
         });
     }

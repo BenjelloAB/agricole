@@ -5,13 +5,14 @@ namespace App\Http\Controllers;
 use App\Models\Control;
 use App\Models\Recolte;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CqualiteController extends Controller
 {
    public function index()
    {
-        $recolte=Recolte::all();
-        $control=Control::all();
+        $recolte=Recolte::where('user_id',Auth::user()->id)->get();
+        $control=Control::where('user_id',Auth::user()->id)->get();
        return view('control_qualite.qualite',compact('recolte','control'));
    }
 
@@ -22,6 +23,7 @@ class CqualiteController extends Controller
                 'recolte_id' => $request->recolte_id,
                 'normes_de_qualité' => $request->normes_de_qualité,
                 'procédures_de_contrôle_qualité' => $request->procédures_de_contrôle_qualité,
+                 'user_id' =>Auth::user()->id,
             ]);
 
             return redirect()->back()->with('success', 'Les données ont été enregistrées avec succès!');

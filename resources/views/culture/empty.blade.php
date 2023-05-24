@@ -64,7 +64,20 @@
         }
     </style> --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.16.17/dist/css/uikit.min.css" />
+<style>
+    .saad{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
 
+        overflow-y: scroll;
+        
+    }
+    .saad label{
+        width: 100%;
+
+    }
+</style>
 @section('title')
     empty
 @stop
@@ -146,7 +159,7 @@
                             <div uk-dropdown>
                                 <ul class="uk-nav uk-dropdown-nav">
                                     <li class="uk-active">
-                                        <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
+                                        <div class="saad uk-margin uk-grid-small uk-child-width-auto uk-grid">
                                             @foreach ($employe as $employe)
                                                 <label><input class="uk-checkbox" type="checkbox" name="nom_employe[]"
                                                         value="{{ $employe->id }}">
@@ -161,7 +174,14 @@
                         </div>
                         <div class="col-sm-3 mb-3">
                             <label for="validationDefault01"><span style="color: red">*</span>nom</label>
-                            <input type="text" class="form-control" id="validationDefault01" name="nom" required>
+
+                            <select style="background-color: #f6f7f8" class="custom-select custom-select-lg mb-3"
+                                name="nom">
+                                <option>selectioner le nom</option>
+                                @foreach ($legume as $legume)
+                                    <option value="{{ $legume->nom }}"> {{ $legume->nom }}</option>
+                                @endforeach
+                            </select @required(true)>
                         </div>
                         <div class="col-sm-3 mb-3">
                             <label for="validationDefault01"><span style="color: red">*</span>type</label>

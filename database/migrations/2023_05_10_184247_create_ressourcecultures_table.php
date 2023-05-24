@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('pesticides');
             $table->string('machines_culture');
             // $table->foreign('culture_id')->references('id')->on('culturs');
+            $table->string('user_id');
             $table->timestamps();
         });
     }

@@ -17,6 +17,7 @@ class Recolte extends Model
         'Moyen_rendement',
         'qualité_récolte',
         'prix_de_vente',
+        'user_id'
     ];
     public function parcelle()
     {

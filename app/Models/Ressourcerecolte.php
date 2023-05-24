@@ -12,6 +12,7 @@ class Ressourcerecolte extends Model
     protected $fillable = [
         'recolte_id',
         'machine_recolte',
+        'user_id',
     ];
 
     public function recolte()
@@ -19,5 +20,5 @@ class Ressourcerecolte extends Model
         return $this->belongsTo(Recolte::class);
     }
 
-    
+
 }

@@ -199,50 +199,50 @@ var config2 = {
 /*************************
      doughnut
 *************************/
-        var config3 = {
-        type: 'doughnut',
-        data: {
-            datasets: [{
-                data: [
-                    randomScalingFactor(),
-                    randomScalingFactor(),
-                    randomScalingFactor(),
-                    randomScalingFactor(),
-                    randomScalingFactor(),
-                ],
-                backgroundColor: [
-                    window.chartColors.red,
-                    window.chartColors.orange,
-                    window.chartColors.yellow,
-                    window.chartColors.green,
-                    window.chartColors.blue,
-                ],
-                label: 'Dataset 1'
-            }],
-            labels: [
-                "Red",
-                "Orange",
-                "Yellow",
-                "Green",
-                "Blue"
-            ]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            legend: {
-                position: 'bottom',
-            },
-            title: {
-                display: false,
-                text: 'Doughnut Chart'
-            },
-            animation: {
-                animateScale: true,
-                animateRotate: true
-            }
-        }
-     };
+    //     var config3 = {
+    //     type: 'doughnut',
+    //     data: {
+    //         datasets: [{
+    //             data: [
+    //                 randomScalingFactor(),
+    //                 randomScalingFactor(),
+    //                 randomScalingFactor(),
+    //                 randomScalingFactor(),
+    //                 randomScalingFactor(),
+    //             ],
+    //             backgroundColor: [
+    //                 window.chartColors.red,
+    //                 window.chartColors.orange,
+    //                 window.chartColors.yellow,
+    //                 window.chartColors.green,
+    //                 window.chartColors.blue,
+    //             ],
+    //             label: 'Dataset 1'
+    //         }],
+    //         labels: [
+    //             "Red",
+    //             "Orange",
+    //             "Yellow",
+    //             "Green",
+    //             "Blue"
+    //         ]
+    //     },
+    //     options: {
+    //         responsive: true,
+    //         maintainAspectRatio: false,
+    //         legend: {
+    //             position: 'bottom',
+    //         },
+    //         title: {
+    //             display: false,
+    //             text: 'Doughnut Chart'
+    //         },
+    //         animation: {
+    //             animateScale: true,
+    //             animateRotate: true
+    //         }
+    //     }
+    //  };
 
 
 /*************************
@@ -620,10 +620,10 @@ var config2 = {
            var ctx2 = document.getElementById("canvas2").getContext("2d");
             window.myLine2 = new Chart(ctx2, config2);
           }
-           if ($('#canvas3').exists()) {
-            var ctx3 = document.getElementById("canvas3").getContext("2d");
-            window.myLine3 = new Chart(ctx3, config3);
-          }
+        //    if ($('#canvas3').exists()) {
+        //     var ctx3 = document.getElementById("canvas3").getContext("2d");
+        //     window.myLine3 = new Chart(ctx3, config3);
+        //   }
            if ($('#canvas4').exists()) {
             var ctx4 = document.getElementById("canvas4").getContext("2d");
             window.myLine4 = new Chart(ctx4, config4);

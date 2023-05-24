@@ -21,6 +21,7 @@ class Employe extends Model
         'mail',
         'scolaire',
         'employe',
+        'user_id',
     ];
     public function cultur()
     {

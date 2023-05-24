@@ -7,18 +7,19 @@ use App\Models\Parcelle;
 use App\Models\Recolte;
 use App\Models\Ressourcerecolte;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RecolteController extends Controller
 {
     public function index()
     {
-        $recolte=Recolte::all();
+        $recolte=Recolte::where('user_id',Auth::user()->id)->get();
         return view('recolte.recolte',compact('recolte'));
     }
 
     public function store(){
-        $parcelle=Parcelle::all();
-        $employe=Employe::all();
+        $parcelle=Parcelle::where('user_id',Auth::user()->id)->get();
+        $employe=Employe::where('user_id',Auth::user()->id)->get();
         return view('recolte.empty',compact('parcelle','employe'));
     }
 
@@ -38,6 +39,7 @@ class RecolteController extends Controller
                     'Moyen_rendement' => $request->Moyen_rendement,
                     'qualité_récolte' => $request->qualité_récolte,
                     'prix_de_vente' => $request->prix_de_vente,
+                    'user_id' => Auth::user()->id,
 
                 ]);
                 $so->employes()->attach($request->nom_employe);
@@ -61,8 +63,8 @@ class RecolteController extends Controller
     public function show()
     {
 
-        $recolte=Recolte::all();
-        $ressource=Ressourcerecolte::all();
+        $recolte=Recolte::where('user_id',Auth::user()->id)->get();
+        $ressource=Ressourcerecolte::where('user_id',Auth::user()->id)->get();
         return view('recolte.ressource',compact('recolte','ressource'));
     }
 
@@ -72,6 +74,7 @@ class RecolteController extends Controller
             $so = Ressourcerecolte::create([
                 'recolte_id' => $request->recolte_id,
                 'machine_recolte' => $request->machine_recolte,
+                'user_id' => Auth::user()->id,
             ]);
 
             return redirect()->route('ressource.show')->with('success', 'Les données ont été enregistrées avec succès!');

@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('besoin_en_nutriments_culture');
             $table->string('besoin_en_pesticides_culture');
             $table->string('état_de_santé_culture');
+            $table->string('user_id');
             $table->timestamps();
         });
     }

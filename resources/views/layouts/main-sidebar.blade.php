@@ -90,6 +90,7 @@
                             <li> <a href="{{ route('finance.index') }}">Finance-culture</a> </li>
                             <li> <a href="{{ route('finance_recolte.show') }}">Finance-récolté </a> </li>
                             <li> <a href="{{ route('finance_employe.show') }}">Finance-employee</a> </li>
+                            <li> <a href="{{ route('total') }}">Finance-total</a> </li>
 
                         </ul>
                     </li>

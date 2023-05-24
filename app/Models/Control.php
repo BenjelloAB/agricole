@@ -13,6 +13,7 @@ class Control extends Model
         'recolte_id',
         'normes_de_qualité',
         'procédures_de_contrôle_qualité',
+        'user_id',
     ];
     public function recolte()
     {

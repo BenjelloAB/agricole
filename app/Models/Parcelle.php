@@ -15,6 +15,7 @@ class Parcelle extends Model
         'type_de_sol',
         'niveau_dirrigation',
         'état_de_santé',
+        'user_id',
     ];
     public function cultur()
     {

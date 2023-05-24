@@ -15,6 +15,7 @@ class Ressourceculture extends Model
         'engrais',
         'pesticides',
         'machines_culture',
+        'user_id'
     ];
 
     public function cultur()

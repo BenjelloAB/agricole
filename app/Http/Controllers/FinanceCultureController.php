@@ -10,14 +10,15 @@ use App\Models\Finance_Recolte;
 use App\Models\Recolte;
 use App\Models\Ressourceculture;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class FinanceCultureController extends Controller
 {
     public function index()
     {
-        $finance_culture = Finance_Culture::all();
-        $cultur=Cultur::all();
-        $ressourceculture=Ressourceculture::all();
+        $finance_culture = Finance_Culture::where('user_id',Auth::user()->id)->get();
+        $cultur=Cultur::where('user_id',Auth::user()->id)->get();
+        $ressourceculture=Ressourceculture::where('user_id',Auth::user()->id)->get();
         return view('finance.finance_culture', compact('finance_culture', 'cultur', 'ressourceculture'));
     }
 
@@ -31,6 +32,7 @@ class FinanceCultureController extends Controller
             $finance_culture->coût_engrais = $request->coût_engrais;
             $finance_culture->coût_pesticides = $request->coût_pesticides;
             $finance_culture->coût_machines_culture = $request->coût_machines_culture;
+            $finance_culture->user_id = Auth::user()->id;
             $finance_culture->save();
             return redirect()->back()->with('success', 'Les données ont été modifiées avec succès!');
         } catch (\Exception $e) {
@@ -68,8 +70,8 @@ class FinanceCultureController extends Controller
 
     public function show()
     {
-        $finance_recolte=Finance_Recolte::all();
-        $recolte = Recolte::all();
+        $finance_recolte=Finance_Recolte::where('user_id',Auth::user()->id)->get();
+        $recolte = Recolte::where('user_id',Auth::user()->id)->get();
         return view('finance.recolte', compact('recolte', 'finance_recolte'));
     }
 
@@ -83,6 +85,7 @@ class FinanceCultureController extends Controller
             $finance_recolte->prix_de_vente = $request->prix_de_vente;
             $finance_recolte->revenu_net = $request->revenu_net;
             $finance_recolte->revenu_brut = $request->revenu_brut;
+            $finance_recolte->user_id = Auth::user()->id;
             $finance_recolte->save();
             return redirect()->back()->with('success', 'Les données ont été modifiées avec succès!');
         } catch (\Exception $e) {
@@ -121,8 +124,8 @@ class FinanceCultureController extends Controller
 
     public function show2()
     {
-        $finance_employee=Finance_employe::all();
-        $employe=Employe::all();
+        $finance_employee=Finance_employe::where('user_id',Auth::user()->id)->get();
+        $employe=Employe::where('user_id',Auth::user()->id)->get();
         return view('finance.employe', compact('employe', 'finance_employee'));
     }
 
@@ -134,6 +137,7 @@ class FinanceCultureController extends Controller
             $finance_employee->employe_id = $request->employe_id;
             $finance_employee->salair = $request->salair;
             $finance_employee->date_paiement = $request->date_paiement;
+            $finance_employee->user_id = Auth::user()->id;
             $finance_employee->save();
             return redirect()->back()->with('success', 'Les données ont été modifiées avec succès!');
         } catch (\Exception $e) {

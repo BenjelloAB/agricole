@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('prix_de_vente');
             $table->string('revenu_net');
             $table->string('revenu_brut');
+            $table->string('user_id');
             $table->timestamps();
         });
     }

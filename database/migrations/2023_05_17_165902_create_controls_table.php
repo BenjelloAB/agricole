@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('recolte_id')->constrained('recoltes')->cascadeOnDelete('cascade');
             $table->string('normes_de_qualité');
             $table->string('procédures_de_contrôle_qualité');
+            $table->string('user_id');
             $table->timestamps();
         });
     }

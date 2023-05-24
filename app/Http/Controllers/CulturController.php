@@ -4,23 +4,34 @@ namespace App\Http\Controllers;
 
 use App\Models\Cultur;
 use App\Models\Employe;
+use App\Models\List_Legume;
 use App\Models\Parcelle;
 use App\Models\Ressourceculture;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CulturController extends Controller
 {
     public function index()
     {
-        $culture=Cultur::all();
+        $culture=Cultur::where('user_id',auth()->user()->id)->get();
+
+
 
         return view('culture.cultur',compact('culture'));
     }
 
     public function store(){
-        $parcelle=Parcelle::all();
-        $employe=Employe::all();
-        return view('culture.empty',compact('parcelle','employe'));
+        $parcelle=Parcelle::where('user_id',auth()->user()->id)->get();
+        $employe=Employe::where('user_id',auth()->user()->id)->get();
+        $legume = List_Legume::whereIn('id', function ($query) {
+            $query->selectRaw('MIN(id)')
+                ->from('list__legumes')
+                ->groupBy('nom');
+        })
+        ->orderBy('nom', 'asc')
+        ->get();
+        return view('culture.empty',compact('parcelle','employe','legume'));
     }
 
     public function creat(Request $request){
@@ -49,6 +60,7 @@ class CulturController extends Controller
                     'besoin_en_nutriments_culture' => $request->besoin_en_nutriments_culture,
                     'besoin_en_pesticides_culture' => $request->besoin_en_pesticides_culture,
                     'état_de_santé_culture' => $request->état_de_santé_culture,
+                    'user_id' =>auth()->user()->id,
                 ]);
 
                 $so->employes()->attach($request->nom_employe);
@@ -78,10 +90,10 @@ class CulturController extends Controller
 
     public function show()
     {
-        $cultur=Cultur::all();
+        $cultur=Cultur::where('user_id',auth()->user()->id)->get();
 
 
-        $ressorce=Ressourceculture::all();
+        $ressorce=Ressourceculture::where('user_id',auth()->user()->id)->get();
         return view('culture.ressource',compact('cultur','ressorce'));
     }
     public function add(Request $request)
@@ -93,6 +105,7 @@ class CulturController extends Controller
                 'engrais' =>  $request->engrais,
                 'pesticides' => $request->pesticides,
                 'machines_culture' => $request->machines_culture,
+                'user_id' =>auth()->user()->id,
             ]);
 
             return redirect()->route('culture.ressource')->with('success', 'Les données ont été enregistrées avec succès!');

@@ -15,6 +15,7 @@ class Finance_Culture extends Model
         'coût_engrais',
         'coût_pesticides',
         'coût_machines_culture',
+        'user_id'
     ];
 
     public function cultur()

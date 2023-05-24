@@ -13,6 +13,7 @@ class Finance_employe extends Model
         'employe_id',
         'salair',
         'date_paiement',
+        'user_id',
     ];
 
     public function employe()

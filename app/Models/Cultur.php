@@ -19,6 +19,7 @@ class Cultur extends Model
         'besoin_en_nutriments_culture',
         'besoin_en_pesticides_culture',
         'état_de_santé_culture',
+        'user_id',
     ];
     public function parcelle()
     {

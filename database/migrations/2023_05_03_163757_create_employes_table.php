@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('scolaire')->nullable();
             $table->string('experiance')->required();
             $table->string('employe')->nullable();
+            $table->string('user_id');
             $table->timestamps();
         });
     }

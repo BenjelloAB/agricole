@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('Moyen_rendement');
             $table->string('qualité_récolte');
             $table->string('prix_de_vente');
+            $table->string('user_id');
             $table->timestamps();
         });
     }

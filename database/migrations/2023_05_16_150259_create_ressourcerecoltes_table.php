@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('recolte_id')->constrained('recoltes')->onDelete('cascade');
             $table->string('machine_recolte');
+            $table->string('user_id');
             $table->timestamps();
         });
     }

@@ -15,6 +15,7 @@ class Finance_Recolte extends Model
         'prix_de_vente',
         'revenu_net',
         'revenu_brut',
+        'user_id',
     ];
 
     public function recolte()
