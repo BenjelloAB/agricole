@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Categorie; // Assurez-vous d'importer le modèle Categorie approprié
 use App\Models\Cultur;
+use App\Models\Event;
+use App\Models\Events;
 use App\Models\List_Legume;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -40,5 +42,17 @@ public function index(){
 
 return view('dashboard', compact('legumeData'));
 }
+
+public function store(Request $request)
+{
+    $event = new Events();
+    $event->title = $request->input('title');
+    $event->start_date = $request->input('start_date');
+    $event->end_date = $request->input('end_date');
+    $event->save();
+
+    return response()->json(['message' => 'Event stored successfully']);
+}
+
 
 }

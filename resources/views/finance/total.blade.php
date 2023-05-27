@@ -43,7 +43,7 @@
                     <div class="form-row">
                         <div class="col-sm-3 mb-3">
                             <label for="validationDefault01">capital</label>
-                            <input type="text" class="form-control" id="validationDefault01" name="capital" value="55550" disabled>
+                            <input type="text" class="form-control" id="validationDefault01" name="capital" value="{{ $user }}" disabled>
                         </div>
                         <div class="col-sm-3 mb-3">
                             <label for="validationDefault02">cout_f_culture</label>

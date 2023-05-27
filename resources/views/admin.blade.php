@@ -2,34 +2,13 @@
 <html lang="en">
 
 <head>
-    @livewireStyles
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="keywords" content="HTML5 Template" />
     <meta name="description" content="Webmin - Bootstrap 4 & Angular 5 Admin Dashboard Template" />
     <meta name="author" content="potenzaglobalsolutions.com" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <script src="https://kit.fontawesome.com/70742d8212.js" crossorigin="anonymous"></script>
-    @include('layouts.head')
-
-
-    <style>
-        .paggi {
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transform: translateY(20px);
-        }
-
-        .emp {}
-    </style>
-
+    @include('layot.head')
 </head>
 @section('title')
     parcelle
@@ -49,9 +28,9 @@
         <!--=================================
  preloader -->
 
-        @include('layouts.main-header')
+        @include('layot.main-header')
 
-        @include('layouts.main-sidebar')
+        @include('layot.main-sidebar')
 
         <!--=================================
  Main content -->
@@ -62,15 +41,10 @@
                     <div class="col-sm-6">
                         <h4 class="mb-0"> Dashboard</h4>
                     </div>
-                    @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li style="list-style: none;">{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb pt-0 pr-0 float-left float-sm-right">
+                        </ol>
+                    </div>
                 </div>
             </div>
             <!-- widgets -->
@@ -81,17 +55,17 @@
                             <div class="clearfix">
                                 <div class="float-left">
                                     <span class="text-danger">
-                                        <i class="fa-solid fa-user-nurse highlight-icon" aria-hidden="true"></i>
+                                        <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i>
                                     </span>
                                 </div>
                                 <div class="float-right text-right">
-                                    <p class="card-text text-dark">employe</p>
-                                    <h4>{{ $count_emp }}</h4>
+                                    <p class="card-text text-dark">Visitors</p>
+                                    <h4>65,650</h4>
                                 </div>
                             </div>
                             <p class="text-muted pt-3 mb-0 mt-2 border-top">
-                                <i class="fa fa-exclamation-circle mr-1" aria-hidden="true"></i>
-                                {{ round(($count_emp / 100) * 100, 2) }}% de l'effectif total
+                                <i class="fa fa-exclamation-circle mr-1" aria-hidden="true"></i> 81% lower
+                                growth
                             </p>
                         </div>
                     </div>
@@ -102,18 +76,16 @@
                             <div class="clearfix">
                                 <div class="float-left">
                                     <span class="text-warning">
-                                        {{-- <i class="fa-solid fa-user-helmet-safety"></i> --}}
-                                        {{-- <i class="fa-solid fa-user-nurse"></i> --}}
-                                        <i class="fa-solid fa-building-wheat highlight-icon" aria-hidden="true"></i>
+                                        <i class="fa fa-shopping-cart highlight-icon" aria-hidden="true"></i>
                                     </span>
                                 </div>
                                 <div class="float-right text-right">
-                                    <p class="card-text text-dark">parcelle</p>
-                                    <h4>{{ $count_parcelle }}</h4>
+                                    <p class="card-text text-dark">Orders</p>
+                                    <h4>656</h4>
                                 </div>
                             </div>
                             <p class="text-muted pt-3 mb-0 mt-2 border-top">
-                                <i class="fa fa-bookmark-o mr-1" aria-hidden="true"></i> Total Parcelle
+                                <i class="fa fa-bookmark-o mr-1" aria-hidden="true"></i> Total sales
                             </p>
                         </div>
                     </div>
@@ -124,17 +96,16 @@
                             <div class="clearfix">
                                 <div class="float-left">
                                     <span class="text-success">
-                                        <i class="fa-solid fa-money-bill-wheat highlight-icon" aria-hidden="true"></i>
-
+                                        <i class="fa fa-dollar highlight-icon" aria-hidden="true"></i>
                                     </span>
                                 </div>
                                 <div class="float-right text-right">
-                                    <p class="card-text text-dark">Depense</p>
-                                    <h4>{{ $cout_CRE }}DH</h4>
+                                    <p class="card-text text-dark">Revenue</p>
+                                    <h4>$65656</h4>
                                 </div>
                             </div>
                             <p class="text-muted pt-3 mb-0 mt-2 border-top">
-                                <i class="fa fa-calendar mr-1" aria-hidden="true"></i> total depense
+                                <i class="fa fa-calendar mr-1" aria-hidden="true"></i> Sales Per Week
                             </p>
                         </div>
                     </div>
@@ -145,17 +116,16 @@
                             <div class="clearfix">
                                 <div class="float-left">
                                     <span class="text-primary">
-                                        <i class="fa-solid fa-money-bill-trend-up highlight-icon"
-                                            aria-hidden="true"></i>
+                                        <i class="fa fa-twitter highlight-icon" aria-hidden="true"></i>
                                     </span>
                                 </div>
                                 <div class="float-right text-right">
-                                    <p class="card-text text-dark">capital</p>
-                                    <h4>{{ $user }}DH</h4>
+                                    <p class="card-text text-dark">Followers</p>
+                                    <h4>62,500+</h4>
                                 </div>
                             </div>
                             <p class="text-muted pt-3 mb-0 mt-2 border-top">
-                                <i class="fa fa-repeat mr-1" aria-hidden="true"></i> il est déterminer par admin
+                                <i class="fa fa-repeat mr-1" aria-hidden="true"></i> Just Updated
                             </p>
                         </div>
                     </div>
@@ -164,7 +134,7 @@
             <!-- Orders Status widgets-->
             <div class="row">
                 <div class="col-xl-4 mb-30">
-                    {{-- <div class="card card-statistics h-100">
+                    <div class="card card-statistics h-100">
                         <!-- action group -->
                         <div class="btn-group info-drop">
                             <button type="button" class="dropdown-toggle-split text-muted" data-toggle="dropdown"
@@ -195,9 +165,9 @@
                             </div>
                         </div>
                         <div id="sparkline2" class="scrollbar-x text-center"></div>
-                    </div> --}}
+                    </div>
                 </div>
-                {{-- <div class="col-xl-8 mb-30">
+                <div class="col-xl-8 mb-30">
                     <div class="card h-100">
                         <div class="btn-group info-drop">
                             <button type="button" class="dropdown-toggle-split text-muted" data-toggle="dropdown"
@@ -228,13 +198,13 @@
                             <div id="morris-area" style="height: 320px;"></div>
                         </div>
                     </div>
-                </div> --}}
+                </div>
             </div>
             <div class="row">
                 <div class="col-xl-4 mb-30">
                     <div class="card h-100">
                         <div class="card-body">
-                            <h5 class="card-title">statistique sur la cultuvation</h5>
+                            <h5 class="card-title">Customer Feedback </h5>
                             <div class="row mb-30">
                                 <div class="col-md-6">
                                     <div class="clearfix">
@@ -268,25 +238,25 @@
                     </div>
                 </div>
                 <div class="col-xl-8 mb-30">
-                    <div class="card card-statistics">
+                    <div class="card card-statistics h-100">
                         <div class="card-body">
                             <div class="tab nav-border" style="position: relative;">
                                 <div class="d-block d-md-flex justify-content-between">
                                     <div class="d-block w-100">
-                                        <h5 class="card-title">les employees</h5>
+                                        <h5 class="card-title">Best Sellers</h5>
                                     </div>
                                     <div class="d-block d-md-flex nav-tabs-custom">
                                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                                             <li class="nav-item">
                                                 <a class="nav-link active show" id="months-tab" data-toggle="tab"
                                                     href="#months" role="tab" aria-controls="months"
-                                                    aria-selected="true">Par année</a>
+                                                    aria-selected="true"> Months</a>
                                             </li>
-                                            {{-- <li class="nav-item">
+                                            <li class="nav-item">
                                                 <a class="nav-link" id="year-tab" data-toggle="tab" href="#year"
                                                     role="tab" aria-controls="year" aria-selected="false">Year
                                                 </a>
-                                            </li> --}}
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
@@ -294,47 +264,27 @@
                                     <div class="tab-pane fade active show" id="months" role="tabpanel"
                                         aria-labelledby="months-tab">
                                         <div class="row mb-30">
-                                            @if (!isset($hhh))
-                                                @foreach ($hhh as $salaire_emps)
-                                                    <div class="col-md-2 col-sm-6">
-                                                        {{-- <img class="img-fluid" src="assets/images/blog/05.jpg" alt=""> --}}
-                                                        <span style="color:#84BD3A;margin-left:43px;">
-                                                            <i class="fa-solid fa-user-nurse img-fluid"
-                                                                style="font-size: 35px" aria-hidden="true"></i>
-                                                        </span>
-                                                    </div>
-                                                    <div class="col-md-6 col-sm-6">
-                                                        <h6 class="mb-0 sm-mt-5 text-info">
-                                                            {{ $salaire_emps->employe->prenom }}
-                                                            {{ $salaire_emps->employe->nom }}</h6>
-                                                        {{-- <p class="sm-mb-5 d-block">Salaire de l'employé équitable. </p> --}}
-                                                        {{-- <span class="mb-0">par - <b
-                                                        class="text-info">{{ $salaire_emps->employe->prenom }}
-                                                        {{ $salaire_emps->employe->nom }}</b></span> --}}
-                                                    </div>
-                                                    <div class="col-md-2 col-sm-6 col-6 sm-mt-20">
-                                                        <h5 class="text-primary mb-0">
-                                                            <b>{{ $salaire_emps->salair }}DH</b>
-                                                        </h5>
-                                                        <span>Salaire</span>
-                                                    </div>
-                                                    <div class="col-md-2 col-sm-6 col-6 sm-mt-20">
-                                                        <h5 class="text-secondary mb-0"><b>Recolte</b></h5>
-                                                        <span>Role</span>
-                                                    </div>
-                                                @endforeach
-                                            @else
-                                                <p class="emp">il n'ya pas les donnees</p>
-                                            @endif
-                                            <div class="paggi">
-                                                {{ $hhh->links() }}
-                                            </div>
-
-                                        </div>
-
-                                        {{-- <div class="row mb-30">
                                             <div class="col-md-2 col-sm-6">
-                                                <img class="img-fluid" src="assets/images/blog/02.jpg" alt="">
+                                                <img class="img-fluid" src="images/blog/05.jpg" alt="">
+                                            </div>
+                                            <div class="col-md-6 col-sm-6">
+                                                <h6 class="mb-0 sm-mt-5">Supercharge your motivation</h6>
+                                                <p class="sm-mb-5 d-block">I truly believe Augustine’s words are
+                                                    true. </p>
+                                                <span class="mb-0">by - <b class="text-info">PotenzaUser</b></span>
+                                            </div>
+                                            <div class="col-md-2 col-sm-6 col-6 sm-mt-20">
+                                                <h5 class="text-primary mb-0"><b>45,436</b></h5>
+                                                <span>Sales</span>
+                                            </div>
+                                            <div class="col-md-2 col-sm-6 col-6 sm-mt-20">
+                                                <h5 class="text-secondary mb-0"><b>$05,236</b></h5>
+                                                <span>Revenue</span>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-30">
+                                            <div class="col-md-2 col-sm-6">
+                                                <img class="img-fluid" src="images/blog/02.jpg" alt="">
                                             </div>
                                             <div class="col-md-6 col-sm-6">
                                                 <h6 class="mb-0 sm-mt-5">Helen keller a teller seller</h6>
@@ -354,7 +304,7 @@
                                         </div>
                                         <div class="row mb-30">
                                             <div class="col-md-2 col-sm-6">
-                                                <img class="img-fluid" src="assets/images/blog/03.jpg" alt="">
+                                                <img class="img-fluid" src="images/blog/03.jpg" alt="">
                                             </div>
                                             <div class="col-md-6 col-sm-6">
                                                 <h6 class="mb-0 sm-mt-5">The other virtues practice</h6>
@@ -374,7 +324,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-md-2 col-sm-6">
-                                                <img class="img-fluid" src="assets/images/blog/04.jpg" alt="">
+                                                <img class="img-fluid" src="images/blog/04.jpg" alt="">
                                             </div>
                                             <div class="col-md-6 col-sm-6">
                                                 <h6 class="mb-0 sm-mt-5">You will begin to realise</h6>
@@ -391,9 +341,9 @@
                                                 <h5 class="text-success mb-0"><b>$436</b></h5>
                                                 <span>Revenue</span>
                                             </div>
-                                        </div> --}}
+                                        </div>
                                     </div>
-                                    {{-- <div class="tab-pane fade" id="year" role="tabpanel"
+                                    <div class="tab-pane fade" id="year" role="tabpanel"
                                         aria-labelledby="year-tab">
                                         <div class="row mb-30">
                                             <div class="col-md-2 col-sm-6">
@@ -475,15 +425,14 @@
                                                 <span>Revenue</span>
                                             </div>
                                         </div>
-                                    </div> --}}
-
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            {{-- <div class="row">
+            <div class="row">
                 <div class="col-xl-4 mb-30">
                     <div class="card card-statistics h-100">
                         <div class="card-body">
@@ -635,106 +584,8 @@
                         </div>
                     </div>
                 </div>
-            </div> --}}
-            <div class="calendar-main mb-30">
-                <div class="row">
-                    <div class="col-lg-3">
-                        <div class="row">
-                            <div class="col-12 sm-mb-30">
-                                <a href="#" data-toggle="modal" data-target="#add-category"
-                                    class="btn btn-primary btn-block m-t-20">
-                                    <i class="fa fa-plus pr-2"></i>ajouter nouveau
-                                </a>
-                                <div id="external-events" class="m-t-20">
-                                    <br>
-                                    <p class="text-muted">Faites glisser et déposez votre événement ou cliquez dans le
-                                        calendrier</p>
-                                    @foreach ($categorie as $categorie)
-                                        <div class="external-event bg-success fc-event">
-
-                                            <i class="fa fa-circle mr-2 vertical-middle"></i><span
-                                                style="color: rgb(0, 0, 0); font-weight:800;">{{ $categorie->nom }}*{{ $categorie->couleur }}</span>
-
-                                        </div>
-                                    @endforeach
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-9">
-                        <div id="calendar"></div>
-                        <div class="modal" tabindex="-1" role="dialog" id="event-modal">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title">Add New Event</h5>
-                                        <button type="button" class="close" data-dismiss="modal"
-                                            aria-label="Close">
-                                            <span aria-hidden="true">&times;</span></button>
-                                    </div>
-                                    <div class="modal-body p-20"></div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-danger"
-                                            data-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-success save-event">Create
-                                            event</button>
-                                        <button type="button" class="btn btn-danger delete-event"
-                                            data-dismiss="modal">Delete</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Modal Add Category -->
-                        <div class="modal" tabindex="-1" role="dialog" id="add-category">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title">Add a category</h5>
-                                        <button type="button" class="close" data-dismiss="modal"
-                                            aria-hidden="true">&times;</button>
-                                    </div>
-                                    <div class="modal-body p-20">
-                                        <form action="{{ route('categories.store') }}" method="POST">
-                                            @method('POST')
-                                            @csrf
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <label class="control-label">employe</label>
-                                                    <select class="form-control form-white"
-                                                        data-placeholder="Choose a color..." name="nom">
-                                                        <option value="">selection le champs</option>
-                                                        @foreach ($employee as $employee)
-                                                            <option
-                                                                value="{{ $employee->prenom }} {{ $employee->nom }}">
-                                                                {{ $employee->prenom }} {{ $employee->nom }}
-                                                            </option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <label class="control-label">selectionner le role</label>
-                                                    <select class="form-control form-white"
-                                                        data-placeholder="Choose a color..." name="color">
-                                                        <option value="Culture">Culture</option>
-                                                        <option value="Recolte">Recolte</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-danger">Close</button>
-                                        <button type="submit" class="btn btn-success save-category">Save</button>
-                                    </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
-
+          
 
 
             <!--=================================
@@ -743,76 +594,18 @@
             <!--=================================
  footer -->
 
-            @include('layouts.footer')
+            @include('layot.footer')
         </div><!-- main content wrapper end-->
     </div>
     </div>
     </div>
 
-
     <!--=================================
  footer -->
 
-    @include('layouts.footer-scripts')
+    @include('layot.footer-scripts')
 
-    <script>
-        // Utilisez les données récupérées pour configurer votre graphique Chart.js ici
-        var legumeData = @json($legumeData);
 
-        function generateColor(index) {
-            // Générez une couleur verte avec différentes nuances basées sur l'index
-            var baseColor = 120; // Valeur de la composante verte de base
-            var step = 30; // Pas pour les nuances de couleur
-            var shade = baseColor + (index * step);
-            var color = "rgb(0," + shade + ",0)";
-
-            return color;
-        }
-
-        var backgroundColors = legumeData.map(function(item, index) {
-            return generateColor(index);
-        });
-
-        var config3 = {
-            type: 'doughnut',
-            data: {
-                datasets: [{
-                    data: legumeData.map(function(item) {
-                        return item.count;
-                    }),
-                    backgroundColor: backgroundColors,
-                    label: 'Dataset 1'
-                }],
-                labels: legumeData.map(function(item) {
-                    return item.nom;
-                })
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                legend: {
-                    position: 'bottom',
-                },
-                title: {
-                    display: false,
-                    text: 'Doughnut Chart'
-                },
-                animation: {
-                    animateScale: true,
-                    animateRotate: true
-                }
-            }
-        };
-
-        window.onload = function() {
-            // Créez le graphique Chart.js en utilisant la configuration
-            var ctx3 = document.getElementById("canvas3").getContext("2d");
-            window.myLine3 = new Chart(ctx3, config3);
-        };
-    </script>
-    <livewire:calendar />
-    @livewireScripts
-    @stack('scripts')
 </body>
 
 </html>

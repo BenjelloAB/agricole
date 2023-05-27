@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategorieController;
 use App\Http\Controllers\CqualiteController;
 use App\Http\Controllers\CulturController;
@@ -13,9 +14,12 @@ use App\Models\Employe;
 use App\Models\Finance_employe;
 use App\Models\List_Legume;
 use App\Models\Parcelle;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
+use App\Http\Livewire\Calendar;
+use App\Models\Event;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,35 +31,41 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
+// Livewire::component('calendar', Calendar::class);
 Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/dashboard', function () {
-    $count_emp = Employe::where('user_id',auth()->user()->id)->count('id');
-    $count_parcelle = Parcelle::where('user_id',auth()->user()->id)->count('id');
+if (Auth::check() && Auth::user()->role == 0) {
+    $count_emp = Employe::where('user_id', auth()->user()->id)->count('id');
+    $count_parcelle = Parcelle::where('user_id', auth()->user()->id)->count('id');
 
-    $cout_semences = DB::table('finance__cultures')->where('user_id',auth()->user()->id)->sum('coût_semences');
-    $cout_engrais = DB::table('finance__cultures')->where('user_id',auth()->user()->id)->sum('coût_engrais');
-    $cout_pesticides = DB::table('finance__cultures')->where('user_id',auth()->user()->id)->sum('coût_pesticides');
-    $cout_machines_culture = DB::table('finance__cultures')->where('user_id',auth()->user()->id)->sum('coût_machines_culture');
+    $cout_semences = DB::table('finance__cultures')->where('user_id', auth()->user()->id)->sum('coût_semences');
+    $cout_engrais = DB::table('finance__cultures')->where('user_id', auth()->user()->id)->sum('coût_engrais');
+    $cout_pesticides = DB::table('finance__cultures')->where('user_id', auth()->user()->id)->sum('coût_pesticides');
+    $cout_machines_culture = DB::table('finance__cultures')->where('user_id', auth()->user()->id)->sum('coût_machines_culture');
     $cout_total = $cout_semences + $cout_engrais + $cout_pesticides + $cout_machines_culture;
 
-    $cout_recolte= DB::table('finance__recoltes')->where('user_id',auth()->user()->id)->sum('coût_récolte');
-    $employe = DB::table('finance_employes')->where('user_id',auth()->user()->id)->sum('salair');
+    $cout_recolte= DB::table('finance__recoltes')->where('user_id', auth()->user()->id)->sum('coût_récolte');
+    $employe = DB::table('finance_employes')->where('user_id', auth()->user()->id)->sum('salair');
 
-    $hhh = Finance_employe::where('user_id',auth()->user()->id)->paginate(3);
+    $hhh = Finance_employe::where('user_id', auth()->user()->id)->paginate(3);
 
     $cout_CRE = $cout_total + $cout_recolte + $employe;
-    $legumeData = Cultur::where('user_id',auth()->user()->id)->select('nom', DB::raw('COUNT(*) as count'))
+    $legumeData = Cultur::where('user_id', auth()->user()->id)->select('nom', DB::raw('COUNT(*) as count'))
     ->groupBy('nom')
     ->get();
 
-    $employee=Employe::where('user_id',auth()->user()->id)->get();
-    $categorie= Categorie::where('user_id',auth()->user()->id)->get();
+    $employee=Employe::where('user_id', auth()->user()->id)->get();
+    $categorie= Categorie::where('user_id', auth()->user()->id)->get();
+    $user =   User::where('id',auth()->user()->id)->pluck('capital')->first();
 
-    return view('dashboard',compact('count_emp','count_parcelle','cout_CRE','hhh','legumeData','employee','categorie'));
+    return view('dashboard', compact('count_emp', 'count_parcelle', 'cout_CRE', 'hhh', 'legumeData', 'employee', 'categorie','user'));
+} else {
+    return redirect()->route('admin');
+}
 })->middleware(['auth'])->name('dashboard');
+
 
 /* le route pour le parcelle */
 Route::get('/parcelle',[ParcelleController::class, 'index'])->middleware(['auth'])->name('parcelle.index');
@@ -145,9 +155,13 @@ Route::get('/total',function(){
 
      $cout_CRE = $cout_total + $cout_recolte + $employe;
 
-    return view('finance.total',compact('cout_total','cout_recolte','employe','cout_CRE'));
+     $user =   User::where('id',auth()->user()->id)->pluck('capital')->first();
+
+    return view('finance.total',compact('cout_total','cout_recolte','employe','cout_CRE','user'));
 
 })->middleware(['auth'])->name('total');
+
+
 
 // Route::post('/categories', [CategorieController::class,'enregistrerCategorie'])->name('categories.store');
 
@@ -155,9 +169,44 @@ Route::post('/categories', [CategorieController::class,'enregistrerCategorie'])-
 
 Route::get('/chart', [CategorieController::class,'index']);
 
+Route::post('/events', [CategorieController::class, 'store'])->name('events.store');
+
+
 Route::fallback(function () {
     return view('404');
 });
-Auth::routes();
 
+/* le route pour le admin */
+
+    Route::get('/respo', [AdminController::class, 'index'])->middleware(['auth'])->name('respo.index');
+    Route::post('respo/store', [AdminController::class, 'create'])->middleware(['auth'])->name('respo.store');
+    Route::put('respo/update', [AdminController::class, 'edit'])->middleware(['auth'])->name('respo.update');
+    Route::delete('respo/delete', [AdminController::class, 'destroy'])->middleware(['auth'])->name('respo.delete');
+
+
+    Route::get('/index2/parcelle', [AdminController::class, 'index2'])->middleware(['auth'])->name('index2.parcelle');
+    Route::get('/index3/employe/show', [AdminController::class, 'index3'])->middleware(['auth'])->name('index3.show');
+    Route::get('/index4/culture', [AdminController::class, 'index4'])->middleware(['auth'])->name('index4.culture');
+    Route::get('/index5/ressorce', [AdminController::class, 'index5'])->middleware(['auth'])->name('index5.ressorce');
+    Route::get('/index6/recolte', [AdminController::class, 'index6'])->middleware(['auth'])->name('index6.recolte');
+    Route::get('/index7/ressource', [AdminController::class, 'index7'])->middleware(['auth'])->name('index7.ressource');
+    Route::get('/index8/control', [AdminController::class, 'index8'])->middleware(['auth'])->name('index8.control');
+    Route::get('/index9/finance_culture', [AdminController::class, 'index9'])->middleware(['auth'])->name('index9.finance_culture');
+    Route::get('/index10/finance_recolte', [AdminController::class, 'index10'])->middleware(['auth'])->name('index10.finance_recolte');
+    Route::get('/index11/finance_employe', [AdminController::class, 'index11'])->middleware(['auth'])->name('index11.finance_employe');
+
+/* la fin de route */
+
+Route::get('/admin/dashboard',function(){
+if (Auth::check() && Auth::user()->role == 1) {
+    return view('admin');
+}
+else{
+    return redirect()->route('home');
+}
+})->middleware(['auth'])->name('admin');
+
+
+
+Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->middleware(['auth'])->name('home');

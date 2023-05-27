@@ -8,6 +8,7 @@ use App\Models\Employe;
 use App\Models\Finance_employe;
 use App\Models\List_Legume;
 use App\Models\Parcelle;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -31,7 +32,7 @@ class HomeController extends Controller
     public function index()
     {
         if(auth()->user()->role == 1){
-            return view('home');
+            return redirect()->route('admin');
         }else{
             $count_emp = Employe::where('user_id',auth()->user()->id)->count('id');
             $count_parcelle = Parcelle::where('user_id',auth()->user()->id)->count('id');
@@ -52,7 +53,8 @@ class HomeController extends Controller
             ->get();
             $employee=Employe::where('user_id',auth()->user()->id)->get();
             $categorie= Categorie::where('user_id',auth()->user()->id)->get();
-            return view('dashboard',compact('count_emp','count_parcelle','cout_CRE','hhh','legumeData','employee','categorie'));
+            $user =   User::where('id',auth()->user()->id)->pluck('capital')->first();
+            return view('dashboard',compact('count_emp','count_parcelle','cout_CRE','hhh','legumeData','employee','categorie','user'));
         }
 
     }

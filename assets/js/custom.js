@@ -735,7 +735,7 @@ NOTE: This file contains all scripts for the actual Template.
                     {
                         id: 999,
                         title: 'Repeating Event',
-                        start: '2018-03-09T16:00:00'
+                        start: '2023-05-25T16:00:00'
                     },
                     {
                         id: 999,
@@ -744,8 +744,8 @@ NOTE: This file contains all scripts for the actual Template.
                     },
                     {
                         title: 'Conference',
-                        start: '2018-03-11',
-                        end: '2018-03-13'
+                        start: '2023-05-20',
+                        end: '2023-05-25'
                     },
                     {
                         title: 'Meeting',
