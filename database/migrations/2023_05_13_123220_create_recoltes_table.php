@@ -11,15 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
+
         Schema::create('recoltes', function (Blueprint $table) {
             $table->id();
             $table->foreignId('parcelle_id')->references('id')->on('parcelles')->onDelete('cascade');
             $table->string('quantité_récoltée');
-            $table->string('date_récolte');
-            $table->string('coût_récolte');
-            $table->string('Moyen_rendement');
-            $table->string('qualité_récolte');
-            $table->string('prix_de_vente');
+            $table->string('date_récolte_debut');
+            $table->date('date_récolte_fin');
             $table->string('user_id');
             $table->timestamps();
         });

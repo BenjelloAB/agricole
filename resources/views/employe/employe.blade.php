@@ -120,89 +120,106 @@
                                                     @csrf
                                                     @method('PUT')
 
-                                                        <input id="id" type="hidden" name="id"
-                                                            class="form-control" value="{{ $employes->id }}">
-                                                        <div class="col">
-                                                            <label for="Name" class="mr-sm-2">
-                                                                Nom
-                                                            </label>
-                                                            <input id="nom" type="text" name="nom"
-                                                                class="form-control" required>
-                                                        </div>
+                                                    <input id="id" type="hidden" name="id"
+                                                        class="form-control" value="{{ $employes->id }}">
+                                                    <div class="col">
+                                                        <label for="Name" class="mr-sm-2">
+                                                            Nom
+                                                        </label>
+                                                        <input id="nom" type="text" name="nom"
+                                                            class="form-control" required>
+                                                    </div>
 
-                                                        <div class="col">
-                                                            <label for="Name_en" class="mr-sm-2">Prenom
-                                                            </label>
-                                                            <input type="text" class="form-control" name="prenom"
-                                                                required>
-                                                        </div>
-                                                        <div class="col">
-                                                            <label for="Name" class="mr-sm-2">
-                                                                Date_Naissance
-                                                            </label>
-                                                            <input id="date" type="date" name="date"
-                                                                class="form-control" required>
-                                                        </div>
-                                                        <div class="col">
-                                                            <label for="Name_en" class="mr-sm-2">Lieu_Naissance
-                                                            </label>
-                                                            <input type="text" class="form-control" name="lieu"
-                                                                required>
-                                                        </div>
-                                                        <div class="col">
-                                                            <label for="Name_en" class="mr-sm-2">Situation_familial
-                                                            </label>
-                                                            <input type="text" class="form-control" name="situation"
-                                                                required>
-                                                        </div>
-                                                        <div class="col">
-                                                            <label for="Name" class="mr-sm-2">
-                                                                adress_postal
-                                                            </label>
-                                                            <input id="Name" type="text" name="adress"
-                                                                class="form-control" required>
-                                                        </div>
+                                                    <div class="col">
+                                                        <label for="Name_en" class="mr-sm-2">Prenom
+                                                        </label>
+                                                        <input type="text" class="form-control" name="prenom"
+                                                            required>
+                                                    </div>
+                                                    <div class="col">
+                                                        <label for="Name" class="mr-sm-2">
+                                                            Date_Naissance
+                                                        </label>
+                                                        <input id="date" type="date" name="date"
+                                                            class="form-control" required>
+                                                    </div>
+                                                    <div class="col">
+                                                        <label for="Name_en" class="mr-sm-2">Lieu_Naissance
+                                                        </label>
+                                                        <input type="text" class="form-control" name="lieu"
+                                                            required>
+                                                    </div>
+                                                    <div class="col">
+                                                        <label for="Name_en" class="mr-sm-2">Situation_familial
+                                                        </label>
+                                                        <select id="Name_en" style="background-color: #f6f7f8"
+                                                            class="custom-select custom-select-lg mb-3" name="situation"
+                                                            required>
+                                                            <option selected disabled>Selectionner la situation
+                                                                familiale</option>
+                                                            <option value="Célibataire">Célibataire</option>
+                                                            <option value="Marié(e)">Marié(e)</option>
+                                                            <option value="Divorcé(e)">Divorcé(e)</option>
+                                                            <option value="Veuf/Veuve">Veuf/Veuve</option>
+                                                            <option value="En couple">En couple</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col">
+                                                        <label for="Name" class="mr-sm-2">
+                                                            adress_postal
+                                                        </label>
+                                                        <input id="Name" type="text" name="adress"
+                                                            class="form-control" required>
+                                                    </div>
 
-                                                        <div class="col">
-                                                            <label for="Name_en" class="mr-sm-2">CIN
-                                                            </label>
-                                                            <input type="text" class="form-control" name="cin"
-                                                                required>
-                                                        </div>
-                                                        <div class="col">
-                                                            <label for="Name" class="mr-sm-2">
-                                                                Telephone
-                                                            </label>
-                                                            <input id="Name" type="text" name="tele"
-                                                                class="form-control" required>
-                                                        </div>
-                                                        <div class="col">
-                                                            <label for="Name_en" class="mr-sm-2">mail
-                                                            </label>
-                                                            <input type="text" class="form-control"
-                                                                name="mail">
-                                                        </div>
-                                                        <div class="col">
-                                                            <label for="Name_en" class="mr-sm-2">Niveau_scolaire
-                                                            </label>
-                                                            <input type="text" class="form-control"
-                                                                name="scolaire">
-                                                        </div>
-                                                        <div class="col">
-                                                            <label for="Name" class="mr-sm-2">
-                                                                experiance
-                                                            </label>
-                                                            <input id="Name" type="text" name="experiance"
-                                                                class="form-control" required>
-                                                        </div>
+                                                    <div class="col">
+                                                        <label for="Name_en" class="mr-sm-2">CIN
+                                                        </label>
+                                                        <input type="text" class="form-control" name="cin"
+                                                            required>
+                                                    </div>
+                                                    <div class="col">
+                                                        <label for="Name" class="mr-sm-2">
+                                                            Telephone
+                                                        </label>
+                                                        <input id="Name" type="text" name="tele"
+                                                            class="form-control" required>
+                                                    </div>
+                                                    <div class="col">
+                                                        <label for="Name_en" class="mr-sm-2">mail
+                                                        </label>
+                                                        <input type="text" class="form-control" name="mail">
+                                                    </div>
+                                                    <div class="col">
+                                                        <label for="Name_en" class="mr-sm-2">Niveau_scolaire
+                                                        </label>
+                                                        <select id="Name_en" style="background-color: #f6f7f8"
+                                                            class="custom-select custom-select-lg mb-3"
+                                                            name="scolaire" required>
+                                                            <option selected disabled>Selectionner le type de scolarité
+                                                            </option>
+                                                            <option value="Primaire">Primaire</option>
+                                                            <option value="Secondaire">Secondaire</option>
+                                                            <option value="Collégial">Collégial</option>
+                                                            <option value="Universitaire">Universitaire</option>
+                                                            <option value="Formation professionnelle">Formation
+                                                                professionnelle</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col">
+                                                        <label for="Name" class="mr-sm-2">
+                                                            experiance
+                                                        </label>
+                                                        <input id="Name" type="number" name="experiance"
+                                                            class="form-control" required>
+                                                    </div>
 
-                                                        <div class="col">
-                                                            <label for="Name_en" class="mr-sm-2">Dernier_employer
-                                                            </label>
-                                                            <input type="text" class="form-control"
-                                                                name="employe">
-                                                        </div>
-                                                    
+                                                    <div class="col">
+                                                        <label for="Name_en" class="mr-sm-2">Dernier_employer
+                                                        </label>
+                                                        <input type="text" class="form-control" name="employe">
+                                                    </div>
+
 
 
                                             </div>

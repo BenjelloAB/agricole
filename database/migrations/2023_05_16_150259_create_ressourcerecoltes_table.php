@@ -11,9 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
+
         Schema::create('ressourcerecoltes', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('recolte_id')->constrained('recoltes')->onDelete('cascade');
+            $table->foreignId('parcelle_id')->constrained('parcelles')->onDelete('cascade');
             $table->string('machine_recolte');
             $table->string('user_id');
             $table->timestamps();

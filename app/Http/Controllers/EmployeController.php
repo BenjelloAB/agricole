@@ -23,7 +23,20 @@ class EmployeController extends Controller
     public function create(Request $request){
 
         try {
-           
+
+            $request->validate([
+
+                'nom'=>['required','alpha'],
+                'prenom'=>['required','alpha'],
+                 'date'=>'required',
+                  'lieu'=>['required','alpha'],
+                  'situation'=>'required',
+                  'adress'=>'required',
+                  'cin'=>'required',
+                'tele'=>['required','numeric'],
+                  'experiance'=>'required',
+            ]);
+
             Employe::create([
                 'nom'=>$request->nom,
               'prenom'=>$request->prenom,
@@ -49,6 +62,18 @@ class EmployeController extends Controller
    public function update(Request $request)
    {
        try{
+        $request->validate([
+
+            'nom'=>['required','alpha'],
+            'prenom'=>['required','alpha'],
+             'date'=>'required',
+              'lieu'=>['required','alpha'],
+              'situation'=>'required',
+              'adress'=>'required',
+              'cin'=>'required',
+            'tele'=>['required','numeric'],
+              'experiance'=>'required',
+        ]);
 
        $parcelle = Employe::findOrFail($request->id);
        $parcelle->update([

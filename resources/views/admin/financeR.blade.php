@@ -69,11 +69,8 @@
                         <thead>
                             <tr>
                                 <th>id</th>
-                                <th>recolte_id</th>
+                                <th>nom_parcelle</th>
                                 <th>coût_récolte</th>
-                                <th>prix_de_vente</th>
-                                <th>revenu_net</th>
-                                <th>revenu_brut</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -81,11 +78,8 @@
                                 <?php $i++; ?>
                                 <tr>
                                     <td>{{ $i }}</td>
-                                    <td>{{ $finance_recolte->recolte_id }}</td>
+                                    <td>{{ $finance_recolte->parcelle->nom }}</td>
                                     <td>{{ $finance_recolte->coût_récolte }}</td>
-                                    <td>{{ $finance_recolte->prix_de_vente }}</td>
-                                    <td>{{ $finance_recolte->revenu_net }}</td>
-                                    <td>{{ $finance_recolte->revenu_brut }}</td>
                                 </tr>
                             @endforeach
                         </tbody>

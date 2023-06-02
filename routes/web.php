@@ -44,7 +44,9 @@ if (Auth::check() && Auth::user()->role == 0) {
     $cout_engrais = DB::table('finance__cultures')->where('user_id', auth()->user()->id)->sum('coût_engrais');
     $cout_pesticides = DB::table('finance__cultures')->where('user_id', auth()->user()->id)->sum('coût_pesticides');
     $cout_machines_culture = DB::table('finance__cultures')->where('user_id', auth()->user()->id)->sum('coût_machines_culture');
-    $cout_total = $cout_semences + $cout_engrais + $cout_pesticides + $cout_machines_culture;
+    $cout_consommation_eau = DB::table('finance__cultures')->where('user_id', auth()->user()->id)->sum('cout_consommation_eau');
+
+    $cout_total = $cout_semences + $cout_engrais + $cout_pesticides + $cout_machines_culture + $cout_consommation_eau;
 
     $cout_recolte= DB::table('finance__recoltes')->where('user_id', auth()->user()->id)->sum('coût_récolte');
     $employe = DB::table('finance_employes')->where('user_id', auth()->user()->id)->sum('salair');
@@ -127,6 +129,17 @@ Route::post('finance/store',[FinanceCultureController::class, 'store'])->middlew
 Route::put('finance/update',[FinanceCultureController::class, 'updat'])->middleware(['auth'])->name('finance.update');
 Route::delete('finance/delete',[FinanceCultureController::class, 'destroy'])->middleware(['auth'])->name('finance.delete');
 
+/* le route ajax */
+Route::get('/plante/{id}',[FinanceCultureController::class, 'getplant']);
+Route::get('/taille/{id}',[FinanceCultureController::class, 'gettaille']);
+Route::get('/machine/{id}',[FinanceCultureController::class, 'getmachine']);
+Route::get('/machine1/{id}',[FinanceCultureController::class, 'getmachine1']);
+Route::get('/semences/{id}',[FinanceCultureController::class, 'getsemences']);
+Route::get('/engrais/{id}',[FinanceCultureController::class, 'getengrais']);
+Route::get('/pesticides/{id}',[FinanceCultureController::class, 'getpesticides']);
+Route::get('/besoin_en_eau/{id}',[FinanceCultureController::class, 'getbesion']);
+/* end route ajax */
+
 Route::get('/finance_recolte',[FinanceCultureController::class, 'show'])->middleware(['auth'])->name('finance_recolte.show');
 Route::post('finance_recolte/add',[FinanceCultureController::class, 'add'])->middleware(['auth'])->name('finance_recolte.add');
 Route::put('finance_recolte/edit',[FinanceCultureController::class, 'edit'])->middleware(['auth'])->name('finance_recolte.edit');
@@ -148,15 +161,15 @@ Route::get('/total',function(){
      $cout_engrais = DB::table('finance__cultures')->where('user_id',auth()->user()->id)->sum('coût_engrais');
      $cout_pesticides = DB::table('finance__cultures')->where('user_id',auth()->user()->id)->sum('coût_pesticides');
      $cout_machines_culture = DB::table('finance__cultures')->where('user_id',auth()->user()->id)->sum('coût_machines_culture');
-     $cout_total = $cout_semences + $cout_engrais + $cout_pesticides + $cout_machines_culture;
+     $cout_consommation_eau = DB::table('finance__cultures')->where('user_id', auth()->user()->id)->sum('cout_consommation_eau');
+
+     $cout_total = $cout_semences + $cout_engrais + $cout_pesticides + $cout_machines_culture + $cout_consommation_eau;
 
      $cout_recolte= DB::table('finance__recoltes')->where('user_id',auth()->user()->id)->sum('coût_récolte');
      $employe = DB::table('finance_employes')->where('user_id',auth()->user()->id)->sum('salair');
 
+     $user = User::where('id',auth()->user()->id)->pluck('capital')->first();
      $cout_CRE = $cout_total + $cout_recolte + $employe;
-
-     $user =   User::where('id',auth()->user()->id)->pluck('capital')->first();
-
     return view('finance.total',compact('cout_total','cout_recolte','employe','cout_CRE','user'));
 
 })->middleware(['auth'])->name('total');
@@ -199,7 +212,25 @@ Route::fallback(function () {
 
 Route::get('/admin/dashboard',function(){
 if (Auth::check() && Auth::user()->role == 1) {
-    return view('admin');
+     $nbr =count($users = User::where('role',0)->get());
+     $ct = ($users = User::where('role',0)->sum('capital'));
+
+
+      $cout_semences = DB::table('finance__cultures')->sum('coût_semences');
+    $cout_engrais = DB::table('finance__cultures')->sum('coût_engrais');
+    $cout_pesticides = DB::table('finance__cultures')->sum('coût_pesticides');
+    $cout_machines_culture = DB::table('finance__cultures')->sum('coût_machines_culture');
+    $cout_consommation_eau = DB::table('finance__cultures')->sum('cout_consommation_eau');
+
+    $cout_total = $cout_semences + $cout_engrais + $cout_pesticides + $cout_machines_culture + $cout_consommation_eau;
+
+    $cout_recolte= DB::table('finance__recoltes')->sum('coût_récolte');
+    $employe = DB::table('finance_employes')->sum('salair');
+
+    $count_emp = Employe::count('id');
+    $cout_CRE = $cout_total + $cout_recolte + $employe;
+    return view('admin',compact('nbr','ct','cout_CRE','count_emp'));
+
 }
 else{
     return redirect()->route('home');

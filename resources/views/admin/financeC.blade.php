@@ -52,6 +52,7 @@
                     @method('get')
                     <select class="custom-select custom-select-lg mb-3 " style="width: 20%;" name="nom_parcelle">
                         <option>selectioner le parcelle</option>
+
                         @foreach ($user as $user)
                             @if ($user->role == 0)
                                 <option value="{{ $user->id }}">{{ $user->name }}</option>
@@ -68,26 +69,26 @@
 
                         <thead>
                             <tr>
-                                <th>id</th>
-                                <th>cultur_id</th>
-                                <th>ressourceculture_id</th>
+                               <th>id</th>
+                                <th>Nom_parcelle</th>
                                 <th>coût_semences</th>
                                 <th>coût_engrais</th>
                                 <th>coût_pesticides</th>
                                 <th>coût_machines_culture</th>
+                                <th>cout_consommation_eau</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($finance_culture as $finance_culture)
                                 <?php $i++; ?>
                                 <tr>
-                                    <td>{{ $i }}</td>
-                                    <td>{{ $finance_culture->cultur_id }}</td>
-                                    <td>{{ $finance_culture->ressourceculture_id }}</td>
+                                     <td>{{ $i }}</td>
+                                    <td>{{ $finance_culture->parcelle->nom }}</td>
                                     <td>{{ $finance_culture->coût_semences }}</td>
                                     <td>{{ $finance_culture->coût_engrais }}</td>
                                     <td>{{ $finance_culture->coût_pesticides }}</td>
                                     <td>{{ $finance_culture->coût_machines_culture }}</td>
+                                    <td>{{ $finance_culture->cout_consommation_eau }}</td>
                                 </tr>
                             @endforeach
                         </tbody>

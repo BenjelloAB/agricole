@@ -64,7 +64,7 @@
                         </div>
                         <div class="col-sm-3 mb-3">
                             <label for="validationDefault02">le rest</label>
-                            <input type="text" class="form-control" id="validationDefault02" value="{{ 55550-$cout_CRE }}" name="adress" disabled>
+                            <input type="text" class="form-control" id="validationDefault02" value="{{ $user-$cout_CRE }}" name="adress" disabled>
                         </div>
 
                     </div>

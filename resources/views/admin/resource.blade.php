@@ -70,9 +70,11 @@
                             <tr>
                                 <th>id</th>
                                 <th>nom_culture</th>
-                                <th>semences</th>
+                                <th>consommation semences(Kg)</th>
                                 <th>engrais</th>
-                                <th>pesticides</th>
+                                <th>consommation pesticides(Kg)</th>
+                                <th>consommation_en_eau(L)</th>
+                                <th>besoin_en_pesticides_culture</th>
                                 <th>machines_culture</th>
 
                             </tr>
@@ -82,11 +84,19 @@
                                 <?php $i++; ?>
                                 <tr>
                                     <td>{{ $i }}</td>
-                                    <td>{{ $ressorce->cultur->nom}}</td>
+                                    <td>{{ $ressorce->parcelle->nom }}</td>
                                     <td>{{ $ressorce->semences }}</td>
                                     <td>{{ $ressorce->engrais }}</td>
                                     <td>{{ $ressorce->pesticides }}</td>
-                                    <td>{{ $ressorce->machines_culture }}</td>
+                                    <td>{{ $ressorce->besoin_en_eau }}</td>
+                                    <td>{{ $ressorce->besoin_en_pesticides_culture }}</td>
+                                    <td>
+                                        {{ $ressorce->nom_machine }}
+                                        @if (!$loop->last)
+                                            <br>
+                                        @endif
+                                    </td>
+
                                 </tr>
                             @endforeach
                         </tbody>

@@ -11,13 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
+        
+
         Schema::create('finance__recoltes', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('recolte_id')->constrained('recoltes')->onDelete('cascade');
+            $table->foreignId('parcelle_id')->constrained('parcelles')->onDelete('cascade');
             $table->string('coût_récolte');
-            $table->string('prix_de_vente');
-            $table->string('revenu_net');
-            $table->string('revenu_brut');
             $table->string('user_id');
             $table->timestamps();
         });

@@ -76,10 +76,10 @@
                             @foreach ($ressource as $ressource)
                                 <?php $i++; ?>
                                 <tr>
+                                  
                                     <td>{{ $i }}</td>
-                                    <td>{{ $ressource->recolte->parcelle->nom }}</td>
+                                    <td>{{ $ressource->parcelle->nom }}</td>
                                     <td>{{ $ressource->machine_recolte }}</td>
-
                                 </tr>
                             @endforeach
                         </tbody>

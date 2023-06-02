@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'asset_url' => 'http://localhost/Agridev/public',
+    'asset_url' => 'http://192.168.43.110/Agridev/public',
 
     /*
     |--------------------------------------------------------------------------

@@ -41,8 +41,8 @@ class HomeController extends Controller
             $cout_engrais = DB::table('finance__cultures')->where('user_id',auth()->user()->id)->sum('coût_engrais');
             $cout_pesticides = DB::table('finance__cultures')->where('user_id',auth()->user()->id)->sum('coût_pesticides');
             $cout_machines_culture = DB::table('finance__cultures')->where('user_id',auth()->user()->id)->sum('coût_machines_culture');
-            $cout_total = $cout_semences + $cout_engrais + $cout_pesticides + $cout_machines_culture;
-
+            $cout_consommation_eau = DB::table('finance__cultures')->where('user_id', auth()->user()->id)->sum('cout_consommation_eau');
+            $cout_total = $cout_semences + $cout_engrais + $cout_pesticides + $cout_machines_culture + $cout_consommation_eau;
             $cout_recolte= DB::table('finance__recoltes')->where('user_id',auth()->user()->id)->sum('coût_récolte');
             $employe = DB::table('finance_employes')->where('user_id',auth()->user()->id)->sum('salair');
             $cout_CRE = $cout_total + $cout_recolte + $employe;

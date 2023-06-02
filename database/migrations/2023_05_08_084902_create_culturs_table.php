@@ -15,13 +15,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('parcelle_id')->references('id')->on('parcelles')->onDelete('cascade');
             $table->string('nom');
-            $table->string('type');
-            $table->string('date_de_plantation_culture');
-            $table->string('date_de_récolte_prévue_culture');
-            $table->string('besoin_en_eau');
-            $table->string('besoin_en_nutriments_culture');
-            $table->string('besoin_en_pesticides_culture');
-            $table->string('état_de_santé_culture');
+            $table->date('debut_culture');
+            $table->date('fin_culture');
             $table->string('user_id');
             $table->timestamps();
         });

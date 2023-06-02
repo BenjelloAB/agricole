@@ -261,7 +261,7 @@
                             </div>
                             <div class="chart-wrapper" style="width: 100%; margin: 0 auto;">
                                 <div id="canvas-holder">
-                                    <canvas id="canvas3" width="550"></canvas>
+                                    <canvas id="canvas2" width="550"></canvas>
                                 </div>
                             </div>
                         </div>
@@ -294,7 +294,7 @@
                                     <div class="tab-pane fade active show" id="months" role="tabpanel"
                                         aria-labelledby="months-tab">
                                         <div class="row mb-30">
-                                            @if (!isset($hhh))
+                                            @if (count($hhh) > 0)
                                                 @foreach ($hhh as $salaire_emps)
                                                     <div class="col-md-2 col-sm-6">
                                                         {{-- <img class="img-fluid" src="assets/images/blog/05.jpg" alt=""> --}}
@@ -806,7 +806,7 @@
 
         window.onload = function() {
             // Créez le graphique Chart.js en utilisant la configuration
-            var ctx3 = document.getElementById("canvas3").getContext("2d");
+            var ctx3 = document.getElementById("canvas2").getContext("2d");
             window.myLine3 = new Chart(ctx3, config3);
         };
     </script>

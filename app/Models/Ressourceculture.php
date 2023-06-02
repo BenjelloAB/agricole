@@ -10,17 +10,20 @@ class Ressourceculture extends Model
     use HasFactory;
 
     protected $fillable = [
-        'cultur_id',
+        'parcelle_id',
         'semences',
         'engrais',
         'pesticides',
-        'machines_culture',
+        'besoin_en_eau',
+        'besoin_en_pesticides_culture',
+        'nummachine',
+        'nom_machine',
         'user_id'
     ];
 
-    public function cultur()
+    public function parcelle()
     {
-        return $this->belongsTo(Cultur::class);
+        return $this->belongsTo(Parcelle::class);
     }
 
     public function finance_culture()

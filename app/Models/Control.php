@@ -10,13 +10,15 @@ class Control extends Model
     use HasFactory;
 
     protected $fillable = [
-        'recolte_id',
-        'normes_de_qualité',
-        'procédures_de_contrôle_qualité',
+        'parcelle_id',
+        'etat_sante',
+        'texture_du_sol',
+        'ph_du_sol',
+        'etat_de_produit_recolte',
         'user_id',
     ];
-    public function recolte()
+    public function parcelle()
     {
-        return $this->belongsTo(Recolte::class);
+        return $this->belongsTo(Parcelle::class);
     }
 }

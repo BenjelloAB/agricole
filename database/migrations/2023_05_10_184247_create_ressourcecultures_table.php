@@ -14,11 +14,14 @@ return new class extends Migration
         Schema::create('ressourcecultures', function (Blueprint $table) {
             $table->id();
             // $table->string('culture_id');
-            $table->foreignId('cultur_id')->references('id')->on('culturs')->onDelete('cascade');
+            $table->foreignId('parcelle_id')->references('id')->on('parcelles')->onDelete('cascade');
             $table->string('semences');
             $table->string('engrais');
             $table->string('pesticides');
-            $table->string('machines_culture');
+            $table->string('besoin_en_eau');
+            $table->string('besoin_en_pesticides_culture');
+            // $table->string('nummachine');
+            $table->string('nom_machine');
             // $table->foreign('culture_id')->references('id')->on('culturs');
             $table->string('user_id');
             $table->timestamps();

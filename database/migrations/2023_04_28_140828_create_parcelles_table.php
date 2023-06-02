@@ -26,7 +26,7 @@ return new class extends Migration
             // $table->string('type_de_fongicide');
             // $table->string('type_de_nematocide');
             // $table->string('type_de_tracteur');
-            $table->string('état_de_santé');
+           // $table->string('état_de_santé');
             $table->string('user_id');
             $table->timestamps();
         });

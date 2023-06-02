@@ -11,14 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
+
         Schema::create('finance__cultures', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('cultur_id')->constrained('culturs')->onDelete('cascade');
-            $table->foreignId('ressourceculture_id')->references('id')->on('ressourcecultures')->onDelete('cascade');
+            $table->foreignId('parcelle_id')->constrained('parcelles')->onDelete('cascade');
+           // $table->foreignId('culture_id')->references('id')->on('ressourcecultures')->onDelete('cascade');
             $table->string('coût_semences');
             $table->string('coût_engrais');
             $table->string('coût_pesticides');
             $table->string('coût_machines_culture');
+            $table->string('cout_consommation_eau');
             $table->string('user_id');
             $table->timestamps();
         });

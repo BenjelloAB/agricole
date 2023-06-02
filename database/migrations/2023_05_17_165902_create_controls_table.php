@@ -12,10 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('controls', function (Blueprint $table) {
+
             $table->id();
-            $table->foreignId('recolte_id')->constrained('recoltes')->cascadeOnDelete('cascade');
-            $table->string('normes_de_qualité');
-            $table->string('procédures_de_contrôle_qualité');
+            $table->foreignId('parcelle_id')->constrained('parcelles')->cascadeOnDelete('cascade');
+            $table->string('etat_sante');
+            $table->string('texture_du_sol');
+            $table->unsignedBigInteger('ph_du_sol');
+            $table->string('etat_de_produit_recolte');
             $table->string('user_id');
             $table->timestamps();
         });

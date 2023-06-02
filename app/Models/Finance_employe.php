@@ -12,8 +12,9 @@ class Finance_employe extends Model
     protected $fillable = [
         'employe_id',
         'salair',
-        'date_paiement',
+        'role',
         'user_id',
+
     ];
 
     public function employe()

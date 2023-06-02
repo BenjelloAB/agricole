@@ -43,16 +43,16 @@ public function index(){
 return view('dashboard', compact('legumeData'));
 }
 
-public function store(Request $request)
-{
-    $event = new Events();
-    $event->title = $request->input('title');
-    $event->start_date = $request->input('start_date');
-    $event->end_date = $request->input('end_date');
-    $event->save();
+// public function store(Request $request)
+// {
+//     $event = new Events();
+//     $event->title = $request->input('title');
+//     $event->start_date = $request->input('start_date');
+//     $event->end_date = $request->input('end_date');
+//     $event->save();
 
-    return response()->json(['message' => 'Event stored successfully']);
-}
+//     return response()->json(['message' => 'Event stored successfully']);
+// }
 
 
 }

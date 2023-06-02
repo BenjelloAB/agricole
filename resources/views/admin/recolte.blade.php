@@ -71,12 +71,10 @@
                                 <th>id</th>
                                 <th>nom_parcelle</th>
                                 <th>nom_employe</th>
-                                <th>quantité_récoltée</th>
-                                <th>date_récolte</th>
-                                <th>coût_récolte</th>
-                                <th>Moyen_rendement</th>
-                                <th>qualité_récolte</th>
-                                <th>prix_de_vente</th>
+                                <th>quantité_récoltée estimée(Ton)</th>
+                                <th>date_récolte_debut</th>
+                                <th>date_récolte_fin</th>
+
                             </tr>
                         </thead>
                         <tbody>
@@ -94,11 +92,8 @@
                                         @endforeach
                                     </td>
                                     <td>{{ $recolte->quantité_récoltée }}</td>
-                                    <td>{{ $recolte->date_récolte }}</td>
-                                    <td>{{ $recolte->coût_récolte }}</td>
-                                    <td>{{ $recolte->Moyen_rendement }}</td>
-                                    <td>{{ $recolte->qualité_récolte }}</td>
-                                    <td>{{ $recolte->prix_de_vente }}</td>
+                                    <td>{{ $recolte->date_récolte_debut }}</td>
+                                    <td>{{ $recolte->date_récolte_fin }}</td>
                                 </tr>
                             @endforeach
                         </tbody>

@@ -9,18 +9,19 @@ class Finance_Culture extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'cultur_id',
-        'ressourceculture_id',
+
+        'parcelle_id',
         'coût_semences',
         'coût_engrais',
         'coût_pesticides',
         'coût_machines_culture',
+        'cout_consommation_eau',
         'user_id'
     ];
 
-    public function cultur()
+    public function parcelle()
     {
-        return $this->belongsTo(Culture::class);
+        return $this->belongsTo(Parcelle::class);
     }
 
     public function ressourceculture()

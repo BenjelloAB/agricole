@@ -10,16 +10,14 @@ class Finance_Recolte extends Model
     use HasFactory;
 
     protected $fillable = [
-        'recolte_id',
+
+        'parcelle_id',
         'coût_récolte',
-        'prix_de_vente',
-        'revenu_net',
-        'revenu_brut',
         'user_id',
     ];
 
-    public function recolte()
+    public function parcelle()
     {
-        return $this->belongsTo(Recolte::class);
+        return $this->belongsTo(Parcelle::class);
     }
 }

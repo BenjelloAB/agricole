@@ -10,14 +10,14 @@ class Ressourcerecolte extends Model
     use HasFactory;
 
     protected $fillable = [
-        'recolte_id',
+        'parcelle_id',
         'machine_recolte',
         'user_id',
     ];
 
-    public function recolte()
+    public function parcelle()
     {
-        return $this->belongsTo(Recolte::class);
+        return $this->belongsTo(Parcelle::class);
     }
 
 

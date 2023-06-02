@@ -71,11 +71,10 @@
                                 <th>id</th>
                                 <th>nom</th>
                                 <th>emplacement</th>
-                                <th>taille</th>
+                                <th>taille(hectare)</th>
                                 <th>type_de_sol</th>
-                                <th>niveau_dirrigation</th>
-                                <th>état_de_santé</th>
                             </tr>
+
                         </thead>
 
                         <tbody>
@@ -87,8 +86,6 @@
                                     <td>{{ $parcelles->emplacement }}</td>
                                     <td>{{ $parcelles->taille }}</td>
                                     <td>{{ $parcelles->type_de_sol }}</td>
-                                    <td>{{ $parcelles->niveau_dirrigation }}</td>
-                                    <td>{{ $parcelles->état_de_santé }}</td>
                                 </tr>
                                 <!-- edit_modal_parcelle -->
                             @endforeach

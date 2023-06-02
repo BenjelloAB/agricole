@@ -1,6 +1,70 @@
 @extends('layouts.master')
 @section('css')
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.16.17/dist/css/uikit.min.css"  />
+    <style>
+        div.uk-drop.uk-dropdown-uk-open {
+            top: -43.425px;
+            left: 4.99997px;
+            padding: 11px;
+            max-width: 1259.2px;
+            width: 100% !important;
+        }
 
+        .uk-drop {
+            width: 100%;
+        }
+
+        .uk-dro label {
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        input.uk-checkbox {
+            /* margin-right: 21px; */
+
+        }
+
+        #exampleModal>div>div>div.modal-body>form>div>div>ul>li>div>label {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        #exampleModal>div>div>div.modal-body>form>div>div>ul>li>div>label>input[type=number] {
+            outline: none;
+            width: 24%;
+            border: 1px solid gray;
+        }
+
+        #exampleModal>div>div>div.modal-body>form>div>div>ul>li>div>label>p {
+            width: 50%;
+        }
+        div>ul.uk-nav>li.uk-active>div.saad>label {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        div>ul.uk-nav>li.uk-active>div.saad>label>input[type=number] {
+            outline: none;
+            width: 24%;
+            border: 1px solid gray;
+        }
+
+        div>ul.uk-nav>li.uk-active>div.saad>label>p {
+            width: 50%;
+        }
+
+
+
+        #exampleModal>div>div>div.modal-body>form>div>div>ul>li>div>label>input[type=checkbox] {}
+    </style>
 @section('title')
     empty
 @stop
@@ -50,9 +114,11 @@
                             <tr>
                                 <th>id</th>
                                 <th>nom_culture</th>
-                                <th>semences</th>
+                                <th>consommation semences(Kg)</th>
                                 <th>engrais</th>
-                                <th>pesticides</th>
+                                <th>consommation pesticides(Kg)</th>
+                                <th>consommation_en_eau(L)</th>
+                                <th>besoin_en_pesticides_culture</th>
                                 <th>machines_culture</th>
                                 <th>status</th>
                             </tr>
@@ -64,11 +130,19 @@
                                 <?php $i++; ?>
                                 <tr>
                                     <td>{{ $i }}</td>
-                                    <td>{{ $ressorce->cultur->nom}}</td>
+                                    <td>{{ $ressorce->parcelle->nom }}</td>
                                     <td>{{ $ressorce->semences }}</td>
                                     <td>{{ $ressorce->engrais }}</td>
                                     <td>{{ $ressorce->pesticides }}</td>
-                                    <td>{{ $ressorce->machines_culture }}</td>
+                                    <td>{{ $ressorce->besoin_en_eau }}</td>
+                                    <td>{{ $ressorce->besoin_en_pesticides_culture }}</td>
+                                    <td>
+                                        {{ $ressorce->nom_machine }}
+                                        @if (!$loop->last)
+                                            <br>
+                                        @endif
+                                    </td>
+
                                     <td>
                                         <button type="button" class="btn btn-info btn-sm" data-toggle="modal"
                                             data-target="#edit{{ $ressorce->id }}" title="mise à jour"><i
@@ -79,7 +153,7 @@
                                     </td>
                                 </tr>
                                 <!-- edit_modal_parcelle -->
-                                <div class="modal fade" id="edit{{ $ressorce->id }}" tabindex="-1" role="dialog"
+                                <div class="modal fade benj" id="edit{{ $ressorce->id }}" tabindex="-1" role="dialog"
                                     aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
@@ -96,54 +170,146 @@
                                             </div>
                                             <div class="modal-body">
                                                 <!-- add_form -->
-                                                <form action="{{route('culture.updateRessource')}}" method="POST">
+                                                <form action="{{ route('culture.updateRessource') }}" method="POST">
                                                     @csrf
                                                     @method('PUT')
 
-                                                        <input id="id" type="hidden" name="id"
-                                                            class="form-control" value="{{ $ressorce->id }}">
-                                                        <div class="col">
-                                                            <label for="Name" class="mr-sm-2">
-                                                                Nom_culture
-                                                            </label>
+                                                    <input id="id" type="hidden" name="id"
+                                                        class="form-control" value="{{ $ressorce->id }}">
+                                                    <div class="col">
+                                                        <label for="Name" class="mr-sm-2">
+                                                            Nom_parcelle
+                                                        </label>
 
-                                                            <select name="cultur" id="" class="form-control">
-                                                               <option value="selectioner le parcelle">selectioner le parcelle</option>
-                                                                @foreach ($cultur as $item)
+                                                        <select name="parcelle" id="" class="form-control">
+                                                            <option selected disabled>selectioner le
+                                                                parcelle</option>
+                                                            @foreach ($parcelle as $item)
+                                                                <option value="{{ $item->id }}">
+                                                                    {{ $item->nom }}</option>
+                                                            @endforeach
 
-                                                                    <option value="{{ $item->id }}">
-                                                                        {{ $item->nom }}</option>
-                                                                @endforeach
+                                                        </select>
+                                                    </div>
+                                                    <div class="col">
+                                                        <label for="Name_en" class="mr-sm-2">semences
+                                                        </label>
+                                                        <input type="text" class="form-control" name="semences"
+                                                            required>
+                                                    </div>
+                                                    <div class="col">
+                                                        <label for="Name" class="mr-sm-2">
+                                                            engrais
+                                                        </label>
+                                                        <input id="Name" type="text" name="engrais"
+                                                            class="form-control" required>
+                                                    </div>
+                                                    <div class="col">
+                                                        <label for="Name_en" class="mr-sm-2">pesticides
+                                                        </label>
+                                                        <input type="text" class="form-control" name="pesticides"
+                                                            required>
+                                                    </div>
 
-                                                            </select>
-                                                        </div>
-                                                        <div class="col">
-                                                            <label for="Name_en" class="mr-sm-2">semences
-                                                            </label>
-                                                            <input type="text" class="form-control" name="semences"
-                                                                required>
-                                                        </div>
-                                                        <div class="col">
-                                                            <label for="Name" class="mr-sm-2">
-                                                                engrais
-                                                            </label>
-                                                            <input id="Name" type="text" name="engrais"
-                                                                class="form-control" required>
+                                                    <div class="col">
+                                                        <label for="Name_en" class="mr-sm-2">besoin_en_eau
+                                                        </label>
+                                                        <input type="text" class="form-control" name="besoin_en_eau"
+                                                            required>
+                                                    </div>
+                                                    <div class="col">
+                                                        <label for="Name_en"
+                                                            class="mr-sm-2">besoin_en_pesticides_culture
+                                                        </label>
+                                                        <input type="number" class="form-control"
+                                                            name="besoin_en_pesticides_culture" required>
+                                                    </div>
+                                                    <br>
+                                                    <div class="col">
+                                                        <!-- here -->
+                                                        <button class="uk-button uk-button-default form-control"
+                                                            type="button">select
+                                                            machine culture</button>
+                                                        <div uk-dropdown>
+                                                            <ul class="uk-nav uk-dropdown-nav">
+                                                                <li class="uk-active">
+                                                                    <div
+                                                                        class="saad uk-margin uk-grid-small uk-child-width-auto uk-grid">
+                                                                        <label><input class="uk-checkbox"
+                                                                                type="checkbox" name="nom_machine[0]"
+                                                                                value="Tracteur">
+                                                                            <p>Tracteur</p>
+                                                                            <input type="number" min="0"
+                                                                                max="2" name="numMachine[0]" value="0">
+                                                                        </label>
+                                                                        <label><input class="uk-checkbox"
+                                                                                type="checkbox" name="nom_machine[1]"
+                                                                                value="Charrue">
+                                                                            <p>Charrue</p>
+                                                                            <input type="number" min="0"
+                                                                                max="2" name="numMachine[1]" value="0">
+                                                                        </label>
+                                                                        <label><input class="uk-checkbox"
+                                                                                type="checkbox" name="nom_machine[2]"
+                                                                                value="Cultivateur">
+
+                                                                                <p>Cultivateur</p>
+                                                                            <input type="number" min="0"
+                                                                                max="2" name="numMachine[2]" value="0">
+                                                                        </label>
+                                                                        <label><input class="uk-checkbox"
+                                                                                type="checkbox" name="nom_machine[3]"
+                                                                                value="Herse">
+                                                                            <p>Herse</p>
+                                                                            <input type="number" min="0"
+                                                                                max="2" name="numMachine[3]" value="0">
+                                                                        </label>
+                                                                        <label><input class="uk-checkbox"
+                                                                                type="checkbox" name="nom_machine[4]"
+                                                                                value="Semoir">
+                                                                            <p>Semoir</p>
+                                                                            <input type="number" min="0"
+                                                                                max="2" name="numMachine[4]" value="0">
+                                                                        </label>
+                                                                        <label><input class="uk-checkbox"
+                                                                                type="checkbox" name="nom_machine[5]"
+                                                                                value="Transplanteuse">
+                                                                            <p>Transplanteuse</p>
+                                                                            <input type="number" min="0"
+                                                                                max="2" name="numMachine[5]" value="0">
+                                                                        </label>
+                                                                        <label><input class="uk-checkbox"
+                                                                                type="checkbox" name="nom_machine[6]"
+                                                                                value="Pulvérisateur">
+                                                                            <p>Pulvérisateur</p>
+                                                                            <input type="number" min="0"
+                                                                                max="2" name="numMachine[6]" value="0">
+                                                                        </label>
+                                                                        <label><input class="uk-checkbox"
+                                                                                type="checkbox" name="nom_machine[7]"
+                                                                                value="Irrigation">
+                                                                            <p>Irrigation</p>
+                                                                            <input type="number" min="0"
+                                                                                max="2" name="numMachine[7]" value="0">
+                                                                        </label>
+                                                                        <label><input class="uk-checkbox"
+                                                                                type="checkbox" name="nom_machine[8]"
+                                                                                value="Herse étrille">
+                                                                            <p>Herse étrille</p>
+                                                                            <input type="number" min="0"
+                                                                                max="2" name="numMachine[8]" value="0">
+                                                                        </label>
+
+                                                                    </div>
+                                                                </li>
+
+                                                            </ul>
                                                         </div>
 
-                                                        <div class="col">
-                                                            <label for="Name_en" class="mr-sm-2">machines_culture
-                                                            </label>
-                                                            <input type="number" class="form-control"
-                                                                name="machines_culture" required>
-                                                        </div>
-                                                        <div class="col">
-                                                            <label for="Name_en" class="mr-sm-2">pesticides
-                                                            </label>
-                                                            <input type="text" class="form-control" name="pesticides"
-                                                                required>
-                                                        </div>
-                                                   
+
+
+                                                    </div>
+
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
@@ -157,8 +323,8 @@
                                 </div>
 
                                 <!-- delete_modal_parcelle -->
-                                <div class="modal fade" id="delete{{ $ressorce->id }}" tabindex="-1" role="dialog"
-                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal fade" id="delete{{ $ressorce->id }}" tabindex="-1"
+                                    role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -172,7 +338,7 @@
                                                 </button>
                                             </div>
                                             <div class="modal-body">
-                                                <form action="{{route('culture.deleteRessource')}}" method="post">
+                                                <form action="{{ route('culture.deleteRessource') }}" method="post">
                                                     @method('DELETE')
                                                     @csrf
                                                     <span style="color: red">Voullez-vous effacer cette
@@ -217,41 +383,118 @@
                         @csrf
                         @method('POST')
 
-                            <div class="col">
-                                <label for="Name" class="mr-sm-2">
-                                    Nom_culture
-                                </label>
-                                <select name="cultur" id="" class="form-control">
-                                    <option value="selectioner le parcelle">selectioner le culture</option>
-                                    @foreach ($cultur as $cultur)
-                                        <option value="{{ $cultur->id }}">{{ $cultur->nom }}</option>
-                                    @endforeach
+                        <div class="col">
+                            <label for="Name" class="mr-sm-2">
+                                Nom_parcelle
+                            </label>
+                            <select name="parcelle" id="" class="form-control">
+                                <option selected disabled>selectioner le culture</option>
+                                @foreach ($parcelle as $cultur)
+                                    <option value="{{ $cultur->id }}">{{ $cultur->nom }}</option>
+                                @endforeach
 
-                                </select>
-                            </div>
-                            <div class="col">
-                                <label for="Name_en" class="mr-sm-2">semences
-                                </label>
-                                <input type="text" class="form-control" name="semences" required>
-                            </div>
-                            <div class="col">
-                                <label for="Name" class="mr-sm-2">
-                                    engrais
-                                </label>
-                                <input id="Name" type="text" name="engrais" class="form-control" required>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <label for="Name_en" class="mr-sm-2">semences
+                            </label>
+                            <input type="text" class="form-control" name="semences" required>
+                        </div>
+                        <div class="col">
+                            <label for="Name" class="mr-sm-2">
+                                engrais
+                            </label>
+                            <input id="Name" type="text" name="engrais" class="form-control" required>
+                        </div>
+                        <div class="col">
+                            <label for="Name_en" class="mr-sm-2">pesticides
+                            </label>
+                            <input type="text" class="form-control" name="pesticides" required>
+                        </div>
+
+                        <div class="col">
+                            <label for="Name_en" class="mr-sm-2">besoin_en_eau
+                            </label>
+                            <input type="text" class="form-control" name="besoin_en_eau" required>
+                        </div>
+                        <div class="col">
+                            <label for="Name_en" class="mr-sm-2">besoin_en_pesticides_culture
+                            </label>
+                            <input type="number" class="form-control" name="besoin_en_pesticides_culture" required>
+                        </div>
+                        <br>
+                        <div class="col">
+                            <!-- here -->
+                            <button class="uk-button uk-button-default form-control" type="button">select
+                                machine culture</button>
+                            <div uk-dropdown>
+                                <ul class="uk-nav uk-dropdown-nav">
+                                    <li class="uk-active">
+                                        <div class="saad uk-margin uk-grid-small uk-child-width-auto uk-grid">
+                                            <label><input class="uk-checkbox" type="checkbox" name="nom_machine[0]"
+                                                    value="Tracteur">
+                                                <p>Tracteur</p>
+                                                <input type="number" min="0" max="2"
+                                                    name="numMachine[0]" value="0">
+                                            </label>
+                                            <label><input class="uk-checkbox" type="checkbox" name="nom_machine[1]"
+                                                    value="Charrue">
+                                                <p>Charrue</p>
+                                                <input type="number" min="0" max="2"
+                                                    name="numMachine[1]"value="0">
+                                            </label>
+                                            <label><input class="uk-checkbox" type="checkbox" name="nom_machine[2]"
+                                                    value="Cultivateur">
+                                                <p>Cultivateur</p>
+                                                <input type="number" min="0" max="2"
+                                                    name="numMachine[2]"value="0">
+                                            </label>
+                                            <label><input class="uk-checkbox" type="checkbox" name="nom_machine[3]"
+                                                    value="Herse">
+                                                <p>Herse</p>
+                                                <input type="number" min="0" max="2"
+                                                    name="numMachine[3]"value="0">
+                                            </label>
+                                            <label><input class="uk-checkbox" type="checkbox" name="nom_machine[4]"
+                                                    value="Semoir">
+                                                <p>Semoir</p>
+                                                <input type="number" min="0" max="2"
+                                                    name="numMachine[4]"value="0">
+                                            </label>
+                                            <label><input class="uk-checkbox" type="checkbox" name="nom_machine[5]"
+                                                    value="Transplanteuse">
+                                                <p>Transplanteuse</p>
+                                                <input type="number" min="0" max="2"
+                                                    name="numMachine[5]"value="0">
+                                            </label>
+                                            <label><input class="uk-checkbox" type="checkbox" name="nom_machine[6]"
+                                                    value="Pulvérisateur">
+                                                <p>Pulvérisateur</p>
+                                                <input type="number" min="0" max="2"
+                                                    name="numMachine[6]"value="0">
+                                            </label>
+                                            <label><input class="uk-checkbox" type="checkbox" name="nom_machine[7]"
+                                                    value="Irrigation">
+                                                <p>Irrigation</p>
+                                                <input type="number" min="0" max="2"
+                                                    name="numMachine[7]"value="0">
+                                            </label>
+                                            <label><input class="uk-checkbox" type="checkbox" name="nom_machine[8]"
+                                                    value="Herse étrille"value="0">
+                                                <p>Herse étrille</p>
+                                                <input type="number" min="0" max="2"
+                                                    name="numMachine[8]" value="0">
+                                            </label>
+
+                                        </div>
+                                    </li>
+
+                                </ul>
                             </div>
 
-                            <div class="col">
-                                <label for="Name_en" class="mr-sm-2">machines_culture
-                                </label>
-                                <input type="number" class="form-control" name="machines_culture" required>
-                            </div>
-                            <div class="col">
-                                <label for="Name_en" class="mr-sm-2">pesticides
-                                </label>
-                                <input type="text" class="form-control" name="pesticides" required>
-                            </div>
 
+
+                        </div>
 
                         <br><br>
                 </div>
@@ -268,5 +511,6 @@
 <!-- row closed -->
 @endsection
 @section('js')
-
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.16.17/dist/js/uikit.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.16.17/dist/js/uikit-icons.min.js"></script>
 @endsection

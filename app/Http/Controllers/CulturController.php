@@ -9,7 +9,7 @@ use App\Models\Parcelle;
 use App\Models\Ressourceculture;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Str;
 class CulturController extends Controller
 {
     public function index()
@@ -41,6 +41,9 @@ class CulturController extends Controller
             $request->validate([
                 'nom_parcelle' => 'required',
                 'nom_employe' => 'required',
+                'nom'=>['required','alpha'],
+                'debut_culture'=>['required','date'],
+                'fin_culture'=> ['required','date'],
                  ]);
 
                 //   foreach ($request->nom_employe as $valeur_case) {
@@ -54,12 +57,8 @@ class CulturController extends Controller
                     'parcelle_id' => $request->nom_parcelle,
                     'nom'=>$request->nom,
                     'type' =>  $request->type,
-                    'date_de_plantation_culture' => $request->date_de_plantation_culture,
-                    'date_de_récolte_prévue_culture' => $request->date_de_récolte_prévue_culture,
-                    'besoin_en_eau' => $request->besoin_en_eau,
-                    'besoin_en_nutriments_culture' => $request->besoin_en_nutriments_culture,
-                    'besoin_en_pesticides_culture' => $request->besoin_en_pesticides_culture,
-                    'état_de_santé_culture' => $request->état_de_santé_culture,
+                    'debut_culture' => $request->debut_culture,
+                    'fin_culture' => $request->fin_culture,
                     'user_id' =>auth()->user()->id,
                 ]);
 
@@ -90,25 +89,71 @@ class CulturController extends Controller
 
     public function show()
     {
-        $cultur=Cultur::where('user_id',auth()->user()->id)->get();
-
-
+        $parcelle=Parcelle::where('user_id',auth()->user()->id)->get();
         $ressorce=Ressourceculture::where('user_id',auth()->user()->id)->get();
-        return view('culture.ressource',compact('cultur','ressorce'));
+        return view('culture.ressource',compact('parcelle','ressorce'));
     }
     public function add(Request $request)
     {
-        try {
-            $so = Ressourceculture::create([
-                'cultur_id' => $request->cultur,
-                'semences'=>$request->semences,
-                'engrais' =>  $request->engrais,
-                'pesticides' => $request->pesticides,
-                'machines_culture' => $request->machines_culture,
-                'user_id' =>auth()->user()->id,
-            ]);
 
-            return redirect()->route('culture.ressource')->with('success', 'Les données ont été enregistrées avec succès!');
+        try {
+            // $so = Ressourceculture::create([
+            //     'parcelle_id' => $request->parcelle,
+            //     'semences'=>$request->semences,
+            //     'engrais' =>  $request->engrais,
+            //     'pesticides' => $request->pesticides,
+            //     'besoin_en_pesticides_culture' => $request->besoin_en_pesticides_culture,
+            //     'besoin_en_eau' => $request->besoin_en_eau,
+            //     'machines_culture' => $nomMachine,$numMachine,
+            //     'user_id' =>auth()->user()->id,
+            // ]);
+            $nomMachines = $request->input('nom_machine');
+            $numMachines = $request->input('numMachine');
+            $array1=[];
+            $array2=[];
+foreach ($nomMachines as $index => $nomMachine) {
+    $numMachine = $numMachines[$index];
+    $array1[]=$nomMachine;
+    $array2[]=$numMachine;
+
+}
+$string1 =  implode(' ',$array1);
+$string2 =  implode(' ',$array2);
+
+// Split the strings into arrays
+$parts1 = Str::of($string1)->explode(' ');
+$parts2 = Str::of($string2)->explode(' ');
+
+// Merge the arrays with parentheses around the numbers
+$result = [];
+$count = min($parts1->count(), $parts2->count());
+
+for ($i = 0; $i < $count; $i++) {
+    $result[] = $parts1[$i] . '(' . $parts2[$i] . ')';
+}
+
+// If the second string has more parts, append them as-is
+for ($i = $count; $i < $parts2->count(); $i++) {
+    $result[] = $parts2[$i];
+}
+
+// Join the resulting array into a string
+$output = implode(' ', $result);
+
+// Output the final merged string
+ // Output: Tracteur(1) Charrue(2)
+
+    Ressourceculture::create([
+        'parcelle_id' => $request->parcelle,
+        'semences'=>$request->semences,
+        'engrais' =>  $request->engrais,
+        'pesticides' => $request->pesticides,
+        'besoin_en_pesticides_culture' => $request->besoin_en_pesticides_culture,
+        'besoin_en_eau' => $request->besoin_en_eau,
+        'nom_machine' => $output,
+        'user_id' =>auth()->user()->id,
+    ]);
+            return redirect()->route('culture.ressource',compact('output'))->with('success', 'Les données ont été enregistrées avec succès!');
          }catch (\Exception $e){
               return redirect()->back()->withErrors(['error' => $e->getMessage()]);
           }
@@ -118,12 +163,50 @@ public function edit(Request $request)
 
     try {
         $ressource = Ressourceculture::findOrFail($request->id);
+         $nomMachines = $request->input('nom_machine');
+            $numMachines = $request->input('numMachine');
+            $array1=[];
+            $array2=[];
+foreach ($nomMachines as $index => $nomMachine) {
+    $numMachine = $numMachines[$index];
+    $array1[]=$nomMachine;
+    $array2[]=$numMachine;
+
+}
+$string1 =  implode(' ',$array1);
+$string2 =  implode(' ',$array2);
+
+// Split the strings into arrays
+$parts1 = Str::of($string1)->explode(' ');
+$parts2 = Str::of($string2)->explode(' ');
+
+// Merge the arrays with parentheses around the numbers
+$result = [];
+$count = min($parts1->count(), $parts2->count());
+
+for ($i = 0; $i < $count; $i++) {
+    $result[] = $parts1[$i] . '(' . $parts2[$i] . ')';
+}
+
+// If the second string has more parts, append them as-is
+for ($i = $count; $i < $parts2->count(); $i++) {
+    $result[] = $parts2[$i];
+}
+
+// Join the resulting array into a string
+$output = implode(' ', $result);
+
+// Output the final merged string
+ // Output: Tracteur(1) Charr
         $ressource->update([
-            'cultur_id' => $request->cultur,
+            'parcelle_id' => $request->parcelle,
             'semences'=>$request->semences,
             'engrais' =>  $request->engrais,
             'pesticides' => $request->pesticides,
-            'machines_culture' => $request->machines_culture,
+            'besoin_en_pesticides_culture' => $request->besoin_en_pesticides_culture,
+            'besoin_en_eau' => $request->besoin_en_eau,
+            'nom_machine' => $output,
+            'user_id' =>auth()->user()->id,
         ]);
 
         return redirect()->back()->with('success', 'Les données ont été enregistrées avec succès!');

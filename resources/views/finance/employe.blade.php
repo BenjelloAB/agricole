@@ -51,10 +51,11 @@
                             <tr>
                                 <th>id</th>
                                 <th>employe_id</th>
-                                <th>salair</th>
-                                <th>date_paiement</th>
+                                <th>salaire</th>
+                                <th>role</th>
                                 <th>status</th>
                             </tr>
+
                         </thead>
 
                         <tbody>
@@ -66,7 +67,7 @@
                                     <td>{{ $finance_employee->employe->prenom }} {{ $finance_employee->employe->nom }}
                                     </td>
                                     <td>{{ $finance_employee->salair }}</td>
-                                    <td>{{ $finance_employee->date_paiement }}</td>
+                                    <td>{{ $finance_employee->role }}</td>
                                     <td>
                                         <button type="button" class="btn btn-info btn-sm" data-toggle="modal"
                                             data-target="#edit{{ $finance_employee->id }}" title="mise à jour"><i
@@ -114,19 +115,26 @@
                                                                     {{ $item->prenom }} {{ $item->nom }}</option>
                                                             @endforeach
 
+                                                            
+
+
                                                         </select>
                                                     </div>
                                                     <div class="col">
-                                                        <label for="Name_en" class="mr-sm-2">salair
+                                                        <label for="Name_en" class="mr-sm-2">salaire par heure
                                                         </label>
                                                         <input type="text" class="form-control" name="salair"
                                                             required>
                                                     </div>
                                                     <div class="col">
-                                                        <label for="Name_en" class="mr-sm-2">date_paiement
+                                                        <label for="Name_en" class="mr-sm-2">role
                                                         </label>
-                                                        <input type="date" class="form-control" name="date_paiement"
-                                                            required>
+                                                        <select style="background-color: #f6f7f8"
+                                                            class="custom-select custom-select-lg mb-3" name="role">
+                                                            <option selected disabled>selectioner le role</option>
+                                                          <option value="culture">culture</option>
+                                                          <option value="recolte">recolte</option>
+                                                        </select @required(true)>
                                                     </div>
 
                                             </div>
@@ -217,14 +225,19 @@
                             </select>
                         </div>
                         <div class="col">
-                            <label for="Name_en" class="mr-sm-2">salair
+                            <label for="Name_en" class="mr-sm-2">salaire par heure
                             </label>
-                            <input type="text" class="form-control" name="salair" required>
+                            <input type="number" class="form-control" name="salair" required>
                         </div>
                         <div class="col">
-                            <label for="Name_en" class="mr-sm-2">date_paiement
+                            <label for="Name_en" class="mr-sm-2">role
                             </label>
-                            <input type="date" class="form-control" name="date_paiement" required>
+                            <select style="background-color: #f6f7f8"
+                                class="custom-select custom-select-lg mb-3" name="role">
+                                <option selected disabled>selectioner le role</option>
+                              <option value="culture">culture</option>
+                              <option value="recolte">recolte</option>
+                            </select @required(true)>
                         </div>
 
                         <br><br>

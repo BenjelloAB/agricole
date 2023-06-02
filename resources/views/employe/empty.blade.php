@@ -60,8 +60,14 @@
                         </div>
                         <div class="col-sm-3 mb-3">
                             <label for="validationDefault01"><span style="color: red">*</span>Situation_familial</label>
-                            <input type="text" class="form-control" id="validationDefault01" name="situation"
-                                required>
+                                <select id="Name_en" style="background-color: #f6f7f8" class="custom-select custom-select-lg mb-3" name="situation" required>
+                                    <option selected disabled>Selectionner la situation familiale</option>
+                                    <option value="Célibataire">Célibataire</option>
+                                    <option value="Marié(e)">Marié(e)</option>
+                                    <option value="Divorcé(e)">Divorcé(e)</option>
+                                    <option value="Veuf/Veuve">Veuf/Veuve</option>
+                                    <option value="En couple">En couple</option>
+                                </select>
                         </div>
                         <div class="col-sm-3 mb-3">
                             <label for="validationDefault02"><span style="color: red">*</span>adress_postal</label>
@@ -84,17 +90,24 @@
 
                         <div class="col-sm-3 mb-3">
                             <label for="validationDefault05">Niveau_scolaire</label>
-                            <input type="text" class="form-control" id="validationDefault05" name="scolaire">
+                            <select id="Name_en" style="background-color: #f6f7f8" class="custom-select custom-select-lg mb-3" name="scolaire" required>
+                                <option selected disabled>Selectionner le type de scolarité</option>
+                                <option value="Primaire">Primaire</option>
+                                <option value="Secondaire">Secondaire</option>
+                                <option value="Collégial">Collégial</option>
+                                <option value="Universitaire">Universitaire</option>
+                                <option value="Formation professionnelle">Formation professionnelle</option>
+                            </select>
                         </div>
                         <div class="col-sm-3 mb-3">
-                            <label for="validationDefault03"><span style="color: red">*</span>experiance</label>
-                            <input type="text" class="form-control" id="validationDefault03" name="experiance"
+                            <label for="validationDefault03"><span style="color: red">*</span>experience(ans)</label>
+                            <input type="number" min="0" class="form-control" id="validationDefault03" name="experiance"
                                 required>
                         </div>
 
 
                         <div class="col-sm-3 mb-3">
-                            <label for="validationDefault05">Dernier employer</label>
+                            <label for="validationDefault05">Dernier emploie</label>
                             <input type="text" class="form-control" id="validationDefault05" name="employe">
                         </div>
                     </div>

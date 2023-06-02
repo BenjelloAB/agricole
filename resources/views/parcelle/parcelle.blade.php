@@ -51,10 +51,8 @@
                                 <th>id</th>
                                 <th>nom</th>
                                 <th>emplacement</th>
-                                <th>taille</th>
+                                <th>taille(hectare)</th>
                                 <th>type_de_sol</th>
-                                <th>niveau_dirrigation</th>
-                                <th>état_de_santé</th>
                                 <th>status</th>
                             </tr>
                         </thead>
@@ -68,8 +66,6 @@
                                     <td>{{ $parcelles->emplacement }}</td>
                                     <td>{{ $parcelles->taille }}</td>
                                     <td>{{ $parcelles->type_de_sol }}</td>
-                                    <td>{{ $parcelles->niveau_dirrigation }}</td>
-                                    <td>{{ $parcelles->état_de_santé }}</td>
                                     <td> <button type="button" class="btn btn-info btn-sm" data-toggle="modal"
                                             data-target="#edit{{ $parcelles->id }}" title="mise à jour"><i
                                                 class="fa fa-edit"></i></button>
@@ -117,28 +113,25 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="Name" class="mr-sm-2">
-                                                            taille
+                                                            taille(hectare)
                                                         </label>
-                                                        <input id="Name" type="text" name="taille"
-                                                            class="form-control" required>
+                                                        <input id="Name" type="number" name="taille"
+                                                            class="form-control" min="1" required>
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="Name_en" class="mr-sm-2">type_de_sol
                                                         </label>
-                                                        <input type="text" class="form-control" name="type_de_sol"
-                                                            required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="Name_en" class="mr-sm-2">niveau_dirrigation
-                                                        </label>
-                                                        <input type="text" class="form-control"
-                                                            name="niveau_dirrigation" required>
-                                                    </div>
-
-                                                    <div class="form-group">
-                                                        <label for="exampleFormControlTextarea1">état_de_santé
-                                                        </label>
-                                                        <textarea class="form-control" name="état_de_santé" id="exampleFormControlTextarea1" rows="3" required></textarea>
+                                                        <select id="Name_en" style="background-color: #f6f7f8"
+                                                            class="custom-select custom-select-lg mb-3"
+                                                            name="type_de_sol">
+                                                            <option selected disabled>selectioner le parcelle</option>
+                                                            <option value="sol fertile">sol fertile</option>
+                                                            <option value="Sol alluvial">Sol alluvial</option>
+                                                            <option value="Sol limoneux">Sol limoneux</option>
+                                                            <option value="Sol argileux">Sol argileux</option>
+                                                            <option value="Sol sableux">Sol sableux</option>
+                                                            <option value="Sol calcaire">Sol calcaire</option>
+                                                        </select @required(true)>
                                                     </div>
                                                     <br><br>
                                             </div>
@@ -228,24 +221,23 @@
                         </div>
                         <div class="form-group">
                             <label for="Name" class="mr-sm-2">
-                                taille
+                                taille(hectare)
                             </label>
-                            <input id="Name" type="text" name="taille" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="Name_en" class="mr-sm-2">niveau_dirrigation
-                            </label>
-                            <input type="text" class="form-control" name="niveau_dirrigation" required>
+                            <input id="Name" type="number" min="1" name="taille" class="form-control" required>
                         </div>
                         <div class="form-group">
                             <label for="Name_en" class="mr-sm-2">type_de_sol
                             </label>
-                            <input type="text" class="form-control" name="type_de_sol" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleFormControlTextarea1">état_de_santé
-                            </label>
-                            <textarea class="form-control" name="état_de_santé" id="exampleFormControlTextarea1" rows="3" required></textarea>
+                            <select id="Name_en" style="background-color: #f6f7f8"
+                                class="custom-select custom-select-lg mb-3" name="type_de_sol">
+                                <option selected disabled>selectioner le parcelle</option>
+                                <option value="sol fertile">sol fertile</option>
+                                <option value="Sol alluvial">Sol alluvial</option>
+                                <option value="Sol limoneux">Sol limoneux</option>
+                                <option value="Sol argileux">Sol argileux</option>
+                                <option value="Sol sableux">Sol sableux</option>
+                                <option value="Sol calcaire">Sol calcaire</option>
+                            </select @required(true)>
                         </div>
                         <br><br>
                 </div>

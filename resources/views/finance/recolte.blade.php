@@ -50,26 +50,22 @@
                         <thead>
                             <tr>
                                 <th>id</th>
-                                <th>recolte_id</th>
+                                <th>nom_parcelle</th>
                                 <th>coût_récolte</th>
-                                <th>prix_de_vente</th>
-                                <th>revenu_net</th>
-                                <th>revenu_brut</th>
                                 <th>status</th>
+                                
                             </tr>
                         </thead>
 
                         <tbody>
+
                             <?php $i = 0; ?>
                             @foreach ($finance_recolte as $finance_recolte)
                                 <?php $i++; ?>
                                 <tr>
                                     <td>{{ $i }}</td>
-                                    <td>{{ $finance_recolte->recolte_id }}</td>
+                                    <td>{{ $finance_recolte->parcelle->nom }}</td>
                                     <td>{{ $finance_recolte->coût_récolte }}</td>
-                                    <td>{{ $finance_recolte->prix_de_vente }}</td>
-                                    <td>{{ $finance_recolte->revenu_net }}</td>
-                                    <td>{{ $finance_recolte->revenu_brut }}</td>
 
                                     <td>
                                         <button type="button" class="btn btn-info btn-sm" data-toggle="modal"
@@ -115,9 +111,32 @@
                                                                 culture</option>
                                                             @foreach ($recolte as $item)
                                                                 <option value="{{ $item->id }}">
-                                                                    {{ $item->id }}</option>
+                                                                    {{ $item->nom }}</option>
                                                             @endforeach
 
+                                                        </select>
+                                                    </div>
+                                                    <div class="col">
+                                                        <label for="Name" class="mr-sm-2">
+                                                            type plante cultuve
+                                                        </label>
+                                                        <select name="plant" id="" class="form-control">
+
+                                                        </select>
+                                                    </div>
+                                                    <div class="col">
+                                                        <label for="Name" class="mr-sm-2">
+                                                            taille parcelle
+                                                        </label>
+                                                        <select name="taille" id="" class="form-control">
+
+                                                        </select>
+                                                    </div>
+                                                    <div class="col">
+                                                        <label for="Name" class="mr-sm-2">
+                                                            les machines
+                                                        </label>
+                                                        <select name="machine" id="" class="form-control">
                                                         </select>
                                                     </div>
                                                     <div class="col">
@@ -126,30 +145,6 @@
                                                         <input type="text" class="form-control" name="coût_récolte"
                                                             required>
                                                     </div>
-                                                    <div class="col">
-                                                        <label for="Name_en" class="mr-sm-2">prix_de_vente
-                                                        </label>
-                                                        <input type="text" class="form-control" name="prix_de_vente"
-                                                            required>
-                                                    </div>
-
-                                                    <div class="col">
-                                                        <label for="Name_en" class="mr-sm-2">revenu_net
-                                                        </label>
-                                                        <input type="text" class="form-control" name="revenu_net"
-                                                            required>
-                                                    </div>
-                                                    <div class="col">
-                                                        <label for="Name_en" class="mr-sm-2">revenu_brut
-                                                        </label>
-                                                        <input type="text" class="form-control" name="revenu_brut"
-                                                            required>
-                                                    </div>
-
-
-
-
-
 
                                             </div>
                                             <div class="modal-footer">
@@ -232,32 +227,40 @@
                                 <option value="selectioner le parcelle">selectioner le
                                     culture</option>
                                 @foreach ($recolte as $recolte)
-                                    <option value="{{ $recolte->id }}">{{ $recolte->id }}</option>
+                                    <option value="{{ $recolte->id }}">{{ $recolte->nom }}</option>
                                 @endforeach
 
                             </select>
                         </div>
                         <div class="col">
+                            <label for="Name" class="mr-sm-2">
+                                type plante cultuve
+                            </label>
+                            <select name="plant" id="" class="form-control">
+
+                            </select>
+                        </div>
+                        <div class="col">
+                            <label for="Name" class="mr-sm-2">
+                                taille parcelle
+                            </label>
+                            <select name="taille" id="" class="form-control">
+
+                            </select>
+                        </div>
+                        <div class="col">
+                            <label for="Name" class="mr-sm-2">
+                                les machines
+                            </label>
+                            <select name="machine" id="" class="form-control">
+                            </select>
+                        </div>
+                        <div class="col">
                             <label for="Name_en" class="mr-sm-2">coût_récolte
                             </label>
-                            <input type="text" class="form-control" name="coût_récolte" required>
-                        </div>
-                        <div class="col">
-                            <label for="Name_en" class="mr-sm-2">prix_de_vente
-                            </label>
-                            <input type="text" class="form-control" name="prix_de_vente" required>
+                            <input type="number" class="form-control" name="coût_récolte" required>
                         </div>
 
-                        <div class="col">
-                            <label for="Name_en" class="mr-sm-2">revenu_net
-                            </label>
-                            <input type="text" class="form-control" name="revenu_net" required>
-                        </div>
-                        <div class="col">
-                            <label for="Name_en" class="mr-sm-2">revenu_brut
-                            </label>
-                            <input type="text" class="form-control" name="revenu_brut" required>
-                        </div>
 
 
 
@@ -276,5 +279,73 @@
 <!-- row closed -->
 @endsection
 @section('js')
-
+<script>
+    $(document).ready(function() {
+        $('select[name="recolte_id"]').on('change', function() {
+            var recolte_id = $(this).val();
+            if (recolte_id) {
+                $.ajax({
+                    url: "{{ URL::to('plante') }}/" + recolte_id,
+                    type: "GET",
+                    dataType: "json",
+                    success: function(data) {
+                        $('select[name="plant"]').empty();
+                        $.each(data, function(key, value) {
+                            $('select[name="plant"]').append('<option value="' +
+                                key + '">' + value + '</option>');
+                        });
+                    },
+                });
+            } else {
+                console.log('AJAX load did not work');
+            }
+        });
+    });
+</script>
+<script>
+    $(document).ready(function() {
+        $('select[name="recolte_id"]').on('change', function() {
+            var recolte_id = $(this).val();
+            if (recolte_id) {
+                $.ajax({
+                    url: "{{ URL::to('taille') }}/" + recolte_id,
+                    type: "GET",
+                    dataType: "json",
+                    success: function(data) {
+                        $('select[name="taille"]').empty();
+                        $.each(data, function(key, value) {
+                            $('select[name="taille"]').append('<option value="' +
+                                key + '">' + value + '</option>');
+                        });
+                    },
+                });
+            } else {
+                console.log('AJAX load did not work');
+            }
+        });
+    });
+</script>
+<script>
+    $(document).ready(function() {
+        $('select[name="recolte_id"]').on('change', function() {
+            var recolte_id = $(this).val();
+            if (recolte_id) {
+                $.ajax({
+                    url: "{{ URL::to('machine1') }}/" + recolte_id,
+                    type: "GET",
+                    dataType: "json",
+                    success: function(data) {
+                        $('select[name="machine"]').empty();
+                        $.each(data, function(key, value) {
+                            $('select[name="machine"]').append('<option value="' +
+                                key + '">' + value + '</option>');
+                        });
+                    },
+                });
+            } else {
+                console.log('AJAX load did not work');
+            }
+        });
+    });
+</script>
 @endsection

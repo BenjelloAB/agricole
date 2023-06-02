@@ -69,9 +69,13 @@
                         <thead>
                             <tr>
                                 <th>id</th>
-                                <th>nom_recolte</th>
-                                <th>normes_de_qualité</th>
-                                <th>procédures_de_contrôle_qualité</th>
+                                <th>nom_parcelle</th>
+
+                                <th>texture_du_sol</th>
+                                <th>ph_du_sol</th>
+                                <th>etat_de_produit_recolte</th>
+                                <th>etat_sante</th>
+
                             </tr>
                         </thead>
                         <tbody>
@@ -79,9 +83,12 @@
                                 <?php $i++; ?>
                                 <tr>
                                     <td>{{ $i }}</td>
-                                    <td>{{ $control->recolte_id }}</td>
-                                    <td>{{ $control->normes_de_qualité }}</td>
-                                    <td>{{ $control->procédures_de_contrôle_qualité }}</td>
+                                    <td>{{ $control->parcelle->nom }}</td>
+
+                                    <td>{{ $control->texture_du_sol }}</td>
+                                    <td>{{ $control->ph_du_sol }}</td>
+                                    <td>{{ $control->etat_de_produit_recolte }}</td>
+                                    <td>{{ $control->etat_sante }}</td>
                                 </tr>
                             @endforeach
                         </tbody>

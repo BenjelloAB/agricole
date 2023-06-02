@@ -8,6 +8,7 @@
     <meta name="description" content="Webmin - Bootstrap 4 & Angular 5 Admin Dashboard Template" />
     <meta name="author" content="potenzaglobalsolutions.com" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <script src="https://kit.fontawesome.com/70742d8212.js" crossorigin="anonymous"></script>
     @include('layot.head')
 </head>
 @section('title')
@@ -55,12 +56,13 @@
                             <div class="clearfix">
                                 <div class="float-left">
                                     <span class="text-danger">
-                                        <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i>
+
+                                        <i class="fa-solid fa-users-viewfinder highlight-icon" aria-hidden="true" ></i>
                                     </span>
                                 </div>
                                 <div class="float-right text-right">
-                                    <p class="card-text text-dark">Visitors</p>
-                                    <h4>65,650</h4>
+                                    <p class="card-text text-dark">Nombre de responsable </p>
+                                    <h4>{{ $nbr }}</h4>
                                 </div>
                             </div>
                             <p class="text-muted pt-3 mb-0 mt-2 border-top">
@@ -76,16 +78,17 @@
                             <div class="clearfix">
                                 <div class="float-left">
                                     <span class="text-warning">
-                                        <i class="fa fa-shopping-cart highlight-icon" aria-hidden="true"></i>
+
+                                        <i class="fa-solid fa-sack-dollar highlight-icon" aria-hidden="true"></i>
                                     </span>
                                 </div>
                                 <div class="float-right text-right">
-                                    <p class="card-text text-dark">Orders</p>
-                                    <h4>656</h4>
+                                    <p class="card-text text-dark">Capital total</p>
+                                    <h4>{{ $ct }}</h4>
                                 </div>
                             </div>
                             <p class="text-muted pt-3 mb-0 mt-2 border-top">
-                                <i class="fa fa-bookmark-o mr-1" aria-hidden="true"></i> Total sales
+                                <i class="fa fa-bookmark-o mr-1" aria-hidden="true"></i> hhh
                             </p>
                         </div>
                     </div>
@@ -100,8 +103,8 @@
                                     </span>
                                 </div>
                                 <div class="float-right text-right">
-                                    <p class="card-text text-dark">Revenue</p>
-                                    <h4>$65656</h4>
+                                    <p class="card-text text-dark">Reste total</p>
+                                    <h4>{{ $ct-$cout_CRE }}</h4>
                                 </div>
                             </div>
                             <p class="text-muted pt-3 mb-0 mt-2 border-top">
@@ -116,12 +119,13 @@
                             <div class="clearfix">
                                 <div class="float-left">
                                     <span class="text-primary">
-                                        <i class="fa fa-twitter highlight-icon" aria-hidden="true"></i>
+
+                                        <i class="fa-solid fa-users  highlight-icon" aria-hidden="true"></i>
                                     </span>
                                 </div>
                                 <div class="float-right text-right">
-                                    <p class="card-text text-dark">Followers</p>
-                                    <h4>62,500+</h4>
+                                    <p class="card-text text-dark">Nombre des employes</p>
+                                    <h4>{{ $count_emp }}</h4>
                                 </div>
                             </div>
                             <p class="text-muted pt-3 mb-0 mt-2 border-top">
@@ -200,7 +204,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            {{-- <div class="row">
                 <div class="col-xl-4 mb-30">
                     <div class="card h-100">
                         <div class="card-body">
@@ -431,7 +435,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
             <div class="row">
                 <div class="col-xl-4 mb-30">
                     <div class="card card-statistics h-100">
@@ -585,7 +589,7 @@
                     </div>
                 </div>
             </div>
-          
+
 
 
             <!--=================================

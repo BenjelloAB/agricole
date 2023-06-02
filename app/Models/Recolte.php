@@ -12,11 +12,8 @@ class Recolte extends Model
     protected $fillable = [
         'parcelle_id',
         'quantité_récoltée',
-        'date_récolte',
-        'coût_récolte',
-        'Moyen_rendement',
-        'qualité_récolte',
-        'prix_de_vente',
+        'date_récolte_debut',
+        'date_récolte_fin',
         'user_id'
     ];
     public function parcelle()
@@ -27,15 +24,9 @@ class Recolte extends Model
     {
         return $this->belongsToMany(Employe::class);
     }
-    public function ressourcerecolte()
-    {
-        return $this->hasMany(Ressourcerecolte::class);
-    }
 
-    public function control()
-    {
-        return $this->hasMany(Control::class);
-    }
+
+   
     public function finance_recolte()
     {
         return $this->hasOne(Finance_Recolte::class);

@@ -12,13 +12,8 @@ class Cultur extends Model
     protected $fillable = [
         'parcelle_id',
         'nom',
-        'type',
-        'date_de_plantation_culture',
-        'date_de_récolte_prévue_culture',
-        'besoin_en_eau',
-        'besoin_en_nutriments_culture',
-        'besoin_en_pesticides_culture',
-        'état_de_santé_culture',
+        'debut_culture',
+        'fin_culture',
         'user_id',
     ];
     public function parcelle()
@@ -29,12 +24,5 @@ class Cultur extends Model
     {
         return $this->belongsToMany(Employe::class);
     }
-    public function ressourceculture(): HasOne
-    {
-        return $this->hasOne(Ressourceculture::class);
-    }
-    public function finance_culture()
-    {
-        return $this->hasMany(Finance_Culture::class);
-    }
+
 }

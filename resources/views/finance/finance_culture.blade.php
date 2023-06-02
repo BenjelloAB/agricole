@@ -50,12 +50,12 @@
                         <thead>
                             <tr>
                                 <th>id</th>
-                                <th>cultur_id</th>
-                                <th>ressourceculture_id</th>
+                                <th>Nom_parcelle</th>
                                 <th>coût_semences</th>
                                 <th>coût_engrais</th>
                                 <th>coût_pesticides</th>
                                 <th>coût_machines_culture</th>
+                                <th>cout_consommation_eau</th>
                                 <th>status</th>
                             </tr>
                         </thead>
@@ -66,12 +66,12 @@
                                 <?php $i++; ?>
                                 <tr>
                                     <td>{{ $i }}</td>
-                                    <td>{{ $finance_culture->cultur_id }}</td>
-                                    <td>{{ $finance_culture->ressourceculture_id }}</td>
+                                    <td>{{ $finance_culture->parcelle->nom }}</td>
                                     <td>{{ $finance_culture->coût_semences }}</td>
                                     <td>{{ $finance_culture->coût_engrais }}</td>
                                     <td>{{ $finance_culture->coût_pesticides }}</td>
                                     <td>{{ $finance_culture->coût_machines_culture }}</td>
+                                    <td>{{ $finance_culture->cout_consommation_eau }}</td>
                                     <td>
                                         <button type="button" class="btn btn-info btn-sm" data-toggle="modal"
                                             data-target="#edit{{ $finance_culture->id }}" title="mise à jour"><i
@@ -81,6 +81,7 @@
                                                 class="fa fa-trash"></i></button>
                                     </td>
                                 </tr>
+
                                 <!-- edit_modal_parcelle -->
                                 <div class="modal fade" id="edit{{ $finance_culture->id }}" tabindex="-1"
                                     role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -121,7 +122,7 @@
 
                                                         </select>
                                                     </div>
-                                                    <div class="col">
+                                                    {{-- <div class="col">
                                                         <label for="Name" class="mr-sm-2">
                                                             ressourceculture_id
                                                         </label>
@@ -135,6 +136,29 @@
                                                             @endforeach
 
                                                         </select>
+                                                    </div> --}}
+                                                    <div class="col">
+                                                        <label for="Name" class="mr-sm-2">
+                                                            type plante cultuve
+                                                        </label>
+                                                        <select name="plant" id="" class="form-control">
+
+                                                        </select>
+                                                    </div>
+                                                    <div class="col">
+                                                        <label for="Name" class="mr-sm-2">
+                                                            taille parcelle
+                                                        </label>
+                                                        <select name="taille" id="" class="form-control">
+
+                                                        </select>
+                                                    </div>
+                                                    <div class="col">
+                                                        <label for="Name" class="mr-sm-2">
+                                                            les machines
+                                                        </label>
+                                                        <select name="machine" id="" class="form-control">
+                                                        </select>
                                                     </div>
                                                     <div class="col">
                                                         <label for="Name_en" class="mr-sm-2">coût_semences
@@ -145,8 +169,8 @@
                                                     <div class="col">
                                                         <label for="Name_en" class="mr-sm-2">coût_engrais
                                                         </label>
-                                                        <input type="text" class="form-control" name="coût_engrais"
-                                                            required>
+                                                        <input type="text" class="form-control"
+                                                            name="coût_engrais" required>
                                                     </div>
 
                                                     <div class="col">
@@ -161,8 +185,12 @@
                                                         <input type="text" class="form-control"
                                                             name="coût_machines_culture" required>
                                                     </div>
-
-
+                                                    <div class="col">
+                                                        <label for="Name_en" class="mr-sm-2">cout_consommation_eau
+                                                        </label>
+                                                        <input type="text" class="form-control"
+                                                            name="cout_consommation_eau" required>
+                                                    </div>
 
                                             </div>
                                             <div class="modal-footer">
@@ -241,7 +269,8 @@
                             <label for="Name" class="mr-sm-2">
                                 cultur_id
                             </label>
-                            <select name="cultur_id" id="" class="form-control">
+                            <select name="cultur_id" id="" class="form-control"
+                                onchange="console.log($(this).val())">
                                 <option value="selectioner le parcelle">selectioner le
                                     culture</option>
                                 @foreach ($cultur as $cultur)
@@ -252,15 +281,56 @@
                         </div>
                         <div class="col">
                             <label for="Name" class="mr-sm-2">
-                                ressourceculture_id
+                                type plante cultuve
                             </label>
-                            <select name="ressourceculture_id" id="" class="form-control">
-                                <option value="selectioner le parcelle">selectioner le
-                                    culture</option>
-                                @foreach ($ressourceculture as $ressourceculture)
-                                    <option value="{{ $ressourceculture->id }}">{{ $ressourceculture->id }}</option>
-                                @endforeach
+                            <select name="plant" id="" class="form-control">
 
+                            </select>
+                        </div>
+                        <div class="col">
+                            <label for="Name" class="mr-sm-2">
+                                taille parcelle
+                            </label>
+                            <select name="taille" id="" class="form-control">
+
+                            </select>
+                        </div>
+                        <div class="col">
+                            <label for="Name" class="mr-sm-2">
+                                les machines
+                            </label>
+                            <select name="machine" id="" class="form-control">
+                            </select>
+                        </div>
+
+                        <div class="col">
+                            <label for="Name" class="mr-sm-2">
+                                consommation semences
+                              </label>
+                            <select name="semences" id="" class="form-control">
+
+                            </select>
+                        </div>
+                        <div class="col">
+                            <label for="Name" class="mr-sm-2">
+                                engrais
+                            </label>
+                            <select name="engrais" id="" class="form-control">
+
+                            </select>
+                        </div>
+                        <div class="col">
+                            <label for="Name" class="mr-sm-2">
+                                pesticides
+                            </label>
+                            <select name="pesticides" id="" class="form-control">
+                            </select>
+                        </div>
+                        <div class="col">
+                            <label for="Name" class="mr-sm-2">
+                                besoin_en_eau
+                            </label>
+                            <select name="besoin_en_eau" id="" class="form-control">
                             </select>
                         </div>
                         <div class="col">
@@ -285,6 +355,11 @@
                             <input type="text" class="form-control" name="coût_machines_culture" required>
                         </div>
 
+                        <div class="col">
+                            <label for="Name_en" class="mr-sm-2">cout_consommation_eau
+                            </label>
+                            <input type="text" class="form-control" name="cout_consommation_eau" required>
+                        </div>
 
 
                         <br><br>
@@ -302,5 +377,165 @@
 <!-- row closed -->
 @endsection
 @section('js')
-
+<script>
+    $(document).ready(function() {
+        $('select[name="cultur_id"]').on('change', function() {
+            var cultur_id = $(this).val();
+            if (cultur_id) {
+                $.ajax({
+                    url: "{{ URL::to('plante') }}/" + cultur_id,
+                    type: "GET",
+                    dataType: "json",
+                    success: function(data) {
+                        $('select[name="plant"]').empty();
+                        $.each(data, function(key, value) {
+                            $('select[name="plant"]').append('<option value="' +
+                                key + '">' + value + '</option>');
+                        });
+                    },
+                });
+            } else {
+                console.log('AJAX load did not work');
+            }
+        });
+    });
+</script>
+<script>
+    $(document).ready(function() {
+        $('select[name="cultur_id"]').on('change', function() {
+            var cultur_id = $(this).val();
+            if (cultur_id) {
+                $.ajax({
+                    url: "{{ URL::to('taille') }}/" + cultur_id,
+                    type: "GET",
+                    dataType: "json",
+                    success: function(data) {
+                        $('select[name="taille"]').empty();
+                        $.each(data, function(key, value) {
+                            $('select[name="taille"]').append('<option value="' +
+                                key + '">' + value + '</option>');
+                        });
+                    },
+                });
+            } else {
+                console.log('AJAX load did not work');
+            }
+        });
+    });
+</script>
+<script>
+    $(document).ready(function() {
+        $('select[name="cultur_id"]').on('change', function() {
+            var cultur_id = $(this).val();
+            if (cultur_id) {
+                $.ajax({
+                    url: "{{ URL::to('machine') }}/" + cultur_id,
+                    type: "GET",
+                    dataType: "json",
+                    success: function(data) {
+                        $('select[name="machine"]').empty();
+                        $.each(data, function(key, value) {
+                            $('select[name="machine"]').append('<option value="' +
+                                key + '">' + value + '</option>');
+                        });
+                    },
+                });
+            } else {
+                console.log('AJAX load did not work');
+            }
+        });
+    });
+</script>
+<script>
+    $(document).ready(function() {
+        $('select[name="cultur_id"]').on('change', function() {
+            var cultur_id = $(this).val();
+            if (cultur_id) {
+                $.ajax({
+                    url: "{{ URL::to('semences') }}/" + cultur_id,
+                    type: "GET",
+                    dataType: "json",
+                    success: function(data) {
+                        $('select[name="semences"]').empty();
+                        $.each(data, function(key, value) {
+                            $('select[name="semences"]').append('<option value="' +
+                                key + '">' + value + '</option>');
+                        });
+                    },
+                });
+            } else {
+                console.log('AJAX load did not work');
+            }
+        });
+    });
+</script>
+<script>
+    $(document).ready(function() {
+        $('select[name="cultur_id"]').on('change', function() {
+            var cultur_id = $(this).val();
+            if (cultur_id) {
+                $.ajax({
+                    url: "{{ URL::to('engrais') }}/" + cultur_id,
+                    type: "GET",
+                    dataType: "json",
+                    success: function(data) {
+                        $('select[name="engrais"]').empty();
+                        $.each(data, function(key, value) {
+                            $('select[name="engrais"]').append('<option value="' +
+                                key + '">' + value + '</option>');
+                        });
+                    },
+                });
+            } else {
+                console.log('AJAX load did not work');
+            }
+        });
+    });
+</script>
+<script>
+    $(document).ready(function() {
+        $('select[name="cultur_id"]').on('change', function() {
+            var cultur_id = $(this).val();
+            if (cultur_id) {
+                $.ajax({
+                    url: "{{ URL::to('pesticides') }}/" + cultur_id,
+                    type: "GET",
+                    dataType: "json",
+                    success: function(data) {
+                        $('select[name="pesticides"]').empty();
+                        $.each(data, function(key, value) {
+                            $('select[name="pesticides"]').append('<option value="' +
+                                key + '">' + value + '</option>');
+                        });
+                    },
+                });
+            } else {
+                console.log('AJAX load did not work');
+            }
+        });
+    });
+</script>
+<script>
+    $(document).ready(function() {
+        $('select[name="cultur_id"]').on('change', function() {
+            var cultur_id = $(this).val();
+            if (cultur_id) {
+                $.ajax({
+                    url: "{{ URL::to('besoin_en_eau') }}/" + cultur_id,
+                    type: "GET",
+                    dataType: "json",
+                    success: function(data) {
+                        $('select[name="besoin_en_eau"]').empty();
+                        $.each(data, function(key, value) {
+                            $('select[name="besoin_en_eau"]').append('<option value="' +
+                                key + '">' + value + '</option>');
+                        });
+                    },
+                });
+            } else {
+                console.log('AJAX load did not work');
+            }
+        });
+    });
+</script>
 @endsection

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Control;
+use App\Models\Parcelle;
 use App\Models\Recolte;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -11,7 +12,7 @@ class CqualiteController extends Controller
 {
    public function index()
    {
-        $recolte=Recolte::where('user_id',Auth::user()->id)->get();
+        $recolte=Parcelle::where('user_id',Auth::user()->id)->get();
         $control=Control::where('user_id',Auth::user()->id)->get();
        return view('control_qualite.qualite',compact('recolte','control'));
    }
@@ -20,9 +21,11 @@ class CqualiteController extends Controller
     {
         try {
             $so = Control::create([
-                'recolte_id' => $request->recolte_id,
-                'normes_de_qualité' => $request->normes_de_qualité,
-                'procédures_de_contrôle_qualité' => $request->procédures_de_contrôle_qualité,
+                'parcelle_id' => $request->recolte_id,
+                'etat_sante' => $request->etat_sante,
+                'texture_du_sol' => $request->texture_du_sol,
+                'ph_du_sol' => $request->ph_du_sol,
+                'etat_de_produit_recolte' => $request->etat_de_produit_recolte,
                  'user_id' =>Auth::user()->id,
             ]);
 
@@ -36,9 +39,12 @@ class CqualiteController extends Controller
         try {
             $so = Control::find($request->id);
             $so->update([
-                'recolte_id' => $request->recolte_id,
-                'normes_de_qualité' => $request->normes_de_qualité,
-                'procédures_de_contrôle_qualité' => $request->procédures_de_contrôle_qualité,
+                'parcelle_id' => $request->recolte_id,
+                'etat_sante' => $request->etat_sante,
+                'texture_du_sol' => $request->texture_du_sol,
+                'ph_du_sol' => $request->ph_du_sol,
+                'etat_de_produit_recolte' => $request->etat_de_produit_recolte,
+                 'user_id' =>Auth::user()->id,
             ]);
 
             return redirect()->back()->with('success', 'Les données ont été modifiées avec succès!');

@@ -70,8 +70,8 @@
                             <tr>
                                 <th>id</th>
                                 <th>employe_id</th>
-                                <th>salair</th>
-                                <th>date_paiement</th>
+                                <th>salaire</th>
+                                <th>role</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -82,7 +82,7 @@
                                     <td>{{ $finance_employee->employe->prenom }} {{ $finance_employee->employe->nom }}
                                     </td>
                                     <td>{{ $finance_employee->salair }}</td>
-                                    <td>{{ $finance_employee->date_paiement }}</td>
+                                    <td>{{ $finance_employee->role }}</td>
                                 </tr>
                             @endforeach
                         </tbody>

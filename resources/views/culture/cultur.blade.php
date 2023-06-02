@@ -40,14 +40,9 @@
                                 <th>id</th>
                                 <th>nom_parcelle</th>
                                 <th>nom_employe</th>
-                                <th>nom</th>
-                                <th>type</th>
-                                <th>date_de_plantation_culture</th>
-                                <th>date_de_récolte_prévue_culture</th>
-                                <th>besoin_en_eau</th>
-                                <th>besoin_en_nutriments_culture</th>
-                                <th>besoin_en_pesticides_culture</th>
-                                <th>état_de_santé_culture</th>
+                                <th>type_plante</th>
+                                <th>debut_culture</th>
+                                <th>fin_culture</th>
                                 <th>status</th>
                             </tr>
                         </thead>
@@ -68,13 +63,8 @@
                                         @endforeach
                                     </td>
                                     <td>{{ $culture->nom }}</td>
-                                    <td>{{ $culture->type }}</td>
-                                    <td>{{ $culture->date_de_plantation_culture }}</td>
-                                    <td>{{ $culture->date_de_récolte_prévue_culture }}</td>
-                                    <td>{{ $culture->besoin_en_eau }}</td>
-                                    <td>{{ $culture->besoin_en_nutriments_culture }}</td>
-                                    <td>{{ $culture->besoin_en_pesticides_culture }}</td>
-                                    <td>{{ $culture->état_de_santé_culture }}</td>
+                                    <td>{{ $culture->debut_culture }}</td>
+                                    <td>{{ $culture->fin_culture }}</td>
                                     <td>
                                         <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
                                             data-target="#delete{{ $culture->id }}" title="supprimer"><i

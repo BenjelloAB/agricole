@@ -98,35 +98,18 @@
                         </div>
                         <div class="col-sm-3 mb-3">
                             <label for="validationDefault01"><span style="color: red">*</span>quantité_récoltée</label>
-                            <input type="text" class="form-control" id="validationDefault01" name="quantité_récoltée" required>
+                            <input type="number" min="0" class="form-control" id="validationDefault01" name="quantité_récoltée" required>
                         </div>
                         <div class="col-sm-3 mb-3">
-                            <label for="validationDefault01"><span style="color: red">*</span>date_récolte</label>
-                            <input type="text" class="form-control" id="validationDefault01" name="date_récolte" required>
+                            <label for="validationDefault01"><span style="color: red">*</span>date_récolte_debut</label>
+                            <input type="date" class="form-control" id="validationDefault01" name="date_récolte_debut" required>
                         </div>
                         <div class="col-sm-3 mb-3">
-                            <label for="validationDefault02"><span
-                                    style="color: red">*</span>coût_récolte</label>
-                            <input type="text" class="form-control" id="validationDefault02"
-                                name="coût_récolte" required>
+                            <label for="validationDefault01"><span style="color: red">*</span>date_récolte_fin</label>
+                            <input type="date" class="form-control" id="validationDefault01" name="date_récolte_fin" required>
                         </div>
-                        <div class="col-sm-3 mb-3">
-                            <label for="validationDefault01"><span
-                                    style="color: red">*</span>Moyen_rendement</label>
-                            <input type="text" class="form-control" id="validationDefault01"
-                                name="Moyen_rendement" required>
-                        </div>
-                        <div class="col-sm-3 mb-3">
-                            <label for="validationDefault02"><span style="color: red">*</span>qualité_récolte</label>
-                            <input type="text" class="form-control" id="validationDefault02" name="qualité_récolte"
-                                required>
-                        </div>
-                        <div class="col-sm-3 mb-3">
-                            <label for="validationDefault01"><span
-                                    style="color: red">*</span>prix_de_vente</label>
-                            <input type="text" class="form-control" id="validationDefault01"
-                                name="prix_de_vente" required>
-                        </div>
+
+
 
                     </div>
                     <div class="form-group">
