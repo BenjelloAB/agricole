@@ -11,12 +11,12 @@
 <div class="page-title">
     <div class="row">
         <div class="col-sm-6">
-            <h4 class="mb-0">ajouter culture</h4>
+            <h4 class="mb-0">Commencer récoltee</h4>
         </div>
         <div class="col-sm-6">
             <ol class="breadcrumb pt-0 pr-0 float-left float-sm-right ">
-                <li class="breadcrumb-item"><a href="#" class="default-color">employe</a></li>
-                <li class="breadcrumb-item active">ajouter culture</li>
+                <li class="breadcrumb-item"><a href="#" class="default-color">Employé</a></li>
+                <li class="breadcrumb-item active">Commencer récolte</li>
             </ol>
         </div>
     </div>
@@ -44,7 +44,7 @@
                     @method('POST')
                     <div class="form-row">
                         <div class="col-sm-3 mb-3">
-                            <label for="validationDefault01"><span style="color: red">*</span>nom_parcelle</label>
+                            <label for="validationDefault01"><span style="color: red">*</span>Nom Parcelle</label>
 
                             {{-- <select class="form-control" id="validationDefault01">
                                 @foreach ($parcelle as $parcelle)
@@ -53,14 +53,14 @@
                             </select> --}}
                             <select style="background-color: #f6f7f8" class="custom-select custom-select-lg mb-3"
                                 name="nom_parcelle">
-                                <option>selectioner le parcelle</option>
+                                <option>selectionner la parcelle</option>
                                 @foreach ($parcelle as $parcelle)
                                     <option value="{{ $parcelle->id }}"> {{ $parcelle->nom }}</option>
                                 @endforeach
                             </select @required(true)>
 
-                            {{-- <button class="uk-button uk-button-default form-control" type="button">select
-                                le parcelle</button>
+                            {{-- <button class="uk-button uk-button-default form-control" type="button">selectionner
+                                la parcelle</button>
                             <div uk-dropdown>
                                 <ul class="uk-nav uk-dropdown-nav">
                                     <li class="uk-active">
@@ -77,8 +77,8 @@
 
                         </div>
                         <div class="col-sm-3 mb-3">
-                            <label for="validationDefault02"><span style="color: red">*</span>nom_employe</label>
-                            <button class="uk-button uk-button-default form-control" type="button">select
+                            <label for="validationDefault02"><span style="color: red">*</span>Nom employé(s)</label>
+                            <button class="uk-button uk-button-default form-control" type="button">selectionner
                                 l'employe</button>
                             <div uk-dropdown>
                                 <ul class="uk-nav uk-dropdown-nav">
@@ -97,15 +97,15 @@
 
                         </div>
                         <div class="col-sm-3 mb-3">
-                            <label for="validationDefault01"><span style="color: red">*</span>quantité_récoltée</label>
+                            <label for="validationDefault01"><span style="color: red">*</span>quantité récoltée estimée(Ton)</label>
                             <input type="number" min="0" class="form-control" id="validationDefault01" name="quantité_récoltée" required>
                         </div>
                         <div class="col-sm-3 mb-3">
-                            <label for="validationDefault01"><span style="color: red">*</span>date_récolte_debut</label>
+                            <label for="validationDefault01"><span style="color: red">*</span>Date début récolte</label>
                             <input type="date" class="form-control" id="validationDefault01" name="date_récolte_debut" required>
                         </div>
                         <div class="col-sm-3 mb-3">
-                            <label for="validationDefault01"><span style="color: red">*</span>date_récolte_fin</label>
+                            <label for="validationDefault01"><span style="color: red">*</span>Date fin récolte</label>
                             <input type="date" class="form-control" id="validationDefault01" name="date_récolte_fin" required>
                         </div>
 
@@ -115,11 +115,11 @@
                     <div class="form-group">
                         <div class="form-check">
                             <label class="form-check-label" for="invalidCheck2" style="color: red">
-                                *les champs ce sont obliges
+                                *les champs ce sont obligatoires
                             </label>
                         </div>
                     </div>
-                    <button class="btn btn-primary" type="submit">Submit</button>
+                    <button class="btn btn-primary" type="submit">Créer</button>
                 </form>
             </div>
         </div>

@@ -11,10 +11,10 @@
                         </a>
                     </li>
                     <!-- menu title -->
-                    <li class="mt-10 mb-10 text-muted pl-4 font-medium menu-title">Components </li>
+                    <li class="mt-10 mb-10 text-muted pl-4 font-medium menu-title">Composants </li>
                     <!-- menu item Elements-->
                     <li>
-                        <a href="{{ route('parcelle.index') }}"><i class="ti-pie-chart"></i><span
+                        <a href="{{ route('parcelle.index') }}"><i class="fa-duotone fa-mountain-sun"></i><span
                                 class="right-nav-text">Parcelle de terrain</span>
                         </a>
                     </li>
@@ -43,14 +43,13 @@
                     <!-- menu item Charts-->
                     <li>
                         <a href="javascript:void(0);" data-toggle="collapse" data-target="#chart">
-                            <div class="pull-left"><i class="ti-pie-chart"></i><span class="right-nav-text">saison
-                                    agricole</span></div>
+                            <div class="pull-left"><i class="ti-pie-chart"></i><span class="right-nav-text">Gestion Cultuvation</span></div>
                             <div class="pull-right"><i class="ti-plus"></i></div>
                             <div class="clearfix"></div>
                         </a>
                         <ul id="chart" class="collapse" data-parent="#sidebarnav">
-                            <li> <a href="{{ route('culture.index') }}">Culture</a> </li>
-                            <li> <a href="{{ route('culture.ressource') }}">Ressource</a> </li>
+                            <li> <a href="{{ route('culture.index') }}">Commencer Cultuvation</a> </li>
+                            <li> <a href="{{ route('culture.ressource') }}">Ressource Cultuvation</a> </li>
 
                         </ul>
                     </li>
@@ -58,14 +57,13 @@
                     <!-- menu font icon-->
                     <li>
                         <a href="javascript:void(0);" data-toggle="collapse" data-target="#font-icon">
-                            <div class="pull-left"><i class="ti-pie-chart"></i><span class="right-nav-text">Saison des
-                                    récoltes</span></div>
+                            <div class="pull-left"><i class="ti-pie-chart"></i><span class="right-nav-text">Gestion Récolte</span></div>
                             <div class="pull-right"><i class="ti-plus"></i></div>
                             <div class="clearfix"></div>
                         </a>
                         <ul id="font-icon" class="collapse" data-parent="#sidebarnav">
-                            <li> <a href="{{ route('recolte.index') }}">récolté </a> </li>
-                            <li> <a href="{{ route('ressource.show') }}">Ressource</a> </li>
+                            <li> <a href="{{ route('recolte.index') }}">Commencer Récolte </a> </li>
+                            <li> <a href="{{ route('ressource.show') }}">Ressource Récolte</a> </li>
 
                         </ul>
                     </li>

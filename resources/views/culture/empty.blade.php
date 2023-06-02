@@ -87,12 +87,12 @@
 <div class="page-title">
     <div class="row">
         <div class="col-sm-6">
-            <h4 class="mb-0">ajouter culture</h4>
+            <h4 class="mb-0"> Commencer la cultuvation</h4>
         </div>
         <div class="col-sm-6">
             <ol class="breadcrumb pt-0 pr-0 float-left float-sm-right ">
-                <li class="breadcrumb-item"><a href="#" class="default-color">employe</a></li>
-                <li class="breadcrumb-item active">ajouter culture</li>
+                <li class="breadcrumb-item"><a href="#" class="default-color">Employé</a></li>
+                <li class="breadcrumb-item active">Commencer la cultuvation</li>
             </ol>
         </div>
     </div>
@@ -120,7 +120,7 @@
                     @method('POST')
                     <div class="form-row">
                         <div class="col-sm-3 mb-3">
-                            <label for="validationDefault01"><span style="color: red">*</span>nom_parcelle</label>
+                            <label for="validationDefault01"><span style="color: red">*</span>Nom parcelle</label>
 
                             {{-- <select class="form-control" id="validationDefault01">
                                 @foreach ($parcelle as $parcelle)
@@ -153,9 +153,9 @@
 
                         </div>
                         <div class="col-sm-3 mb-3">
-                            <label for="validationDefault02"><span style="color: red">*</span>nom_employe</label>
-                            <button class="uk-button uk-button-default form-control" type="button">select
-                                l'employe</button>
+                            <label for="validationDefault02"><span style="color: red">*</span>Nom Employé</label>
+                            <button class="uk-button uk-button-default form-control" type="button">selectionner
+                                l'employé</button>
                             <div uk-dropdown>
                                 <ul class="uk-nav uk-dropdown-nav">
                                     <li class="uk-active">
@@ -173,7 +173,7 @@
 
                         </div>
                         <div class="col-sm-3 mb-3">
-                            <label for="validationDefault01"><span style="color: red">*</span>type_plante</label>
+                            <label for="validationDefault01"><span style="color: red">*</span>Type de Plante</label>
                             <select style="background-color: #f6f7f8" class="custom-select custom-select-lg mb-3"
                                 name="nom">
                                 <option selected disabled>selectioner le nom</option>
@@ -185,13 +185,13 @@
 
                         <div class="col-sm-3 mb-3">
                             <label for="validationDefault02"><span
-                                    style="color: red">*</span>debut_culture</label>
+                                    style="color: red">*</span>Date debut cultuvation</label>
                             <input type="date" class="form-control" id="validationDefault02"
                                 name="debut_culture" required>
                         </div>
                         <div class="col-sm-3 mb-3">
                             <label for="validationDefault01"><span
-                                    style="color: red">*</span>fin_culture</label>
+                                    style="color: red">*</span>Date fin cultuvation</label>
                             <input type="date" class="form-control" id="validationDefault01"
                                 name="fin_culture" required>
                         </div>
@@ -201,11 +201,11 @@
                     <div class="form-group">
                         <div class="form-check">
                             <label class="form-check-label" for="invalidCheck2" style="color: red">
-                                *les champs ce sont obliges
+                                *les champs ce sont obligatoires
                             </label>
                         </div>
                     </div>
-                    <button class="btn btn-primary" type="submit">Submit</button>
+                    <button class="btn btn-primary" type="submit">Créer</button>
                 </form>
             </div>
         </div>

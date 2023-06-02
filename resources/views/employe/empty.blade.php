@@ -10,12 +10,12 @@
 <div class="page-title">
     <div class="row">
         <div class="col-sm-6">
-            <h4 class="mb-0">ajouter employe</h4>
+            <h4 class="mb-0">Ajouter employé</h4>
         </div>
         <div class="col-sm-6">
             <ol class="breadcrumb pt-0 pr-0 float-left float-sm-right ">
-                <li class="breadcrumb-item"><a href="#" class="default-color">employe</a></li>
-                <li class="breadcrumb-item active">ajouter employe</li>
+                <li class="breadcrumb-item"><a href="#" class="default-color">Employé</a></li>
+                <li class="breadcrumb-item active">Ajouter employé</li>
             </ol>
         </div>
     </div>
@@ -43,23 +43,23 @@
                     @method('POST')
                     <div class="form-row">
                         <div class="col-sm-3 mb-3">
-                            <label for="validationDefault01"><span style="color: red">*</span>NOM</label>
+                            <label for="validationDefault01"><span style="color: red">*</span>Nom</label>
                             <input type="text" class="form-control" id="validationDefault01" name="nom" required>
                         </div>
                         <div class="col-sm-3 mb-3">
-                            <label for="validationDefault02"><span style="color: red">*</span>Prenom</label>
+                            <label for="validationDefault02"><span style="color: red">*</span>Prénom</label>
                             <input type="text" class="form-control" id="validationDefault02" name="prenom" required>
                         </div>
                         <div class="col-sm-3 mb-3">
-                            <label for="validationDefault01"><span style="color: red">*</span>Date_Naissance</label>
+                            <label for="validationDefault01"><span style="color: red">*</span>Date de naissance</label>
                             <input type="date" class="form-control" id="validationDefault01" name="date" required>
                         </div>
                         <div class="col-sm-3 mb-3">
-                            <label for="validationDefault02"><span style="color: red">*</span>Lieu_Naissance</label>
+                            <label for="validationDefault02"><span style="color: red">*</span>Lieu de naissance</label>
                             <input type="text" class="form-control" id="validationDefault02" name="lieu" required>
                         </div>
                         <div class="col-sm-3 mb-3">
-                            <label for="validationDefault01"><span style="color: red">*</span>Situation_familial</label>
+                            <label for="validationDefault01"><span style="color: red">*</span>Situation Familiale</label>
                                 <select id="Name_en" style="background-color: #f6f7f8" class="custom-select custom-select-lg mb-3" name="situation" required>
                                     <option selected disabled>Selectionner la situation familiale</option>
                                     <option value="Célibataire">Célibataire</option>
@@ -70,7 +70,7 @@
                                 </select>
                         </div>
                         <div class="col-sm-3 mb-3">
-                            <label for="validationDefault02"><span style="color: red">*</span>adress_postal</label>
+                            <label for="validationDefault02"><span style="color: red">*</span>adresse</label>
                             <input type="text" class="form-control" id="validationDefault02" name="adress" required>
                         </div>
                         <div class="col-sm-3 mb-3">
@@ -78,20 +78,20 @@
                             <input type="text" class="form-control" id="validationDefault01" name="cin" required>
                         </div>
                         <div class="col-sm-3 mb-3">
-                            <label for="validationDefault02"><span style="color: red">*</span>Telephone</label>
+                            <label for="validationDefault02"><span style="color: red">*</span>Téléphone</label>
                             <input type="text" class="form-control" id="validationDefault02" name="tele" required>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="col-sm-3 mb-3">
-                            <label for="validationDefault03">@mail</label>
+                            <label for="validationDefault03">Adresse mail</label>
                             <input type="text" class="form-control" id="validationDefault03" name="mail">
                         </div>
 
                         <div class="col-sm-3 mb-3">
-                            <label for="validationDefault05">Niveau_scolaire</label>
+                            <label for="validationDefault05">Niveau Scolaire</label>
                             <select id="Name_en" style="background-color: #f6f7f8" class="custom-select custom-select-lg mb-3" name="scolaire" required>
-                                <option selected disabled>Selectionner le type de scolarité</option>
+                                <option selected disabled>Selectionner le niveau de scolarité</option>
                                 <option value="Primaire">Primaire</option>
                                 <option value="Secondaire">Secondaire</option>
                                 <option value="Collégial">Collégial</option>
@@ -114,11 +114,11 @@
                     <div class="form-group">
                         <div class="form-check">
                             <label class="form-check-label" for="invalidCheck2" style="color: red">
-                                *les champs ce sont obliges
+                                *les champs ce sont obligatoire
                             </label>
                         </div>
                     </div>
-                    <button class="btn btn-primary" type="submit">Submit</button>
+                    <button class="btn btn-primary" type="submit">Créer</button>
                 </form>
             </div>
         </div>

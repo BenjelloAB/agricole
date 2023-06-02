@@ -10,12 +10,12 @@
 <div class="page-title">
     <div class="row">
         <div class="col-sm-6">
-            <h4 class="mb-0">creation le respo</h4>
+            <h4 class="mb-0">Creation du Responsable</h4>
         </div>
         <div class="col-sm-6">
             <ol class="breadcrumb pt-0 pr-0 float-left float-sm-right ">
                 <li class="breadcrumb-item"><a href="#" class="default-color">Dashboard</a></li>
-                <li class="breadcrumb-item active">Parcelle</li>
+                <li class="breadcrumb-item active">Creation du Responsable</li>
             </ol>
         </div>
     </div>
@@ -38,7 +38,7 @@
                     </div>
                 @endif
                 <button type="button" class="button x-small" data-toggle="modal" data-target="#exampleModal">
-                    Parcelle de terrain
+                    Creation Responsable
                 </button>
                 <br><br>
                 <?php $i = 0; ?>
@@ -49,10 +49,10 @@
                         <thead>
                             <tr>
                                 <th>id</th>
-                                <th>Nom</th>
+                                <th>Nom et Prénom</th>
                                 <th>email</th>
-                                <th>password</th>
-                                <th>capital</th>
+                                <th>mot de passe</th>
+                                <th>capitale</th>
                                 <th>status</th>
                             </tr>
                         </thead>
@@ -90,8 +90,7 @@
                                             <div class="modal-header">
                                                 <h5 style="font-family: 'Cairo', sans-serif;" class="modal-title"
                                                     id="exampleModalLabel">
-                                                    <span style="color:rgb(0, 0, 0)"> changer les informations de
-                                                        parcelle de terrain</span>
+                                                    <span style="color:rgb(0, 0, 0)"> changer les informations du Responsable</span>
                                                 </h5>
                                                 <button type="button" class="close" data-dismiss="modal"
                                                     aria-label="Close">
@@ -105,7 +104,7 @@
                                                     @method('PUT')
                                                     <div class="row mb-3">
                                                         <label for="name"
-                                                            class="col-md-4 col-form-label text-md-end">{{ __('capital') }}</label>
+                                                            class="col-md-4 col-form-label text-md-end">{{ __('capitale') }}</label>
                                                         <div class="col-md-6">
                                                             <input id="name" type="text"
                                                                 class="form-control @error('capital') is-invalid @enderror"
@@ -124,7 +123,7 @@
                                                         <input id="id" type="hidden" name="id"
                                                             class="form-control" value="{{ $user->id }}">
                                                         <label for="name"
-                                                            class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
+                                                            class="col-md-4 col-form-label text-md-end">{{ __('Nom') }}</label>
 
                                                         <div class="col-md-6">
                                                             <input id="name" type="text"
@@ -142,7 +141,7 @@
 
                                                     <div class="row mb-3">
                                                         <label for="email"
-                                                            class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
+                                                            class="col-md-4 col-form-label text-md-end">{{ __('Email') }}</label>
 
                                                         <div class="col-md-6">
                                                             <input id="email" type="email"
@@ -198,8 +197,7 @@
                                             <div class="modal-header">
                                                 <h5 style="font-family: 'Cairo', sans-serif;" class="modal-title"
                                                     id="exampleModalLabel">
-                                                    <span style="color: rgb(0, 0, 0)"> Supprimer le parcelle de
-                                                        terrain</span>
+                                                    <span style="color: rgb(0, 0, 0)"> Supprimer ce Responsable</span>
                                                 </h5>
                                                 <button type="button" class="close" data-dismiss="modal"
                                                     aria-label="Close">
@@ -216,8 +214,8 @@
                                                         class="form-control" value="{{ $user->id }}">
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary"
-                                                            data-dismiss="modal">ferme</button>
-                                                        <button type="submit" class="btn btn-danger">Valide</button>
+                                                            data-dismiss="modal">fermer</button>
+                                                        <button type="submit" class="btn btn-danger">Valider</button>
                                                     </div>
                                                 </form>
                                             </div>
@@ -240,7 +238,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 style="font-family: 'Cairo', sans-serif;" class="modal-title" id="exampleModalLabel">
-                        hhhhh
+                    Créer responsable
                     </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -253,7 +251,7 @@
                         @method('POST')
                         <div class="row mb-3">
                             <label for="name"
-                                class="col-md-4 col-form-label text-md-end">{{ __('capital') }}</label>
+                                class="col-md-4 col-form-label text-md-end">{{ __('capitale') }}</label>
 
                             <div class="col-md-6">
                                 <input id="name" type="text"
@@ -270,7 +268,7 @@
 
                         <div class="row mb-3">
                             <label for="name"
-                                class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
+                                class="col-md-4 col-form-label text-md-end">{{ __('Nom et Prénom') }}</label>
 
                             <div class="col-md-6">
                                 <input id="name" type="text"
@@ -287,7 +285,7 @@
 
                         <div class="row mb-3">
                             <label for="email"
-                                class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
+                                class="col-md-4 col-form-label text-md-end">{{ __('Email') }}</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email"
@@ -304,7 +302,7 @@
 
                         <div class="row mb-3">
                             <label for="password"
-                                class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
+                                class="col-md-4 col-form-label text-md-end">{{ __('Mot de Passe') }}</label>
 
                             <div class="col-md-6">
                                 <input id="password" type="password"
@@ -321,7 +319,7 @@
 
                         <div class="row mb-3">
                             <label for="password-confirm"
-                                class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
+                                class="col-md-4 col-form-label text-md-end">{{ __('Confirmer Mot de Passe') }}</label>
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control"
@@ -332,7 +330,7 @@
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
+                                    {{ __('Créer') }}
                                 </button>
                             </div>
                         </div>
