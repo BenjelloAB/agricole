@@ -10,12 +10,12 @@
 <div class="page-title">
     <div class="row">
         <div class="col-sm-6">
-            <h4 class="mb-0">ajouter employe</h4>
+            <h4 class="mb-0">Gérer Finance Totale</h4>
         </div>
         <div class="col-sm-6">
             <ol class="breadcrumb pt-0 pr-0 float-left float-sm-right ">
-                <li class="breadcrumb-item"><a href="#" class="default-color">employe</a></li>
-                <li class="breadcrumb-item active">ajouter employe</li>
+                <li class="breadcrumb-item"><a href="#" class="default-color">dashboard</a></li>
+                <li class="breadcrumb-item active">Gérer Finance Totale</li>
             </ol>
         </div>
     </div>
@@ -42,28 +42,28 @@
 
                     <div class="form-row">
                         <div class="col-sm-3 mb-3">
-                            <label for="validationDefault01">capital</label>
+                            <label for="validationDefault01">Capital</label>
                             <input type="text" class="form-control" id="validationDefault01" name="capital" value="{{ $user }}" disabled>
                         </div>
                         <div class="col-sm-3 mb-3">
-                            <label for="validationDefault02">cout_f_culture</label>
+                            <label for="validationDefault02"> Dépenses Culture</label>
                             <input type="text" class="form-control" id="validationDefault02" value="{{ $cout_total }}" name="prenom" disabled>
                         </div>
                         <div class="col-sm-3 mb-3">
-                            <label for="validationDefault01">cout_f_recolte: </label>
+                            <label for="validationDefault01">Dépenses Récolte</label>
                             <input type="text" class="form-control" id="validationDefault01" value="{{ $cout_recolte }}" name="date" disabled>
                         </div>
                         <div class="col-sm-3 mb-3">
-                            <label for="validationDefault02">cout_f_employe:</label>
+                            <label for="validationDefault02">Dépenses Employés</label>
                             <input type="text" class="form-control" id="validationDefault02" value="{{ $employe }}" name="lieu" disabled>
                         </div>
                         <div class="col-sm-3 mb-3">
-                            <label for="validationDefault01">total de cout_CRE</label>
+                            <label for="validationDefault01">Total Coût</label>
                             <input type="text" class="form-control" id="validationDefault01" value="{{ $cout_CRE }}" name="situation"
                             disabled>
                         </div>
                         <div class="col-sm-3 mb-3">
-                            <label for="validationDefault02">le rest</label>
+                            <label for="validationDefault02">Le Reste</label>
                             <input type="text" class="form-control" id="validationDefault02" value="{{ $user-$cout_CRE }}" name="adress" disabled>
                         </div>
 

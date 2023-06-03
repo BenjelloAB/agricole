@@ -79,7 +79,7 @@
         <div class="col-sm-6">
             <ol class="breadcrumb pt-0 pr-0 float-left float-sm-right ">
                 <li class="breadcrumb-item"><a href="#" class="default-color">dashboard</a></li>
-                <li class="breadcrumb-item active">Ressources pour la Cultuvation</li>
+                <li class="breadcrumb-item active">Ressources pour la Cultivation</li>
             </ol>
         </div>
     </div>
@@ -228,7 +228,7 @@
                                                         <!-- here -->
                                                         <button class="uk-button uk-button-default form-control"
                                                             type="button">selectionner
-                                                            machines cultuvation</button>
+                                                            machines cultivation</button>
                                                         <div uk-dropdown>
                                                             <ul class="uk-nav uk-dropdown-nav">
                                                                 <li class="uk-active">
@@ -425,7 +425,7 @@
                         <div class="col">
                             <!-- here -->
                             <button class="uk-button uk-button-default form-control" type="button">selectionner
-                                machines cultuvation</button>
+                                machines cultivation</button>
                             <div uk-dropdown>
                                 <ul class="uk-nav uk-dropdown-nav">
                                     <li class="uk-active">

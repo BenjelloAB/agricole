@@ -10,12 +10,12 @@
 <div class="page-title">
     <div class="row">
         <div class="col-sm-6">
-            <h4 class="mb-0">Cultuvation</h4>
+            <h4 class="mb-0">Cultivation</h4>
         </div>
         <div class="col-sm-6">
             <ol class="breadcrumb pt-0 pr-0 float-left float-sm-right ">
                 <li class="breadcrumb-item"><a href="#" class="default-color">dashboard</a></li>
-                <li class="breadcrumb-item active">Cultuvation</li>
+                <li class="breadcrumb-item active">Cultivation</li>
             </ol>
         </div>
     </div>
@@ -29,7 +29,7 @@
         <div class="card card-statistics h-100">
             <div class="card-body">
                 <a href="{{ route('culture.store') }}"> <button type="button" class="button x-small">
-                        Commencer la cultuvation
+                        Commencer la cultivation
                     </button>
                 </a>
                 <br><br>
@@ -41,8 +41,8 @@
                                 <th>Nom parcelle</th>
                                 <th>Employé(s)</th>
                                 <th>Type de Plante</th>
-                                <th>Date debut cultuvation</th>
-                                <th>Date fin cultuvation</th>
+                                <th>Date debut cultivation</th>
+                                <th>Date fin cultivation</th>
                                 <th>Status</th>
                             </tr>
                         </thead>

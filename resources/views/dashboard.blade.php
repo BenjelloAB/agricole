@@ -15,6 +15,9 @@
     <meta name="author" content="potenzaglobalsolutions.com" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <script src="https://kit.fontawesome.com/70742d8212.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/58febbdd51.js" crossorigin="anonymous"></script>
+
+
     @include('layouts.head')
 
 
@@ -81,11 +84,12 @@
                             <div class="clearfix">
                                 <div class="float-left">
                                     <span class="text-danger">
-                                        <i class="fa-solid fa-user-nurse highlight-icon" aria-hidden="true"></i>
+                                        <i class="fa-solid fa-user highlight-icon" aria-hidden="true"></i>
+                                        <!-- <i class="fa-duotone fa-user-helmet-safety"></i> -->
                                     </span>
                                 </div>
                                 <div class="float-right text-right">
-                                    <p class="card-text text-dark">employe</p>
+                                    <p class="card-text text-dark">Employés</p>
                                     <h4>{{ $count_emp }}</h4>
                                 </div>
                             </div>
@@ -108,12 +112,12 @@
                                     </span>
                                 </div>
                                 <div class="float-right text-right">
-                                    <p class="card-text text-dark">parcelle</p>
+                                    <p class="card-text text-dark">Parcelles</p>
                                     <h4>{{ $count_parcelle }}</h4>
                                 </div>
                             </div>
                             <p class="text-muted pt-3 mb-0 mt-2 border-top">
-                                <i class="fa fa-bookmark-o mr-1" aria-hidden="true"></i> Total Parcelle
+                                <i class="fa fa-bookmark-o mr-1" aria-hidden="true"></i> Nombre total des Parcelles
                             </p>
                         </div>
                     </div>
@@ -129,12 +133,12 @@
                                     </span>
                                 </div>
                                 <div class="float-right text-right">
-                                    <p class="card-text text-dark">Depense</p>
+                                    <p class="card-text text-dark">Dépenses</p>
                                     <h4>{{ $cout_CRE }}DH</h4>
                                 </div>
                             </div>
                             <p class="text-muted pt-3 mb-0 mt-2 border-top">
-                                <i class="fa fa-calendar mr-1" aria-hidden="true"></i> total depense
+                                <i class="fa fa-calendar mr-1" aria-hidden="true"></i> Total dépenses
                             </p>
                         </div>
                     </div>
@@ -150,7 +154,7 @@
                                     </span>
                                 </div>
                                 <div class="float-right text-right">
-                                    <p class="card-text text-dark">capital</p>
+                                    <p class="card-text text-dark">Capital</p>
                                     <h4>{{ $user }}DH</h4>
                                 </div>
                             </div>
@@ -234,7 +238,7 @@
                 <div class="col-xl-4 mb-30">
                     <div class="card h-100">
                         <div class="card-body">
-                            <h5 class="card-title">statistique sur la cultuvation</h5>
+                            <h5 class="card-title">Statistique sur la Cultivation</h5>
                             <div class="row mb-30">
                                 <div class="col-md-6">
                                     <div class="clearfix">
@@ -273,7 +277,7 @@
                             <div class="tab nav-border" style="position: relative;">
                                 <div class="d-block d-md-flex justify-content-between">
                                     <div class="d-block w-100">
-                                        <h5 class="card-title">les employees</h5>
+                                        <h5 class="card-title">Les Employés</h5>
                                     </div>
                                     <div class="d-block d-md-flex nav-tabs-custom">
                                         <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -299,7 +303,7 @@
                                                     <div class="col-md-2 col-sm-6">
                                                         {{-- <img class="img-fluid" src="assets/images/blog/05.jpg" alt=""> --}}
                                                         <span style="color:#84BD3A;margin-left:43px;">
-                                                            <i class="fa-solid fa-user-nurse img-fluid"
+                                                            <i class="fa-solid fa-user"
                                                                 style="font-size: 35px" aria-hidden="true"></i>
                                                         </span>
                                                     </div>
@@ -813,6 +817,7 @@
     <livewire:calendar />
     @livewireScripts
     @stack('scripts')
+
 </body>
 
 </html>

@@ -20,12 +20,12 @@
 <div class="page-title">
     <div class="row">
         <div class="col-sm-6">
-            <h4 class="mb-0">culture</h4>
+            <h4 class="mb-0">Gestion Cultivation</h4>
         </div>
         <div class="col-sm-6">
             <ol class="breadcrumb pt-0 pr-0 float-left float-sm-right ">
                 <li class="breadcrumb-item"><a href="#" class="default-color">Dashboard</a></li>
-                <li class="breadcrumb-item active">Parcelle</li>
+                <li class="breadcrumb-item active">Gestion Cultivation</li>
             </ol>
         </div>
     </div>
@@ -52,14 +52,14 @@
                     @csrf
                     @method('get')
                     <select class="custom-select custom-select-lg mb-3 " style="width: 20%;" name="nom_parcelle">
-                        <option>selectioner le parcelle</option>
+                        <option>Sélectionner Responsable</option>
                         @foreach ($user as $user)
                             @if ($user->role == 0)
                                 <option value="{{ $user->id }}">{{ $user->name }}</option>
                             @endif
                         @endforeach
                     </select @required(true)>
-                    <button type="submit" class="he">send</button>
+                    <button type="submit" class="he">Filtrer</button>
                 </form>
                 <br><br>
                 <?php $i = 0; ?>
@@ -70,11 +70,11 @@
                         <thead>
                             <tr>
                                  <th>id</th>
-                                <th>nom_parcelle</th>
-                                <th>nom_employe</th>
-                                <th>type_plante</th>
-                                <th>debut_culture</th>
-                                <th>fin_culture</th>
+                                <th>Nom Parcelle</th>
+                                <th>Employé(s)</th>
+                                <th>Type plante</th>
+                                <th>Date début cultivation</th>
+                                <th>Date fin cultivation</th>
                             </tr>
                         </thead>
                         <tbody>

@@ -87,12 +87,12 @@
 <div class="page-title">
     <div class="row">
         <div class="col-sm-6">
-            <h4 class="mb-0"> Commencer la cultuvation</h4>
+            <h4 class="mb-0"> Commencer la cultivation</h4>
         </div>
         <div class="col-sm-6">
             <ol class="breadcrumb pt-0 pr-0 float-left float-sm-right ">
                 <li class="breadcrumb-item"><a href="#" class="default-color">Employé</a></li>
-                <li class="breadcrumb-item active">Commencer la cultuvation</li>
+                <li class="breadcrumb-item active">Commencer la cultivation</li>
             </ol>
         </div>
     </div>
@@ -185,13 +185,13 @@
 
                         <div class="col-sm-3 mb-3">
                             <label for="validationDefault02"><span
-                                    style="color: red">*</span>Date debut cultuvation</label>
+                                    style="color: red">*</span>Date debut cultivation</label>
                             <input type="date" class="form-control" id="validationDefault02"
                                 name="debut_culture" required>
                         </div>
                         <div class="col-sm-3 mb-3">
                             <label for="validationDefault01"><span
-                                    style="color: red">*</span>Date fin cultuvation</label>
+                                    style="color: red">*</span>Date fin cultivation</label>
                             <input type="date" class="form-control" id="validationDefault01"
                                 name="fin_culture" required>
                         </div>

@@ -52,7 +52,7 @@
                                 <th>Nom et Prénom</th>
                                 <th>email</th>
                                 <th>mot de passe</th>
-                                <th>capitale</th>
+                                <th>Capital</th>
                                 <th>status</th>
                             </tr>
                         </thead>
@@ -104,7 +104,7 @@
                                                     @method('PUT')
                                                     <div class="row mb-3">
                                                         <label for="name"
-                                                            class="col-md-4 col-form-label text-md-end">{{ __('capitale') }}</label>
+                                                            class="col-md-4 col-form-label text-md-end">{{ __('Capital') }}</label>
                                                         <div class="col-md-6">
                                                             <input id="name" type="text"
                                                                 class="form-control @error('capital') is-invalid @enderror"
@@ -251,7 +251,7 @@
                         @method('POST')
                         <div class="row mb-3">
                             <label for="name"
-                                class="col-md-4 col-form-label text-md-end">{{ __('capitale') }}</label>
+                                class="col-md-4 col-form-label text-md-end">{{ __('Capital') }}</label>
 
                             <div class="col-md-6">
                                 <input id="name" type="text"
