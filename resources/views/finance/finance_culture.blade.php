@@ -15,8 +15,8 @@
         </div>
         <div class="col-sm-6">
             <ol class="breadcrumb pt-0 pr-0 float-left float-sm-right ">
-                <li class="breadcrumb-item"><a href="#" class="default-color">dashboard</a></li>
-                <li class="breadcrumb-item active">ressource</li>
+                <li class="breadcrumb-item"><a href="#" class="default-color">Dashboard</a></li>
+                <li class="breadcrumb-item active">Finance cultivation</li>
             </ol>
         </div>
     </div>
@@ -39,7 +39,7 @@
                     </div>
                 @endif
                 <button type="button" class="button x-small" data-toggle="modal" data-target="#exampleModal">
-                    Parcelle de terrain
+                   Gérer finance cultivation
                 </button>
 
                 <br><br>
@@ -50,13 +50,13 @@
                         <thead>
                             <tr>
                                 <th>id</th>
-                                <th>Nom_parcelle</th>
-                                <th>coût_semences</th>
-                                <th>coût_engrais</th>
-                                <th>coût_pesticides</th>
-                                <th>coût_machines_culture</th>
-                                <th>cout_consommation_eau</th>
-                                <th>status</th>
+                                <th>Nom parcelle </th>
+                                <th>Coût semences (dh)</th>
+                                <th>Coût engrais (dh)</th>
+                                <th>Coût pesticides (dh)</th>
+                                <th>Coût machines cultivation (dh)</th>
+                                <th>Coût consommation eau (dh)</th>
+                                <th>Status</th>
                             </tr>
                         </thead>
 
@@ -90,8 +90,8 @@
                                             <div class="modal-header">
                                                 <h5 style="font-family: 'Cairo', sans-serif;" class="modal-title"
                                                     id="exampleModalLabel">
-                                                    <span style="color:rgb(0, 0, 0)"> changer les informations de
-                                                        parcelle de terrain</span>
+                                                    <span style="color:rgb(0, 0, 0)">Modifier les données
+                                                    </span>
                                                 </h5>
                                                 <button type="button" class="close" data-dismiss="modal"
                                                     aria-label="Close">
@@ -110,11 +110,11 @@
 
                                                     <div class="col">
                                                         <label for="Name" class="mr-sm-2">
-                                                            cultur_id
+                                                          Nom parcelle
                                                         </label>
                                                         <select name="cultur_id" id="" class="form-control">
-                                                            <option value="selectioner le parcelle">selectioner le
-                                                                culture</option>
+                                                            <option value="selectioner le parcelle">Sélectionner 
+                                                                parcelle</option>
                                                             @foreach ($cultur as $item)
                                                                 <option value="{{ $item->id }}">
                                                                     {{ $item->nom }}</option>
@@ -128,7 +128,7 @@
                                                         </label>
                                                         <select name="ressourceculture_id" id=""
                                                             class="form-control">
-                                                            <option value="selectioner le parcelle">selectioner le
+                                                            <option value="selectioner le parcelle">Sélectioner le
                                                                 culture</option>
                                                             @foreach ($ressourceculture as $item)
                                                                 <option value="{{ $item->id }}">
@@ -139,7 +139,7 @@
                                                     </div> --}}
                                                     <div class="col">
                                                         <label for="Name" class="mr-sm-2">
-                                                            type plante cultuve
+                                                           Type plante cultivée
                                                         </label>
                                                         <select name="plant" id="" class="form-control">
 
@@ -147,7 +147,7 @@
                                                     </div>
                                                     <div class="col">
                                                         <label for="Name" class="mr-sm-2">
-                                                            taille parcelle
+                                                            Taille parcelle (Hectare)
                                                         </label>
                                                         <select name="taille" id="" class="form-control">
 
@@ -155,38 +155,38 @@
                                                     </div>
                                                     <div class="col">
                                                         <label for="Name" class="mr-sm-2">
-                                                            les machines
+                                                            Les machines
                                                         </label>
                                                         <select name="machine" id="" class="form-control">
                                                         </select>
                                                     </div>
                                                     <div class="col">
-                                                        <label for="Name_en" class="mr-sm-2">coût_semences
+                                                        <label for="Name_en" class="mr-sm-2">Coût semences (dh)
                                                         </label>
                                                         <input type="text" class="form-control" name="coût_semences"
                                                             required>
                                                     </div>
                                                     <div class="col">
-                                                        <label for="Name_en" class="mr-sm-2">coût_engrais
+                                                        <label for="Name_en" class="mr-sm-2">Coût engrais (dh)
                                                         </label>
                                                         <input type="text" class="form-control"
                                                             name="coût_engrais" required>
                                                     </div>
 
                                                     <div class="col">
-                                                        <label for="Name_en" class="mr-sm-2">coût_pesticides
+                                                        <label for="Name_en" class="mr-sm-2">Coût pesticides (dh)
                                                         </label>
                                                         <input type="text" class="form-control"
                                                             name="coût_pesticides" required>
                                                     </div>
                                                     <div class="col">
-                                                        <label for="Name_en" class="mr-sm-2">coût_machines_culture
+                                                        <label for="Name_en" class="mr-sm-2">Coût machines culture (dh)
                                                         </label>
                                                         <input type="text" class="form-control"
                                                             name="coût_machines_culture" required>
                                                     </div>
                                                     <div class="col">
-                                                        <label for="Name_en" class="mr-sm-2">cout_consommation_eau
+                                                        <label for="Name_en" class="mr-sm-2">Coût consommation eau (dh)
                                                         </label>
                                                         <input type="text" class="form-control"
                                                             name="cout_consommation_eau" required>
@@ -195,8 +195,8 @@
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
-                                                    data-dismiss="modal">Ferme</button>
-                                                <button type="submit" class="btn btn-success">Valide</button>
+                                                    data-dismiss="modal">Fermer</button>
+                                                <button type="submit" class="btn btn-success">Valider</button>
                                             </div>
                                             </form>
 
@@ -212,7 +212,7 @@
                                             <div class="modal-header">
                                                 <h5 style="font-family: 'Cairo', sans-serif;" class="modal-title"
                                                     id="exampleModalLabel">
-                                                    <span style="color: rgb(0, 0, 0)"> Supprimer l'employe</span>
+                                                    <span style="color: rgb(0, 0, 0)"> Supprimer les données</span>
                                                 </h5>
                                                 <button type="button" class="close" data-dismiss="modal"
                                                     aria-label="Close">
@@ -223,14 +223,14 @@
                                                 <form action="{{ route('finance.delete') }}" method="post">
                                                     @method('DELETE')
                                                     @csrf
-                                                    <span style="color: red">Voullez-vous effacer cette
-                                                        operation</span>
+                                                    <span style="color: red">Voullez-vous vraiment
+                                                        supprimer ces données</span>
                                                     <input id="id" type="hidden" name="id"
                                                         class="form-control" value="{{ $finance_culture->id }}">
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary"
-                                                            data-dismiss="modal">ferme</button>
-                                                        <button type="submit" class="btn btn-danger">Valide</button>
+                                                            data-dismiss="modal">Fermer</button>
+                                                        <button type="submit" class="btn btn-danger">Valider</button>
                                                     </div>
                                                 </form>
                                             </div>
@@ -253,7 +253,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 style="font-family: 'Cairo', sans-serif;" class="modal-title" id="exampleModalLabel">
-                        hhhhhhhhhhhhhh
+                        Gérer finance cultivation
                     </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -267,12 +267,12 @@
 
                         <div class="col">
                             <label for="Name" class="mr-sm-2">
-                                cultur_id
+                              Nom parcelle
                             </label>
                             <select name="cultur_id" id="" class="form-control"
                                 onchange="console.log($(this).val())">
-                                <option value="selectioner le parcelle">selectioner le
-                                    culture</option>
+                                <option value="selectioner le parcelle">Sélectionner 
+                                    parcelle</option>
                                 @foreach ($cultur as $cultur)
                                     <option value="{{ $cultur->id }}">{{ $cultur->nom }}</option>
                                 @endforeach
@@ -281,7 +281,7 @@
                         </div>
                         <div class="col">
                             <label for="Name" class="mr-sm-2">
-                                type plante cultuve
+                                Type plante cultuvée
                             </label>
                             <select name="plant" id="" class="form-control">
 
@@ -289,7 +289,7 @@
                         </div>
                         <div class="col">
                             <label for="Name" class="mr-sm-2">
-                                taille parcelle
+                                Taille parcelle (Hectare)
                             </label>
                             <select name="taille" id="" class="form-control">
 
@@ -297,7 +297,7 @@
                         </div>
                         <div class="col">
                             <label for="Name" class="mr-sm-2">
-                                les machines
+                                Les machines
                             </label>
                             <select name="machine" id="" class="form-control">
                             </select>
@@ -305,7 +305,7 @@
 
                         <div class="col">
                             <label for="Name" class="mr-sm-2">
-                                consommation semences
+                                Consommation semences (kg)
                               </label>
                             <select name="semences" id="" class="form-control">
 
@@ -313,7 +313,7 @@
                         </div>
                         <div class="col">
                             <label for="Name" class="mr-sm-2">
-                                engrais
+                                Consommation engrais (kg)
                             </label>
                             <select name="engrais" id="" class="form-control">
 
@@ -321,42 +321,42 @@
                         </div>
                         <div class="col">
                             <label for="Name" class="mr-sm-2">
-                                pesticides
+                              Consommation  pesticides (kg)
                             </label>
                             <select name="pesticides" id="" class="form-control">
                             </select>
                         </div>
                         <div class="col">
                             <label for="Name" class="mr-sm-2">
-                                besoin_en_eau
+                                Consommation eau (Litre)
                             </label>
                             <select name="besoin_en_eau" id="" class="form-control">
                             </select>
                         </div>
                         <div class="col">
-                            <label for="Name_en" class="mr-sm-2">coût_semences
+                            <label for="Name_en" class="mr-sm-2">Coût semences (dh)
                             </label>
                             <input type="text" class="form-control" name="coût_semences" required>
                         </div>
                         <div class="col">
-                            <label for="Name_en" class="mr-sm-2">coût_engrais
+                            <label for="Name_en" class="mr-sm-2">Coût engrais (dh)
                             </label>
                             <input type="text" class="form-control" name="coût_engrais" required>
                         </div>
 
                         <div class="col">
-                            <label for="Name_en" class="mr-sm-2">coût_pesticides
+                            <label for="Name_en" class="mr-sm-2">Coût pesticides (dh)
                             </label>
                             <input type="text" class="form-control" name="coût_pesticides" required>
                         </div>
                         <div class="col">
-                            <label for="Name_en" class="mr-sm-2">coût_machines_culture
+                            <label for="Name_en" class="mr-sm-2">Coût machines culture (dh)
                             </label>
                             <input type="text" class="form-control" name="coût_machines_culture" required>
                         </div>
 
                         <div class="col">
-                            <label for="Name_en" class="mr-sm-2">cout_consommation_eau
+                            <label for="Name_en" class="mr-sm-2">Coût consommation eau (dh)
                             </label>
                             <input type="text" class="form-control" name="cout_consommation_eau" required>
                         </div>
@@ -365,8 +365,8 @@
                         <br><br>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Ferme</button>
-                    <button type="submit" class="btn btn-success">Valide</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                    <button type="submit" class="btn btn-success">Valider</button>
                 </div>
                 </form>
 

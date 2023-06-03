@@ -38,7 +38,7 @@
                     </div>
                 @endif
                 <button type="button" class="button x-small" data-toggle="modal" data-target="#exampleModal">
-                    Parcelle de terrain
+                    Ajouter Parcelle de terrain
                 </button>
                 <br><br>
                 <?php $i = 0; ?>
@@ -49,11 +49,11 @@
                         <thead>
                             <tr>
                                 <th>id</th>
-                                <th>nom</th>
-                                <th>emplacement</th>
-                                <th>taille(hectare)</th>
-                                <th>type_de_sol</th>
-                                <th>status</th>
+                                <th>Nom</th>
+                                <th>Emplacement</th>
+                                <th>Taille(Hectare)</th>
+                                <th>Type De Sol</th>
+                                <th>Status</th>
                             </tr>
                         </thead>
 
@@ -106,20 +106,20 @@
                                                     <input id="id" type="hidden" name="id"
                                                         class="form-control" value="{{ $parcelles->id }}">
                                                     <div class="form-group">
-                                                        <label for="Name_en" class="mr-sm-2">emplacement
+                                                        <label for="Name_en" class="mr-sm-2">Emplacement
                                                         </label>
                                                         <input type="text" class="form-control" name="emplacement"
                                                             required>
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="Name" class="mr-sm-2">
-                                                            taille(hectare)
+                                                            Taille(Hectare)
                                                         </label>
                                                         <input id="Name" type="number" name="taille"
                                                             class="form-control" min="1" required>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="Name_en" class="mr-sm-2">type_de_sol
+                                                        <label for="Name_en" class="mr-sm-2">Type De Sol
                                                         </label>
                                                         <select id="Name_en" style="background-color: #f6f7f8"
                                                             class="custom-select custom-select-lg mb-3"
@@ -137,8 +137,8 @@
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
-                                                    data-dismiss="modal">Ferme</button>
-                                                <button type="submit" class="btn btn-success">Valide</button>
+                                                    data-dismiss="modal">Fermer</button>
+                                                <button type="submit" class="btn btn-success">Valider</button>
                                             </div>
                                             </form>
 
@@ -173,8 +173,8 @@
                                                         class="form-control" value="{{ $parcelles->id }}">
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary"
-                                                            data-dismiss="modal">ferme</button>
-                                                        <button type="submit" class="btn btn-danger">Valide</button>
+                                                            data-dismiss="modal">Fermer</button>
+                                                        <button type="submit" class="btn btn-danger">Valider</button>
                                                     </div>
                                                 </form>
                                             </div>
@@ -197,7 +197,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 style="font-family: 'Cairo', sans-serif;" class="modal-title" id="exampleModalLabel">
-                        hhhhh
+                    Créer une Parcelle
                     </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -215,18 +215,18 @@
                             <input id="Name" type="text" name="nom" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label for="Name_en" class="mr-sm-2">emplacement
+                            <label for="Name_en" class="mr-sm-2">Emplacement
                             </label>
                             <input type="text" class="form-control" name="emplacement" required>
                         </div>
                         <div class="form-group">
                             <label for="Name" class="mr-sm-2">
-                                taille(hectare)
+                                Taille(Hectare)
                             </label>
                             <input id="Name" type="number" min="1" name="taille" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label for="Name_en" class="mr-sm-2">type_de_sol
+                            <label for="Name_en" class="mr-sm-2">Type De Sol
                             </label>
                             <select id="Name_en" style="background-color: #f6f7f8"
                                 class="custom-select custom-select-lg mb-3" name="type_de_sol">
@@ -242,8 +242,8 @@
                         <br><br>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Ferme</button>
-                    <button type="submit" class="btn btn-success">Valide</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                    <button type="submit" class="btn btn-success">Valider</button>
                 </div>
                 </form>
 

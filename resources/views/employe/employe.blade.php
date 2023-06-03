@@ -10,12 +10,12 @@
 <div class="page-title">
     <div class="row">
         <div class="col-sm-6">
-            <h4 class="mb-0"> Employe</h4>
+            <h4 class="mb-0"> Employé</h4>
         </div>
         <div class="col-sm-6">
             <ol class="breadcrumb pt-0 pr-0 float-left float-sm-right ">
                 <li class="breadcrumb-item"><a href="#" class="default-color">dashboard</a></li>
-                <li class="breadcrumb-item active">employe</li>
+                <li class="breadcrumb-item active">Employé</li>
             </ol>
         </div>
     </div>
@@ -29,7 +29,7 @@
         <div class="card card-statistics h-100">
             <div class="card-body">
                 <a href="{{ route('employe.store') }}"> <button type="button" class="button x-small">
-                        ajouter un employé
+                        Ajouter un employé
                     </button>
                 </a>
                 <br><br>
@@ -40,19 +40,19 @@
                         <thead>
                             <tr>
                                 <th>id</th>
-                                <th>nom</th>
-                                <th>prenom</th>
-                                <th>date</th>
-                                <th>lieu</th>
-                                <th>situation</th>
-                                <th>adress</th>
-                                <th>cin</th>
-                                <th>tele</th>
-                                <th>mail</th>
-                                <th>scolaire</th>
-                                <th>experiance</th>
-                                <th>employe</th>
-                                <th>status</th>
+                                <th>Nom</th>
+                                <th>Prénom</th>
+                                <th>Date naissance</th>
+                                <th>Lieu naissance</th>
+                                <th>Situation Familiale</th>
+                                <th>Adresse</th>
+                                <th>CIN</th>
+                                <th>Télé</th>
+                                <th>Email</th>
+                                <th>Niveau Scolaire</th>
+                                <th>Experience(Ans)</th>
+                                <th>Dernier Emploie</th>
+                                <th>Status</th>
 
 
                             </tr>
@@ -106,8 +106,7 @@
                                             <div class="modal-header">
                                                 <h5 style="font-family: 'Cairo', sans-serif;" class="modal-title"
                                                     id="exampleModalLabel">
-                                                    <span style="color:rgb(0, 0, 0)"> changer les informations de
-                                                        parcelle de terrain</span>
+                                                    <span style="color:rgb(0, 0, 0)"> Changer les informations de l'employé</span>
                                                 </h5>
                                                 <button type="button" class="close" data-dismiss="modal"
                                                     aria-label="Close">
@@ -131,26 +130,26 @@
                                                     </div>
 
                                                     <div class="col">
-                                                        <label for="Name_en" class="mr-sm-2">Prenom
+                                                        <label for="Name_en" class="mr-sm-2">Prénom
                                                         </label>
                                                         <input type="text" class="form-control" name="prenom"
                                                             required>
                                                     </div>
                                                     <div class="col">
                                                         <label for="Name" class="mr-sm-2">
-                                                            Date_Naissance
+                                                            Date de naissance
                                                         </label>
                                                         <input id="date" type="date" name="date"
                                                             class="form-control" required>
                                                     </div>
                                                     <div class="col">
-                                                        <label for="Name_en" class="mr-sm-2">Lieu_Naissance
+                                                        <label for="Name_en" class="mr-sm-2">Lieu de naissance
                                                         </label>
                                                         <input type="text" class="form-control" name="lieu"
                                                             required>
                                                     </div>
                                                     <div class="col">
-                                                        <label for="Name_en" class="mr-sm-2">Situation_familial
+                                                        <label for="Name_en" class="mr-sm-2">Situation Familiale
                                                         </label>
                                                         <select id="Name_en" style="background-color: #f6f7f8"
                                                             class="custom-select custom-select-lg mb-3" name="situation"
@@ -166,7 +165,7 @@
                                                     </div>
                                                     <div class="col">
                                                         <label for="Name" class="mr-sm-2">
-                                                            adress_postal
+                                                            adresse postale
                                                         </label>
                                                         <input id="Name" type="text" name="adress"
                                                             class="form-control" required>
@@ -180,23 +179,23 @@
                                                     </div>
                                                     <div class="col">
                                                         <label for="Name" class="mr-sm-2">
-                                                            Telephone
+                                                            Téléphone
                                                         </label>
                                                         <input id="Name" type="text" name="tele"
                                                             class="form-control" required>
                                                     </div>
                                                     <div class="col">
-                                                        <label for="Name_en" class="mr-sm-2">mail
+                                                        <label for="Name_en" class="mr-sm-2">Adresse mail
                                                         </label>
                                                         <input type="text" class="form-control" name="mail">
                                                     </div>
                                                     <div class="col">
-                                                        <label for="Name_en" class="mr-sm-2">Niveau_scolaire
+                                                        <label for="Name_en" class="mr-sm-2">Niveau Scolaire
                                                         </label>
                                                         <select id="Name_en" style="background-color: #f6f7f8"
                                                             class="custom-select custom-select-lg mb-3"
                                                             name="scolaire" required>
-                                                            <option selected disabled>Selectionner le type de scolarité
+                                                            <option selected disabled>Selectionner le niveau de scolarité
                                                             </option>
                                                             <option value="Primaire">Primaire</option>
                                                             <option value="Secondaire">Secondaire</option>
@@ -208,14 +207,14 @@
                                                     </div>
                                                     <div class="col">
                                                         <label for="Name" class="mr-sm-2">
-                                                            experiance
+                                                            experience
                                                         </label>
                                                         <input id="Name" type="number" name="experiance"
                                                             class="form-control" required>
                                                     </div>
 
                                                     <div class="col">
-                                                        <label for="Name_en" class="mr-sm-2">Dernier_employer
+                                                        <label for="Name_en" class="mr-sm-2">Dernier emploie
                                                         </label>
                                                         <input type="text" class="form-control" name="employe">
                                                     </div>
@@ -225,8 +224,8 @@
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
-                                                    data-dismiss="modal">Ferme</button>
-                                                <button type="submit" class="btn btn-success">Valide</button>
+                                                    data-dismiss="modal">Fermer</button>
+                                                <button type="submit" class="btn btn-success">Valider</button>
                                             </div>
                                             </form>
 
@@ -242,7 +241,7 @@
                                             <div class="modal-header">
                                                 <h5 style="font-family: 'Cairo', sans-serif;" class="modal-title"
                                                     id="exampleModalLabel">
-                                                    <span style="color: rgb(0, 0, 0)"> Supprimer l'employe</span>
+                                                    <span style="color: rgb(0, 0, 0)"> Supprimer l'employé</span>
                                                 </h5>
                                                 <button type="button" class="close" data-dismiss="modal"
                                                     aria-label="Close">
@@ -253,14 +252,14 @@
                                                 <form action="{{ route('employe.delete') }}" method="post">
                                                     @method('DELETE')
                                                     @csrf
-                                                    <span style="color: red">Voullez-vous effacer cette
+                                                    <span style="color: red">Voullez-vous effectuer cette
                                                         operation</span>
                                                     <input id="id" type="hidden" name="id"
                                                         class="form-control" value="{{ $employes->id }}">
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary"
-                                                            data-dismiss="modal">ferme</button>
-                                                        <button type="submit" class="btn btn-danger">Valide</button>
+                                                            data-dismiss="modal">Fermer</button>
+                                                        <button type="submit" class="btn btn-danger">Valider</button>
                                                     </div>
                                                 </form>
                                             </div>

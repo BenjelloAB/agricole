@@ -6,23 +6,23 @@
                 <ul class="nav navbar-nav side-menu" id="sidebarnav">
                     <!-- menu item Dashboard-->
                     <li>
-                        <a href="{{ route('dashboard') }}"><i class="ti-home"></i><span
+                        <a href="{{ route('dashboard') }}"><i class="fa-solid fa-house-chimney"></i><span
                                 class="right-nav-text">Dashboard</span>
                         </a>
                     </li>
                     <!-- menu title -->
-                    <li class="mt-10 mb-10 text-muted pl-4 font-medium menu-title">Components </li>
+                    <li class="mt-10 mb-10 text-muted pl-4 font-medium menu-title">Composants </li>
                     <!-- menu item Elements-->
                     <li>
-                        <a href="{{ route('parcelle.index') }}"><i class="ti-pie-chart"></i><span
+                        <a href="{{ route('parcelle.index') }}"><i class="fa-solid fa-mountain-sun"></i><span
                                 class="right-nav-text">Parcelle de terrain</span>
                         </a>
                     </li>
 
                     <!-- menu item calendar-->
                     <li>
-                        <a href="{{ route('employe.index') }}"> <i class="ti-user"></i><span
-                                class="right-nav-text">Employe</span>
+                        <a href="{{ route('employe.index') }}"><i class="fa-solid fa-user"></i><span
+                                class="right-nav-text">Employés</span>
                         </a>
                     </li>
                     <!-- menu item todo-->
@@ -43,14 +43,13 @@
                     <!-- menu item Charts-->
                     <li>
                         <a href="javascript:void(0);" data-toggle="collapse" data-target="#chart">
-                            <div class="pull-left"><i class="ti-pie-chart"></i><span class="right-nav-text">saison
-                                    agricole</span></div>
+                            <div class="pull-left"><i class="fa-solid fa-chart-area"></i><span class="right-nav-text">Gestion Cultivation</span></div>
                             <div class="pull-right"><i class="ti-plus"></i></div>
                             <div class="clearfix"></div>
                         </a>
                         <ul id="chart" class="collapse" data-parent="#sidebarnav">
-                            <li> <a href="{{ route('culture.index') }}">Culture</a> </li>
-                            <li> <a href="{{ route('culture.ressource') }}">Ressource</a> </li>
+                            <li> <a href="{{ route('culture.index') }}">Commencer Cultivation</a> </li>
+                            <li> <a href="{{ route('culture.ressource') }}">Ressource Cultivation</a> </li>
 
                         </ul>
                     </li>
@@ -58,14 +57,13 @@
                     <!-- menu font icon-->
                     <li>
                         <a href="javascript:void(0);" data-toggle="collapse" data-target="#font-icon">
-                            <div class="pull-left"><i class="ti-pie-chart"></i><span class="right-nav-text">Saison des
-                                    récoltes</span></div>
+                            <div class="pull-left"><i class="fa-solid fa-chart-area"></i><span class="right-nav-text">Gestion Récolte</span></div>
                             <div class="pull-right"><i class="ti-plus"></i></div>
                             <div class="clearfix"></div>
                         </a>
                         <ul id="font-icon" class="collapse" data-parent="#sidebarnav">
-                            <li> <a href="{{ route('recolte.index') }}">récolté </a> </li>
-                            <li> <a href="{{ route('ressource.show') }}">Ressource</a> </li>
+                            <li> <a href="{{ route('recolte.index') }}">Commencer Récolte </a> </li>
+                            <li> <a href="{{ route('ressource.show') }}">Ressource Récolte</a> </li>
 
                         </ul>
                     </li>
@@ -73,7 +71,7 @@
                     {{-- <li class="mt-10 mb-10 text-muted pl-4 font-medium menu-title">Widgets, Forms & Tables </li> --}}
                     <!-- menu item Widgets-->
                     <li>
-                        <a href="{{ route('control_qualite.index') }}"><i class="ti-support"></i><span
+                        <a href="{{ route('control_qualite.index') }}"><i class="fa-sharp fa-solid fa-award"></i><span
                                 class="right-nav-text">Contrôle
                                 qualité</span>
                         </a>
@@ -81,16 +79,16 @@
                     <li>
 
                         <a href="javascript:void(0);" data-toggle="collapse" data-target="#Form">
-                            <div class="pull-left"><i class="ti-money"></i><span class="right-nav-text">Finance</span>
+                            <div class="pull-left"><i class="fa-sharp fa-solid fa-dollar-sign"></i><span class="right-nav-text">Finance</span>
                             </div>
                             <div class="pull-right"><i class="ti-plus"></i></div>
                             <div class="clearfix"></div>
                         </a>
                         <ul id="Form" class="collapse" data-parent="#sidebarnav">
-                            <li> <a href="{{ route('finance.index') }}">Finance-culture</a> </li>
-                            <li> <a href="{{ route('finance_recolte.show') }}">Finance-récolté </a> </li>
-                            <li> <a href="{{ route('finance_employe.show') }}">Finance-employee</a> </li>
-                            <li> <a href="{{ route('total') }}">Finance-total</a> </li>
+                            <li> <a href="{{ route('finance.index') }}">Finance Culture</a> </li>
+                            <li> <a href="{{ route('finance_recolte.show') }}">Finance Récolte </a> </li>
+                            <li> <a href="{{ route('finance_employe.show') }}">Finance Employés</a> </li>
+                            <li> <a href="{{ route('total') }}">Finance Totale</a> </li>
 
                         </ul>
                     </li>
@@ -102,14 +100,14 @@
                     {{-- <li>
 
                         <a href="javascript:void(0);" data-toggle="collapse" data-target="#Form">
-                            <div class="pull-left"><i class="ti-files"></i><span class="right-nav-text">Finance</span></div>
+                            <div class="pull-left"><i class="fa-sharp fa-solid fa-dollar-sign"></i><span class="right-nav-text">Finance</span></div>
                             <div class="pull-right"><i class="ti-plus"></i></div>
                             <div class="clearfix"></div>
                         </a>
                         <ul id="Form" class="collapse" data-parent="#sidebarnav">
-                            <li> <a href="editor.html">Finance-culture</a> </li>
-                            <li> <a href="editor-markdown.html">Finance-récolté </a> </li>
-                            <li> <a href="form-input.html">Finance-employee</a> </li>
+                            <li> <a href="editor.html">Finance Culture</a> </li>
+                            <li> <a href="editor-markdown.html">Finance Récolte </a> </li>
+                            <li> <a href="form-input.html">Finance Employés</a> </li>
 
                         </ul>
                     </li> --}}

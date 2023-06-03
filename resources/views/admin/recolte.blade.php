@@ -20,12 +20,12 @@
 <div class="page-title">
     <div class="row">
         <div class="col-sm-6">
-            <h4 class="mb-0">Parcelle de employe</h4>
+            <h4 class="mb-0">Récolte</h4>
         </div>
         <div class="col-sm-6">
             <ol class="breadcrumb pt-0 pr-0 float-left float-sm-right ">
                 <li class="breadcrumb-item"><a href="#" class="default-color">Dashboard</a></li>
-                <li class="breadcrumb-item active">Parcelle</li>
+                <li class="breadcrumb-item active">Récolte</li>
             </ol>
         </div>
     </div>
@@ -51,14 +51,14 @@
                     @csrf
                     @method('get')
                     <select class="custom-select custom-select-lg mb-3 " style="width: 20%;" name="nom_parcelle">
-                        <option>selectioner le parcelle</option>
+                        <option>selectionner responsable</option>
                         @foreach ($user as $user)
                             @if ($user->role == 0)
                                 <option value="{{ $user->id }}">{{ $user->name }}</option>
                             @endif
                         @endforeach
                     </select @required(true)>
-                    <button type="submit" class="he">send</button>
+                    <button type="submit" class="he">Filtrer</button>
                 </form>
                 <br><br>
                 <?php $i = 0; ?>
@@ -69,11 +69,11 @@
                         <thead>
                             <tr>
                                 <th>id</th>
-                                <th>nom_parcelle</th>
-                                <th>nom_employe</th>
-                                <th>quantité_récoltée estimée(Ton)</th>
-                                <th>date_récolte_debut</th>
-                                <th>date_récolte_fin</th>
+                                <th>Nom parcelle</th>
+                                <th>Nom employé</th>
+                                <th>Quantité récoltée estimée(Ton)</th>
+                                <th>Date début récolte </th>
+                                <th>Date fin récolte </th>
 
                             </tr>
                         </thead>

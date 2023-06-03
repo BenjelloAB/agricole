@@ -10,12 +10,12 @@
 <div class="page-title">
     <div class="row">
         <div class="col-sm-6">
-            <h4 class="mb-0">Culture</h4>
+            <h4 class="mb-0">Cultivation</h4>
         </div>
         <div class="col-sm-6">
             <ol class="breadcrumb pt-0 pr-0 float-left float-sm-right ">
                 <li class="breadcrumb-item"><a href="#" class="default-color">dashboard</a></li>
-                <li class="breadcrumb-item active">culture</li>
+                <li class="breadcrumb-item active">Cultivation</li>
             </ol>
         </div>
     </div>
@@ -29,7 +29,7 @@
         <div class="card card-statistics h-100">
             <div class="card-body">
                 <a href="{{ route('culture.store') }}"> <button type="button" class="button x-small">
-                        ajouter un culture
+                        Commencer la cultivation
                     </button>
                 </a>
                 <br><br>
@@ -38,12 +38,12 @@
                         <thead>
                             <tr>
                                 <th>id</th>
-                                <th>nom_parcelle</th>
-                                <th>nom_employe</th>
-                                <th>type_plante</th>
-                                <th>debut_culture</th>
-                                <th>fin_culture</th>
-                                <th>status</th>
+                                <th>Nom parcelle</th>
+                                <th>Employé(s)</th>
+                                <th>Type de Plante</th>
+                                <th>Date debut cultivation</th>
+                                <th>Date fin cultivation</th>
+                                <th>Status</th>
                             </tr>
                         </thead>
 
@@ -80,7 +80,7 @@
                                             <div class="modal-header">
                                                 <h5 style="font-family: 'Cairo', sans-serif;" class="modal-title"
                                                     id="exampleModalLabel">
-                                                    <span style="color: rgb(0, 0, 0)"> Supprimer le culture</span>
+                                                    <span style="color: rgb(0, 0, 0)"> Supprimer cette procédure</span>
                                                 </h5>
                                                 <button type="button" class="close" data-dismiss="modal"
                                                     aria-label="Close">
@@ -91,14 +91,14 @@
                                                 <form action="{{ route('culture.delete') }}" method="post">
                                                     @method('DELETE')
                                                     @csrf
-                                                    <span style="color: red">Voullez-vous effacer cette
+                                                    <span style="color: red">Voullez-vous effectuer cette
                                                         operation</span>
                                                     <input id="id" type="hidden" name="id"
                                                         class="form-control" value="{{ $culture->id }}">
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary"
-                                                            data-dismiss="modal">ferme</button>
-                                                        <button type="submit" class="btn btn-danger">Valide</button>
+                                                            data-dismiss="modal">Fermer</button>
+                                                        <button type="submit" class="btn btn-danger">Valider</button>
                                                     </div>
                                                 </form>
                                             </div>

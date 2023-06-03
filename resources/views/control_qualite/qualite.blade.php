@@ -39,7 +39,7 @@
                     </div>
                 @endif
                 <button type="button" class="button x-small" data-toggle="modal" data-target="#exampleModal">
-                    Parcelle de terrain
+                commencer contrôle qualité
                 </button>
 
                 <br><br>
@@ -50,12 +50,12 @@
                         <thead>
                             <tr>
                                 <th>id</th>
-                                <th>nom_parcelle</th>
+                                <th>Nom parcelle</th>
 
-                                <th>texture_du_sol</th>
-                                <th>ph_du_sol</th>
-                                <th>etat_de_produit_recolte</th>
-                                <th>etat_sante</th>
+                                <th>Texture du sol</th>
+                                <th>ph du sol</th>
+                                <th>Etat de produit recolté</th>
+                                <th>Etat santé</th>
                                 <th>status</th>
                             </tr>
                         </thead>
@@ -89,8 +89,8 @@
                                             <div class="modal-header">
                                                 <h5 style="font-family: 'Cairo', sans-serif;" class="modal-title"
                                                     id="exampleModalLabel">
-                                                    <span style="color:rgb(0, 0, 0)"> changer les informations de
-                                                        parcelle de terrain</span>
+                                                    <span style="color:rgb(0, 0, 0)"> changer les données
+                                                        </span>
                                                 </h5>
                                                 <button type="button" class="close" data-dismiss="modal"
                                                     aria-label="Close">
@@ -107,7 +107,7 @@
                                                         class="form-control" value="{{ $control->id }}">
                                                     <div class="col">
                                                         <label for="Name" class="mr-sm-2">
-                                                            Nom_recolte
+                                                            Nom recolte
                                                         </label>
                                                         <select name="recolte_id" id="" class="form-control">
                                                             <option value="selectioner le parcelle">selectioner le
@@ -123,19 +123,19 @@
 
                                                     <div class="col">
                                                         <div class="form-group">
-                                                            <label for="exampleFormControlTextarea1">texture_du_sol
+                                                            <label for="exampleFormControlTextarea1">Texture du sol
                                                             </label>
                                                             <select name="texture_du_sol" id="" class="form-control">
-                                                                <option selected disabled>selectioner le recolte</option>
-                                                                <option value="sable">sable</option>
-                                                                <option value="limon">limon</option>
-                                                                <option value="argil">argil</option>
+                                                                <option selected disabled>Selectioner le recolte</option>
+                                                                <option value="sable">Sable</option>
+                                                                <option value="limon">Limon</option>
+                                                                <option value="argil">Argil</option>
                                                             </select>
                                                         </div>
                                                     </div>
                                                     <div class="col">
                                                         <div class="form-group">
-                                                            <label for="exampleFormControlTextarea1">ph_du_sol
+                                                            <label for="exampleFormControlTextarea1">PH du sol
                                                             </label>
                                                             <input type="number" class="form-control" id="exampleFormControlTextarea1"
                                                                 name="ph_du_sol" min="0" max="14" required>
@@ -143,25 +143,25 @@
                                                     </div>
                                                     <div class="col">
                                                         <div class="form-group">
-                                                            <label for="exampleFormControlTextarea1">etat_de_produit_recolte
+                                                            <label for="exampleFormControlTextarea1">Etat de produit recolte
                                                             </label>
                                                             <select name="etat_de_produit_recolte" id="" class="form-control">
-                                                                <option selected disabled>selectioner le recolte</option>
+                                                                <option selected disabled>Selectioner le recolte</option>
                                                                 <option value="Bien">Bien</option>
-                                                                <option value="passable">passable</option>
-                                                                <option value="mauvaise">mauvaise</option>
+                                                                <option value="passable">Passable</option>
+                                                                <option value="mauvaise">Mauvaise</option>
                                                             </select>
                                                         </div>
                                                     </div>
                                                     <div class="col">
                                                         <div class="form-group">
-                                                            <label for="exampleFormControlTextarea1">etat_sante
+                                                            <label for="exampleFormControlTextarea1">Etat santé
                                                             </label>
                                                             <select name="etat_sante" id="" class="form-control">
-                                                                <option selected disabled>selectioner le recolte</option>
+                                                                <option selected disabled>Selectioner le recolte</option>
                                                                 <option value="Bien">Bien</option>
-                                                                <option value="passable">passable</option>
-                                                                <option value="mauvaise">mauvaise</option>
+                                                                <option value="passable">Passable</option>
+                                                                <option value="mauvaise">Mauvaise</option>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -171,8 +171,8 @@
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
-                                                    data-dismiss="modal">Ferme</button>
-                                                <button type="submit" class="btn btn-success">Valide</button>
+                                                    data-dismiss="modal">Fermer</button>
+                                                <button type="submit" class="btn btn-success">Valider</button>
                                             </div>
                                             </form>
 
@@ -188,7 +188,7 @@
                                             <div class="modal-header">
                                                 <h5 style="font-family: 'Cairo', sans-serif;" class="modal-title"
                                                     id="exampleModalLabel">
-                                                    <span style="color: rgb(0, 0, 0)"> Supprimer l'employe</span>
+                                                    <span style="color: rgb(0, 0, 0)"> Supprimer les données</span>
                                                 </h5>
                                                 <button type="button" class="close" data-dismiss="modal"
                                                     aria-label="Close">
@@ -205,8 +205,8 @@
                                                         class="form-control" value="{{ $control->id }}">
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary"
-                                                            data-dismiss="modal">ferme</button>
-                                                        <button type="submit" class="btn btn-danger">Valide</button>
+                                                            data-dismiss="modal">fermer</button>
+                                                        <button type="submit" class="btn btn-danger">Valider</button>
                                                     </div>
                                                 </form>
                                             </div>
@@ -229,7 +229,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 style="font-family: 'Cairo', sans-serif;" class="modal-title" id="exampleModalLabel">
-                        hhhhhhhhhhhhhh
+                        commencer contrôle qualité
                     </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -243,10 +243,10 @@
 
                         <div class="col">
                             <label for="Name" class="mr-sm-2">
-                                nom parcelle
+                                Nom parcelle
                             </label>
                             <select name="recolte_id" id="" class="form-control">
-                                <option value="selectioner le parcelle">selectioner le recolte</option>
+                                <option value="selectioner le parcelle">Selectioner le recolte</option>
                                 @foreach ($recolte as $recolte)
                                     <option value="{{ $recolte->id }}">{{ $recolte->nom }}</option>
                                 @endforeach
@@ -256,19 +256,19 @@
 
                         <div class="col">
                             <div class="form-group">
-                                <label for="exampleFormControlTextarea1">texture_du_sol
+                                <label for="exampleFormControlTextarea1">Texture du sol
                                 </label>
                                 <select name="texture_du_sol" id="" class="form-control">
-                                    <option selected disabled>selectioner le recolte</option>
-                                    <option value="sable">sable</option>
-                                    <option value="limon">limon</option>
-                                    <option value="argil">argil</option>
+                                    <option selected disabled>Selectioner le recolte</option>
+                                    <option value="sable">Sable</option>
+                                    <option value="limon">Limon</option>
+                                    <option value="argil">Argil</option>
                                 </select>
                             </div>
                         </div>
                         <div class="col">
                             <div class="form-group">
-                                <label for="exampleFormControlTextarea1">ph_du_sol
+                                <label for="exampleFormControlTextarea1">PH du sol
                                 </label>
                                 <input type="number" class="form-control" id="exampleFormControlTextarea1"
                                     name="ph_du_sol" min="0" max="14" required>
@@ -276,25 +276,25 @@
                         </div>
                         <div class="col">
                             <div class="form-group">
-                                <label for="exampleFormControlTextarea1">etat_de_produit_recolte
+                                <label for="exampleFormControlTextarea1">Etat de produit recolté
                                 </label>
                                 <select name="etat_de_produit_recolte" id="" class="form-control">
-                                    <option selected disabled>selectioner le recolte</option>
+                                    <option selected disabled>Selectioner le recolte</option>
                                     <option value="Bien">Bien</option>
-                                    <option value="passable">passable</option>
-                                    <option value="mauvaise">mauvaise</option>
+                                    <option value="passable">Passable</option>
+                                    <option value="mauvaise">Mauvaise</option>
                                 </select>
                             </div>
                         </div>
                         <div class="col">
                             <div class="form-group">
-                                <label for="exampleFormControlTextarea1">etat_sante
+                                <label for="exampleFormControlTextarea1">Etat santé
                                 </label>
                                 <select name="etat_sante" id="" class="form-control">
-                                    <option selected disabled>selectioner le recolte</option>
+                                    <option selected disabled>Selectioner le recolte</option>
                                     <option value="Bien">Bien</option>
-                                    <option value="passable">passable</option>
-                                    <option value="mauvaise">mauvaise</option>
+                                    <option value="passable">Passable</option>
+                                    <option value="mauvaise">Mauvaise</option>
                                 </select>
                             </div>
                         </div>
@@ -304,8 +304,8 @@
                         <br><br>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Ferme</button>
-                    <button type="submit" class="btn btn-success">Valide</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                    <button type="submit" class="btn btn-success">Valider</button>
                 </div>
                 </form>
 

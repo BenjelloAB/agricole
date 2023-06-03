@@ -9,6 +9,9 @@
     <meta name="author" content="potenzaglobalsolutions.com" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <script src="https://kit.fontawesome.com/70742d8212.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/58febbdd51.js" crossorigin="anonymous"></script>
+
+
     @include('layot.head')
 </head>
 @section('title')
@@ -61,13 +64,12 @@
                                     </span>
                                 </div>
                                 <div class="float-right text-right">
-                                    <p class="card-text text-dark">Nombre de responsable </p>
+                                    <p class="card-text text-dark">Responsables </p>
                                     <h4>{{ $nbr }}</h4>
                                 </div>
                             </div>
                             <p class="text-muted pt-3 mb-0 mt-2 border-top">
-                                <i class="fa fa-exclamation-circle mr-1" aria-hidden="true"></i> 81% lower
-                                growth
+                                <i class="fa fa-exclamation-circle mr-1" aria-hidden="true"></i>Nombre total des Responsables
                             </p>
                         </div>
                     </div>
@@ -83,13 +85,12 @@
                                     </span>
                                 </div>
                                 <div class="float-right text-right">
-                                    <p class="card-text text-dark">Capital total</p>
+                                    <p class="card-text text-dark">Capital Total</p>
                                     <h4>{{ $ct }}</h4>
                                 </div>
                             </div>
                             <p class="text-muted pt-3 mb-0 mt-2 border-top">
-                                <i class="fa fa-bookmark-o mr-1" aria-hidden="true"></i> hhh
-                            </p>
+                            <i class="fa-solid fa-coins" aria-hidden="true"></i> La somme des capitaux attribués                            </p>
                         </div>
                     </div>
                 </div>
@@ -103,12 +104,12 @@
                                     </span>
                                 </div>
                                 <div class="float-right text-right">
-                                    <p class="card-text text-dark">Reste total</p>
+                                    <p class="card-text text-dark">Reste</p>
                                     <h4>{{ $ct-$cout_CRE }}</h4>
                                 </div>
                             </div>
                             <p class="text-muted pt-3 mb-0 mt-2 border-top">
-                                <i class="fa fa-calendar mr-1" aria-hidden="true"></i> Sales Per Week
+                            <i class="fa-solid fa-coins" aria-hidden="true"></i> Reste Par rapport au Capital total
                             </p>
                         </div>
                     </div>
@@ -124,12 +125,12 @@
                                     </span>
                                 </div>
                                 <div class="float-right text-right">
-                                    <p class="card-text text-dark">Nombre des employes</p>
+                                    <p class="card-text text-dark">Employés</p>
                                     <h4>{{ $count_emp }}</h4>
                                 </div>
                             </div>
                             <p class="text-muted pt-3 mb-0 mt-2 border-top">
-                                <i class="fa fa-repeat mr-1" aria-hidden="true"></i> Just Updated
+                                <i class="fa fa-repeat mr-1" aria-hidden="true"></i> Nombre total des Employés
                             </p>
                         </div>
                     </div>
@@ -608,7 +609,6 @@
  footer -->
 
     @include('layot.footer-scripts')
-
 
 </body>
 

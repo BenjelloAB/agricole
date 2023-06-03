@@ -6,28 +6,28 @@
                 <ul class="nav navbar-nav side-menu" id="sidebarnav">
                     <!-- menu item Dashboard-->
                     <li>
-                        <a href="{{ route('admin') }}"><i class="ti-home"></i><span
+                        <a href="{{ route('admin') }}"><i class="fa-solid fa-house-chimney"></i><span
                                 class="right-nav-text">Dashboard</span>
                         </a>
                     </li>
                     <!-- menu title -->
-                    <li class="mt-10 mb-10 text-muted pl-4 font-medium menu-title">Components </li>
+                    <li class="mt-10 mb-10 text-muted pl-4 font-medium menu-title">Composants </li>
                     <!-- menu item Elements-->
                     <li>
-                        <a href="{{ route('respo.index') }}"><i class="ti-pie-chart"></i><span
-                                class="right-nav-text">Creation le respo</span>
+                        <a href="{{ route('respo.index') }}"><i class="fa-solid fa-user-shield"></i><span
+                                class="right-nav-text">Responsables</span>
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('index2.parcelle') }}"><i class="ti-pie-chart"></i><span
+                        <a href="{{ route('index2.parcelle') }}"><i class="fa-solid fa-mountain-sun"></i><span
                                 class="right-nav-text">Parcelle de terrain</span>
                         </a>
                     </li>
 
                     <!-- menu item calendar-->
                     <li>
-                        <a href="{{ route('index3.show') }}"> <i class="ti-user"></i><span
-                                class="right-nav-text">Employe</span>
+                        <a href="{{ route('index3.show') }}"><i class="fa-solid fa-user"></i><span
+                                class="right-nav-text">Employés</span>
                         </a>
                     </li>
                     <!-- menu item todo-->
@@ -48,14 +48,13 @@
                     <!-- menu item Charts-->
                     <li>
                         <a href="javascript:void(0);" data-toggle="collapse" data-target="#chart">
-                            <div class="pull-left"><i class="ti-pie-chart"></i><span class="right-nav-text">saison
-                                    agricole</span></div>
+                            <div class="pull-left"><i class="fa-solid fa-chart-area"></i><span class="right-nav-text">Gestion Cultivation</span></div>
                             <div class="pull-right"><i class="ti-plus"></i></div>
                             <div class="clearfix"></div>
                         </a>
                         <ul id="chart" class="collapse" data-parent="#sidebarnav">
-                            <li> <a href="{{ route('index4.culture') }}">Culture</a> </li>
-                            <li> <a href="{{ route('index5.ressorce') }}">Ressource</a> </li>
+                            <li> <a href="{{ route('index4.culture') }}">Commencer Cultivation</a> </li>
+                            <li> <a href="{{ route('index5.ressorce') }}">Ressource Cultivation</a> </li>
 
                         </ul>
                     </li>
@@ -63,14 +62,13 @@
                     <!-- menu font icon-->
                     <li>
                         <a href="javascript:void(0);" data-toggle="collapse" data-target="#font-icon">
-                            <div class="pull-left"><i class="ti-pie-chart"></i><span class="right-nav-text">Saison des
-                                    récoltes</span></div>
+                            <div class="pull-left"><i class="fa-solid fa-chart-area"></i><span class="right-nav-text">Gestion Récolte</span></div>
                             <div class="pull-right"><i class="ti-plus"></i></div>
                             <div class="clearfix"></div>
                         </a>
                         <ul id="font-icon" class="collapse" data-parent="#sidebarnav">
-                            <li> <a href="{{ route('index6.recolte') }}">récolté </a></li>
-                            <li> <a href="{{ route('index7.ressource') }}">Ressource</a> </li>
+                            <li> <a href="{{ route('index6.recolte') }}">Commencer Récolte </a></li>
+                            <li> <a href="{{ route('index7.ressource') }}">Ressource Récolte</a> </li>
 
                         </ul>
                     </li>
@@ -78,41 +76,41 @@
                     {{-- <li class="mt-10 mb-10 text-muted pl-4 font-medium menu-title">Widgets, Forms & Tables </li> --}}
                     <!-- menu item Widgets-->
                     <li>
-                        <a href="{{ route('index8.control') }}"><i class="ti-support"></i><span class="right-nav-text">Contrôle
+                        <a href="{{ route('index8.control') }}"><i class="fa-sharp fa-solid fa-award"></i><span class="right-nav-text">Contrôle
                                 qualité</span>
                         </a>
                     </li>
                     <li>
 
                         <a href="javascript:void(0);" data-toggle="collapse" data-target="#Form">
-                            <div class="pull-left"><i class="ti-money"></i><span class="right-nav-text">Finance</span>
+                            <div class="pull-left"><i class="fa-sharp fa-solid fa-dollar-sign"></i><span class="right-nav-text">Finance</span>
                             </div>
                             <div class="pull-right"><i class="ti-plus"></i></div>
                             <div class="clearfix"></div>
                         </a>
                         <ul id="Form" class="collapse" data-parent="#sidebarnav">
-                            <li> <a href="{{ route('index9.finance_culture') }}">Finance-culture</a> </li>
-                            <li> <a href="{{ route('index10.finance_recolte') }}">Finance-récolté </a> </li>
-                            <li> <a href="{{ route('index11.finance_employe') }}">Finance-employee</a> </li>
+                            <li> <a href="{{ route('index9.finance_culture') }}">Finance Culture</a> </li>
+                            <li> <a href="{{ route('index10.finance_recolte') }}">Finance Récolte </a> </li>
+                            <li> <a href="{{ route('index11.finance_employe') }}">Finance Employés</a> </li>
 
                         </ul>
                     </li>
                     {{-- <li>
-                        <a href="widgets.html"><i class="ti-blackboard"></i><span class="right-nav-text">Contrôle qualité</span>
+                        <a href="widgets.html"><i class="fa-sharp fa-solid fa-award"></i><span class="right-nav-text">Contrôle qualité</span>
                         <span class="badge badge-pill badge-danger float-right mt-1">59</span> </a>
                     </li> --}}
                     <!-- menu item Form-->
                     {{-- <li>
 
                         <a href="javascript:void(0);" data-toggle="collapse" data-target="#Form">
-                            <div class="pull-left"><i class="ti-files"></i><span class="right-nav-text">Finance</span></div>
+                            <div class="pull-left"><i class="fa-sharp fa-solid fa-dollar-sign"></i><span class="right-nav-text">Finance</span></div>
                             <div class="pull-right"><i class="ti-plus"></i></div>
                             <div class="clearfix"></div>
                         </a>
                         <ul id="Form" class="collapse" data-parent="#sidebarnav">
-                            <li> <a href="editor.html">Finance-culture</a> </li>
-                            <li> <a href="editor-markdown.html">Finance-récolté </a> </li>
-                            <li> <a href="form-input.html">Finance-employee</a> </li>
+                            <li> <a href="editor.html">Finance Culture</a> </li>
+                            <li> <a href="editor-markdown.html">Finance Récolte </a> </li>
+                            <li> <a href="form-input.html">Finance Employés</a> </li>
 
                         </ul>
                     </li> --}}

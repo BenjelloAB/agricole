@@ -74,12 +74,12 @@
 <div class="page-title">
     <div class="row">
         <div class="col-sm-6">
-            <h4 class="mb-0"> ressource</h4>
+            <h4 class="mb-0"> Ressources pour la Cultivation</h4>
         </div>
         <div class="col-sm-6">
             <ol class="breadcrumb pt-0 pr-0 float-left float-sm-right ">
                 <li class="breadcrumb-item"><a href="#" class="default-color">dashboard</a></li>
-                <li class="breadcrumb-item active">ressource</li>
+                <li class="breadcrumb-item active">Ressources pour la Cultivation</li>
             </ol>
         </div>
     </div>
@@ -102,7 +102,7 @@
                     </div>
                 @endif
                 <button type="button" class="button x-small" data-toggle="modal" data-target="#exampleModal">
-                    Parcelle de terrain
+                    Gérer Ressources Cultivation
                 </button>
 
                 <br><br>
@@ -113,14 +113,14 @@
                         <thead>
                             <tr>
                                 <th>id</th>
-                                <th>nom_culture</th>
-                                <th>consommation semences(Kg)</th>
-                                <th>engrais</th>
-                                <th>consommation pesticides(Kg)</th>
-                                <th>consommation_en_eau(L)</th>
+                                <th>Nom Parcelle</th>
+                                <th>Semences(Kg)</th>
+                                <th>Engrais(Kg)</th>
+                                <th>Pesticides(Kg)</th>
+                                <th>Irrigation(L)</th>
                                 <th>besoin_en_pesticides_culture</th>
-                                <th>machines_culture</th>
-                                <th>status</th>
+                                <th>Machines utilisées</th>
+                                <th>Status</th>
                             </tr>
                         </thead>
 
@@ -160,8 +160,7 @@
                                             <div class="modal-header">
                                                 <h5 style="font-family: 'Cairo', sans-serif;" class="modal-title"
                                                     id="exampleModalLabel">
-                                                    <span style="color:rgb(0, 0, 0)"> changer les informations de
-                                                        parcelle de terrain</span>
+                                                    <span style="color:rgb(0, 0, 0)"> Changer les informations de cette parcelle</span>
                                                 </h5>
                                                 <button type="button" class="close" data-dismiss="modal"
                                                     aria-label="Close">
@@ -178,7 +177,7 @@
                                                         class="form-control" value="{{ $ressorce->id }}">
                                                     <div class="col">
                                                         <label for="Name" class="mr-sm-2">
-                                                            Nom_parcelle
+                                                        Nom Parcelle
                                                         </label>
 
                                                         <select name="parcelle" id="" class="form-control">
@@ -192,29 +191,29 @@
                                                         </select>
                                                     </div>
                                                     <div class="col">
-                                                        <label for="Name_en" class="mr-sm-2">semences
+                                                        <label for="Name_en" class="mr-sm-2">Semences(Kg)
                                                         </label>
-                                                        <input type="text" class="form-control" name="semences"
+                                                        <input type="number" class="form-control" name="semences"
                                                             required>
                                                     </div>
                                                     <div class="col">
                                                         <label for="Name" class="mr-sm-2">
-                                                            engrais
+                                                        Engrais(Kg)
                                                         </label>
-                                                        <input id="Name" type="text" name="engrais"
+                                                        <input id="Name" type="number" name="engrais"
                                                             class="form-control" required>
                                                     </div>
                                                     <div class="col">
-                                                        <label for="Name_en" class="mr-sm-2">pesticides
+                                                        <label for="Name_en" class="mr-sm-2">Pesticides(Kg)
                                                         </label>
-                                                        <input type="text" class="form-control" name="pesticides"
+                                                        <input type="number" class="form-control" name="pesticides"
                                                             required>
                                                     </div>
 
                                                     <div class="col">
-                                                        <label for="Name_en" class="mr-sm-2">besoin_en_eau
+                                                        <label for="Name_en" class="mr-sm-2">Irrigation(L)
                                                         </label>
-                                                        <input type="text" class="form-control" name="besoin_en_eau"
+                                                        <input type="number" class="form-control" name="besoin_en_eau"
                                                             required>
                                                     </div>
                                                     <div class="col">
@@ -228,8 +227,8 @@
                                                     <div class="col">
                                                         <!-- here -->
                                                         <button class="uk-button uk-button-default form-control"
-                                                            type="button">select
-                                                            machine culture</button>
+                                                            type="button">selectionner
+                                                            machines cultivation</button>
                                                         <div uk-dropdown>
                                                             <ul class="uk-nav uk-dropdown-nav">
                                                                 <li class="uk-active">
@@ -313,8 +312,8 @@
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
-                                                    data-dismiss="modal">Ferme</button>
-                                                <button type="submit" class="btn btn-success">Valide</button>
+                                                    data-dismiss="modal">Fermer</button>
+                                                <button type="submit" class="btn btn-success">Valider</button>
                                             </div>
                                             </form>
 
@@ -330,7 +329,7 @@
                                             <div class="modal-header">
                                                 <h5 style="font-family: 'Cairo', sans-serif;" class="modal-title"
                                                     id="exampleModalLabel">
-                                                    <span style="color: rgb(0, 0, 0)"> Supprimer l'employe</span>
+                                                    <span style="color: rgb(0, 0, 0)"> Supprimer Ces données</span>
                                                 </h5>
                                                 <button type="button" class="close" data-dismiss="modal"
                                                     aria-label="Close">
@@ -341,14 +340,14 @@
                                                 <form action="{{ route('culture.deleteRessource') }}" method="post">
                                                     @method('DELETE')
                                                     @csrf
-                                                    <span style="color: red">Voullez-vous effacer cette
+                                                    <span style="color: red">Voullez-vous effectuer cette
                                                         operation</span>
                                                     <input id="id" type="hidden" name="id"
                                                         class="form-control" value="{{ $ressorce->id }}">
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary"
-                                                            data-dismiss="modal">ferme</button>
-                                                        <button type="submit" class="btn btn-danger">Valide</button>
+                                                            data-dismiss="modal">Fermer</button>
+                                                        <button type="submit" class="btn btn-danger">Valider</button>
                                                     </div>
                                                 </form>
                                             </div>
@@ -371,7 +370,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 style="font-family: 'Cairo', sans-serif;" class="modal-title" id="exampleModalLabel">
-                        hhhhhhhhhhhhhh
+                    Gérer Ressources Cultivation
                     </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -385,10 +384,10 @@
 
                         <div class="col">
                             <label for="Name" class="mr-sm-2">
-                                Nom_parcelle
+                                Nom du Parclle
                             </label>
                             <select name="parcelle" id="" class="form-control">
-                                <option selected disabled>selectioner le culture</option>
+                                <option selected disabled>selectioner le nom  Parcelle</option>
                                 @foreach ($parcelle as $cultur)
                                     <option value="{{ $cultur->id }}">{{ $cultur->nom }}</option>
                                 @endforeach
@@ -396,26 +395,26 @@
                             </select>
                         </div>
                         <div class="col">
-                            <label for="Name_en" class="mr-sm-2">semences
+                            <label for="Name_en" class="mr-sm-2">Semences(Kg)
                             </label>
-                            <input type="text" class="form-control" name="semences" required>
+                            <input type="number" class="form-control" name="semences" required>
                         </div>
                         <div class="col">
                             <label for="Name" class="mr-sm-2">
-                                engrais
+                            Engrais(Kg)
                             </label>
-                            <input id="Name" type="text" name="engrais" class="form-control" required>
+                            <input id="Name" type="number" name="engrais" class="form-control" required>
                         </div>
                         <div class="col">
-                            <label for="Name_en" class="mr-sm-2">pesticides
+                            <label for="Name_en" class="mr-sm-2">Pesticides(Kg)
                             </label>
-                            <input type="text" class="form-control" name="pesticides" required>
+                            <input type="number" class="form-control" name="pesticides" required>
                         </div>
 
                         <div class="col">
-                            <label for="Name_en" class="mr-sm-2">besoin_en_eau
+                            <label for="Name_en" class="mr-sm-2">Irrigation(L)
                             </label>
-                            <input type="text" class="form-control" name="besoin_en_eau" required>
+                            <input type="number" class="form-control" name="besoin_en_eau" required>
                         </div>
                         <div class="col">
                             <label for="Name_en" class="mr-sm-2">besoin_en_pesticides_culture
@@ -425,8 +424,8 @@
                         <br>
                         <div class="col">
                             <!-- here -->
-                            <button class="uk-button uk-button-default form-control" type="button">select
-                                machine culture</button>
+                            <button class="uk-button uk-button-default form-control" type="button">selectionner
+                                machines cultivation</button>
                             <div uk-dropdown>
                                 <ul class="uk-nav uk-dropdown-nav">
                                     <li class="uk-active">
@@ -441,46 +440,46 @@
                                                     value="Charrue">
                                                 <p>Charrue</p>
                                                 <input type="number" min="0" max="2"
-                                                    name="numMachine[1]"value="0">
+                                                    name="numMachine[1]" value="0">
                                             </label>
                                             <label><input class="uk-checkbox" type="checkbox" name="nom_machine[2]"
                                                     value="Cultivateur">
                                                 <p>Cultivateur</p>
                                                 <input type="number" min="0" max="2"
-                                                    name="numMachine[2]"value="0">
+                                                    name="numMachine[2]" value="0">
                                             </label>
                                             <label><input class="uk-checkbox" type="checkbox" name="nom_machine[3]"
                                                     value="Herse">
                                                 <p>Herse</p>
                                                 <input type="number" min="0" max="2"
-                                                    name="numMachine[3]"value="0">
+                                                    name="numMachine[3]" value="0">
                                             </label>
                                             <label><input class="uk-checkbox" type="checkbox" name="nom_machine[4]"
                                                     value="Semoir">
                                                 <p>Semoir</p>
                                                 <input type="number" min="0" max="2"
-                                                    name="numMachine[4]"value="0">
+                                                    name="numMachine[4]" value="0">
                                             </label>
                                             <label><input class="uk-checkbox" type="checkbox" name="nom_machine[5]"
                                                     value="Transplanteuse">
                                                 <p>Transplanteuse</p>
                                                 <input type="number" min="0" max="2"
-                                                    name="numMachine[5]"value="0">
+                                                    name="numMachine[5]" value="0">
                                             </label>
                                             <label><input class="uk-checkbox" type="checkbox" name="nom_machine[6]"
                                                     value="Pulvérisateur">
                                                 <p>Pulvérisateur</p>
                                                 <input type="number" min="0" max="2"
-                                                    name="numMachine[6]"value="0">
+                                                    name="numMachine[6]" value="0">
                                             </label>
                                             <label><input class="uk-checkbox" type="checkbox" name="nom_machine[7]"
                                                     value="Irrigation">
                                                 <p>Irrigation</p>
                                                 <input type="number" min="0" max="2"
-                                                    name="numMachine[7]"value="0">
+                                                    name="numMachine[7]" value="0">
                                             </label>
                                             <label><input class="uk-checkbox" type="checkbox" name="nom_machine[8]"
-                                                    value="Herse étrille"value="0">
+                                                    value="Herse étrille" value="0">
                                                 <p>Herse étrille</p>
                                                 <input type="number" min="0" max="2"
                                                     name="numMachine[8]" value="0">
@@ -499,8 +498,8 @@
                         <br><br>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Ferme</button>
-                    <button type="submit" class="btn btn-success">Valide</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                    <button type="submit" class="btn btn-success">Valider</button>
                 </div>
                 </form>
 

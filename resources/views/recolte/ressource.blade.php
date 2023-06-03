@@ -75,12 +75,12 @@
 <div class="page-title">
     <div class="row">
         <div class="col-sm-6">
-            <h4 class="mb-0"> ressource</h4>
+            <h4 class="mb-0"> Ressources pour la Récolte</h4>
         </div>
         <div class="col-sm-6">
             <ol class="breadcrumb pt-0 pr-0 float-left float-sm-right ">
                 <li class="breadcrumb-item"><a href="#" class="default-color">dashboard</a></li>
-                <li class="breadcrumb-item active">ressource</li>
+                <li class="breadcrumb-item active">Ressources pour la Récolte</li>
             </ol>
         </div>
     </div>
@@ -103,7 +103,7 @@
                     </div>
                 @endif
                 <button type="button" class="button x-small" data-toggle="modal" data-target="#exampleModal">
-                    Parcelle de terrain
+                Gérer Ressources Récolte
                 </button>
 
                 <br><br>
@@ -114,9 +114,9 @@
                         <thead>
                             <tr>
                                 <th>id</th>
-                                <th>nom_recolte</th>
-                                <th>machines_culture</th>
-                                <th>status</th>
+                                <th>Nom Parcelle</th>
+                                <th>Machines utilisées</th>
+                                <th>Status</th>
                             </tr>
                         </thead>
 
@@ -145,8 +145,7 @@
                                             <div class="modal-header">
                                                 <h5 style="font-family: 'Cairo', sans-serif;" class="modal-title"
                                                     id="exampleModalLabel">
-                                                    <span style="color:rgb(0, 0, 0)"> changer les informations de
-                                                        parcelle de terrain</span>
+                                                    <span style="color:rgb(0, 0, 0)"> Changer les informations de cette parcelle</span>
                                                 </h5>
                                                 <button type="button" class="close" data-dismiss="modal"
                                                     aria-label="Close">
@@ -164,11 +163,10 @@
                                                         class="form-control" value="{{ $ressource->id }}">
                                                     <div class="col">
                                                         <label for="Name" class="mr-sm-2">
-                                                            Nom_recolte
+                                                            Nom de la Parcelle
                                                         </label>
                                                         <select name="recolte_id" id="" class="form-control">
-                                                            <option value="selectioner le parcelle">selectioner le
-                                                                recolte</option>
+                                                            <option value="selectioner le parcelle">selectioner le nom de Parcelle</option>
                                                             @foreach ($recolte as $item)
                                                                 <option value="{{ $item->id }}">
                                                                     {{ $item->nom }}
@@ -182,12 +180,12 @@
 
 
                                                     <div class="col">
-                                                        <label for="Name_en" class="mr-sm-2">machine_recolte
+                                                        <label for="Name_en" class="mr-sm-2">machines de Récolte utilisées
                                                         </label>
                                                         <!-- here -->
                                                         <button class="uk-button uk-button-default form-control"
-                                                            type="button">select
-                                                            machine culture</button>
+                                                            type="button">selectionner
+                                                            machines Récolte</button>
                                                         <div uk-dropdown>
                                                             <ul class="uk-nav uk-dropdown-nav">
                                                                 <li class="uk-active">
@@ -195,52 +193,52 @@
                                                                         class="saad uk-margin uk-grid-small uk-child-width-auto uk-grid">
                                                                         <label><input class="uk-checkbox"
                                                                                 type="checkbox" name="nom_machine[0]"
-                                                                                value="Moissonneuse_batteuse">
-                                                                            <p>Moissonneuse_batteuse</p>
+                                                                                value="Moissonneuse">
+                                                                            <p>Moissonneuse</p>
                                                                             <input type="number" min="0"
-                                                                                max="2" name="numMachine[0]">
+                                                                                max="2" name="numMachine[0]" value="0">
                                                                         </label>
                                                                         <label><input class="uk-checkbox"
                                                                                 type="checkbox" name="nom_machine[1]"
-                                                                                value="Récolteuse_de_canne_à_sucre">
-                                                                            <p>Récolteuse de canne à sucre</p>
+                                                                                value="Récolteuse">
+                                                                            <p>Récolteuse</p>
                                                                             <input type="number" min="0"
-                                                                                max="2" name="numMachine[1]">
+                                                                                max="2" name="numMachine[1]" value="0">
                                                                         </label>
                                                                         <label><input class="uk-checkbox"
                                                                                 type="checkbox" name="nom_machine[2]"
-                                                                                value="Cueilleur_à_main_ou_à_bras">
-                                                                            <p>Cueilleur à main ou à bras</p>
+                                                                                value="Cueilleur">
+                                                                            <p>Cueilleur</p>
                                                                             <input type="number" min="0"
-                                                                                max="2" name="numMachine[2]">
+                                                                                max="2" name="numMachine[2]" value="0">
                                                                         </label>
                                                                         <label><input class="uk-checkbox"
                                                                                 type="checkbox" name="nom_machine[3]"
                                                                                 value="Tracteur">
                                                                             <p>Tracteur</p>
                                                                             <input type="number" min="0"
-                                                                                max="2" name="numMachine[3]">
+                                                                                max="2" name="numMachine[3]" value="0">
                                                                         </label>
                                                                         <label><input class="uk-checkbox"
                                                                                 type="checkbox" name="nom_machine[4]"
-                                                                                value="Équipement_de_nettoyage_et_de tri">
-                                                                            <p>Équipement de nettoyage et de tri</p>
+                                                                                value="Équipement_Tri">
+                                                                            <p>Équipement_Tri</p>
                                                                             <input type="number" min="0"
-                                                                                max="2" name="numMachine[4]">
+                                                                                max="2" name="numMachine[4]" value="0">
                                                                         </label>
                                                                         <label><input class="uk-checkbox"
                                                                                 type="checkbox" name="nom_machine[5]"
                                                                                 value="Silos">
                                                                             <p>Silos</p>
                                                                             <input type="number" min="0"
-                                                                                max="2" name="numMachine[5]">
+                                                                                max="2" name="numMachine[5]" value="0">
                                                                         </label>
                                                                         <label><input class="uk-checkbox"
                                                                                 type="checkbox" name="nom_machine[6]"
                                                                                 value="chambres_froides">
-                                                                            <p>chambres froides</p>
+                                                                            <p>ChambresFroides</p>
                                                                             <input type="number" min="0"
-                                                                                max="2" name="numMachine[6]">
+                                                                                max="2" name="numMachine[6]" value="0">
                                                                         </label>
                                                                     </div>
                                                                 </li>
@@ -257,8 +255,8 @@
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
-                                                    data-dismiss="modal">Ferme</button>
-                                                <button type="submit" class="btn btn-success">Valide</button>
+                                                    data-dismiss="modal">Fermer</button>
+                                                <button type="submit" class="btn btn-success">Valider</button>
                                             </div>
                                             </form>
 
@@ -274,7 +272,7 @@
                                             <div class="modal-header">
                                                 <h5 style="font-family: 'Cairo', sans-serif;" class="modal-title"
                                                     id="exampleModalLabel">
-                                                    <span style="color: rgb(0, 0, 0)"> Supprimer l'employe</span>
+                                                    <span style="color: rgb(0, 0, 0)"> Supprimer ces données</span>
                                                 </h5>
                                                 <button type="button" class="close" data-dismiss="modal"
                                                     aria-label="Close">
@@ -286,14 +284,14 @@
                                                     method="post">
                                                     @method('DELETE')
                                                     @csrf
-                                                    <span style="color: red">Voullez-vous effacer cette
+                                                    <span style="color: red">Voullez-vous effectuer cette
                                                         operation</span>
                                                     <input id="id" type="hidden" name="id"
                                                         class="form-control" value="{{ $ressource->id }}">
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary"
-                                                            data-dismiss="modal">ferme</button>
-                                                        <button type="submit" class="btn btn-danger">Valide</button>
+                                                            data-dismiss="modal">Fermer</button>
+                                                        <button type="submit" class="btn btn-danger">Valider</button>
                                                     </div>
                                                 </form>
                                             </div>
@@ -316,7 +314,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 style="font-family: 'Cairo', sans-serif;" class="modal-title" id="exampleModalLabel">
-                        hhhhhhhhhhhhhh
+                    Changer les informations de cette parcelle
                     </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -340,60 +338,60 @@
 
                             </select>
                         </div>
+                        <br>
 
 
 
                         <div class="col">
-                            <label for="Name_en" class="mr-sm-2">machine_recolte
+                            <label for="Name_en" class="mr-sm-2">machines de Récolte utilisées
                             </label>
                             <!-- here -->
-                            <button class="uk-button uk-button-default form-control" type="button">select
-                                machine culture</button>
+                            <button class="uk-button uk-button-default form-control" type="button">selectionner machines Récolte</button>
                             <div uk-dropdown>
                                 <ul class="uk-nav uk-dropdown-nav">
                                     <li class="uk-active">
                                         <div class="saad uk-margin uk-grid-small uk-child-width-auto uk-grid">
                                             <label><input class="uk-checkbox" type="checkbox" name="nom_machine[0]"
-                                                    value="Moissonneuse_batteuse">
-                                                <p>Moissonneuse_batteuse</p>
+                                                    value="Moissonneuse">
+                                                <p>Moissonneuse</p>
                                                 <input type="number" min="0" max="2"
-                                                    name="numMachine[0]">
+                                                    name="numMachine[0]" value="0">
                                             </label>
                                             <label><input class="uk-checkbox" type="checkbox" name="nom_machine[1]"
-                                                    value="Récolteuse_de_canne_à_sucre">
-                                                <p>Récolteuse de canne à sucre</p>
+                                                    value="Récolteuse">
+                                                <p>Récolteuse</p>
                                                 <input type="number" min="0" max="2"
-                                                    name="numMachine[1]">
+                                                    name="numMachine[1]" value="0">
                                             </label>
                                             <label><input class="uk-checkbox" type="checkbox" name="nom_machine[2]"
-                                                    value="Cueilleur_à_main_ou_à_bras">
-                                                <p>Cueilleur à main ou à bras</p>
+                                                    value="Cueilleur">
+                                                <p>Cueilleur</p>
                                                 <input type="number" min="0" max="2"
-                                                    name="numMachine[2]">
+                                                    name="numMachine[2]" value="0">
                                             </label>
                                             <label><input class="uk-checkbox" type="checkbox" name="nom_machine[3]"
                                                     value="Tracteur">
                                                 <p>Tracteur</p>
                                                 <input type="number" min="0" max="2"
-                                                    name="numMachine[3]">
+                                                    name="numMachine[3]" value="0">
                                             </label>
                                             <label><input class="uk-checkbox" type="checkbox" name="nom_machine[4]"
-                                                    value="Équipement_de_nettoyage_et_de tri">
-                                                <p>Équipement de nettoyage et de tri</p>
+                                                    value="Équipement_Tri">
+                                                <p>Équipement_Tri</p>
                                                 <input type="number" min="0" max="2"
-                                                    name="numMachine[4]">
+                                                    name="numMachine[4]" value="0">
                                             </label>
                                             <label><input class="uk-checkbox" type="checkbox" name="nom_machine[5]"
                                                     value="Silos">
                                                 <p>Silos</p>
                                                 <input type="number" min="0" max="2"
-                                                    name="numMachine[5]">
+                                                    name="numMachine[5]" value="0">
                                             </label>
                                             <label><input class="uk-checkbox" type="checkbox" name="nom_machine[6]"
-                                                    value="chambres_froides">
-                                                <p>chambres froides</p>
+                                                    value="ChambresFroides">
+                                                <p>ChambresFroides</p>
                                                 <input type="number" min="0" max="2"
-                                                    name="numMachine[6]">
+                                                    name="numMachine[6]" value="0">
                                             </label>
                                         </div>
                                     </li>
@@ -404,12 +402,13 @@
 
 
                         </div>
+                        <br>
 
                         <br><br>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Ferme</button>
-                    <button type="submit" class="btn btn-success">Valide</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                    <button type="submit" class="btn btn-success">Valider</button>
                 </div>
                 </form>
 

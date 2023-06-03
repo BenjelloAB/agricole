@@ -51,14 +51,14 @@
                     @csrf
                     @method('get')
                     <select class="custom-select custom-select-lg mb-3 " style="width: 20%;" name="nom_parcelle">
-                        <option>selectioner le parcelle</option>
+                        <option>Sélectionner  responsable</option>
                         @foreach ($user as $user)
                             @if ($user->role == 0)
                                 <option value="{{ $user->id }}">{{ $user->name }}</option>
                             @endif
                         @endforeach
                     </select @required(true)>
-                    <button type="submit" class="he">send</button>
+                    <button type="submit" class="he">Filtrer</button>
                 </form>
                 <br><br>
                 <?php $i = 0; ?>
@@ -69,10 +69,10 @@
                         <thead>
                             <tr>
                                 <th>id</th>
-                                <th>nom</th>
-                                <th>emplacement</th>
-                                <th>taille(hectare)</th>
-                                <th>type_de_sol</th>
+                                <th>Nom</th>
+                                <th>Emplacement</th>
+                                <th>Taille(hectare)</th>
+                                <th>Type de sol</th>
                             </tr>
 
                         </thead>

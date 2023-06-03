@@ -9,6 +9,8 @@
     <meta name="author" content="potenzaglobalsolutions.com" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     @include('layouts.head')
+    <script src="https://kit.fontawesome.com/70742d8212.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/58febbdd51.js" crossorigin="anonymous"></script>
 </head>
 
 <body>

@@ -20,12 +20,12 @@
 <div class="page-title">
     <div class="row">
         <div class="col-sm-6">
-            <h4 class="mb-0">Parcelle de employe</h4>
+            <h4 class="mb-0"> Employés</h4>
         </div>
         <div class="col-sm-6">
             <ol class="breadcrumb pt-0 pr-0 float-left float-sm-right ">
                 <li class="breadcrumb-item"><a href="#" class="default-color">Dashboard</a></li>
-                <li class="breadcrumb-item active">Parcelle</li>
+                <li class="breadcrumb-item active">Employé</li>
             </ol>
         </div>
     </div>
@@ -51,14 +51,14 @@
                     @csrf
                     @method('get')
                     <select class="custom-select custom-select-lg mb-3 " style="width: 20%;" name="nom_parcelle">
-                        <option>selectioner le parcelle</option>
+                        <option>selectionner responsable</option>
                         @foreach ($user as $user)
                             @if ($user->role == 0)
                                 <option value="{{ $user->id }}">{{ $user->name }}</option>
                             @endif
                         @endforeach
                     </select @required(true)>
-                    <button type="submit" class="he">send</button>
+                    <button type="submit" class="he">Filtrer</button>
                 </form>
                 <br><br>
                 <?php $i = 0; ?>
@@ -69,18 +69,18 @@
                         <thead>
                             <tr>
                                 <th>id</th>
-                                <th>nom</th>
-                                <th>prenom</th>
-                                <th>date</th>
-                                <th>lieu</th>
-                                <th>situation</th>
-                                <th>adress</th>
-                                <th>cin</th>
-                                <th>tele</th>
-                                <th>mail</th>
-                                <th>scolaire</th>
-                                <th>experiance</th>
-                                <th>employe</th>
+                                <th>Nom</th>
+                                <th>Prénom</th>
+                                <th>Date naissance</th>
+                                <th>Lieu naissance</th>
+                                <th>Situation familiale</th>
+                                <th>Adresse</th>
+                                <th>CIN</th>
+                                <th>Téléphone</th>
+                                <th>Email</th>
+                                <th>Niveau scolaire</th>
+                                <th>Experience</th>
+                                <th>Dernier emploie</th>
 
 
                             </tr>

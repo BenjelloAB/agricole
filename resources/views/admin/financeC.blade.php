@@ -20,12 +20,12 @@
 <div class="page-title">
     <div class="row">
         <div class="col-sm-6">
-            <h4 class="mb-0">culture</h4>
+            <h4 class="mb-0">cultivation</h4>
         </div>
         <div class="col-sm-6">
             <ol class="breadcrumb pt-0 pr-0 float-left float-sm-right ">
                 <li class="breadcrumb-item"><a href="#" class="default-color">Dashboard</a></li>
-                <li class="breadcrumb-item active">Parcelle</li>
+                <li class="breadcrumb-item active">cultivation</li>
             </ol>
         </div>
     </div>
@@ -51,7 +51,7 @@
                     @csrf
                     @method('get')
                     <select class="custom-select custom-select-lg mb-3 " style="width: 20%;" name="nom_parcelle">
-                        <option>selectioner le parcelle</option>
+                        <option>selectioner responsable</option>
 
                         @foreach ($user as $user)
                             @if ($user->role == 0)
@@ -59,7 +59,7 @@
                             @endif
                         @endforeach
                     </select @required(true)>
-                    <button type="submit" class="he">send</button>
+                    <button type="submit" class="he">Filtrer</button>
                 </form>
                 <br><br>
                 <?php $i = 0; ?>
@@ -70,12 +70,12 @@
                         <thead>
                             <tr>
                                <th>id</th>
-                                <th>Nom_parcelle</th>
-                                <th>coût_semences</th>
-                                <th>coût_engrais</th>
-                                <th>coût_pesticides</th>
-                                <th>coût_machines_culture</th>
-                                <th>cout_consommation_eau</th>
+                                <th>Nom parcelle</th>
+                                <th>Coût semences (dh)</th>
+                                <th>Coût engrais (dh)</th>
+                                <th>Coût pesticides (dh)</th>
+                                <th>Coût machines cultivation (dh)</th>
+                                <th>Coût consommation eau (dh)</th>
                             </tr>
                         </thead>
                         <tbody>
