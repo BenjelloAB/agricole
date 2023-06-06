@@ -1,5 +1,15 @@
 <?php
 
+use App\Exports\CulturExport;
+use App\Exports\EmployeExport;
+use App\Exports\UsersExport;
+use App\Exports\ControlExport;
+use App\Exports\RecolteExport;
+use App\Exports\Finance_CultureExport;
+use App\Exports\RessourcecultureExport;
+use App\Exports\Finance_employeExport;
+use App\Exports\Finance_RecolteExport;
+use App\Exports\RessourcerecolteExport;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategorieController;
 use App\Http\Controllers\CqualiteController;
@@ -20,6 +30,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Calendar;
 use App\Models\Event;
+use Maatwebsite\Excel\Facades\Excel;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,7 +45,7 @@ use App\Models\Event;
 // Livewire::component('calendar', Calendar::class);
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 Route::get('/dashboard', function () {
 if (Auth::check() && Auth::user()->role == 0) {
     $count_emp = Employe::where('user_id', auth()->user()->id)->count('id');
@@ -229,7 +240,8 @@ if (Auth::check() && Auth::user()->role == 1) {
 
     $count_emp = Employe::count('id');
     $cout_CRE = $cout_total + $cout_recolte + $employe;
-    return view('admin',compact('nbr','ct','cout_CRE','count_emp'));
+
+    return view('admin',compact('nbr','ct','cout_CRE','count_emp','cout_total','cout_recolte','employe'));
 
 }
 else{
@@ -237,7 +249,47 @@ else{
 }
 })->middleware(['auth'])->name('admin');
 
+Route::get('/contact',function(){
+    return view('contact');
+})->name('contact');
+Route::get('/etape',function(){
+    return view('etape');
+})->name('etape');
 
+Route::post('/submitForm', [RecolteController::class,'submitForm'])->name('submitForm');
+/* route pour le pdf */
+Route::get('/pdf', function () {
+    return Excel::download(new UsersExport, 'parcelle.xlsx');
+})->name('pdf');
+Route::get('/pdf1', function () {
+    return Excel::download(new EmployeExport, 'employe.xlsx');
+})->name('pdf1');
+Route::get('/pdf2', function () {
+    return Excel::download(new CulturExport, 'cultur.xlsx');
+})->name('pdf2');
+Route::get('/pdf3', function () {
+    return Excel::download(new RessourcecultureExport, 'RessourceculreExport.xlsx');
+})->name('pdf3');
+Route::get('/pdf4', function () {
+    return Excel::download(new RecolteExport, 'RecolteExport.xlsx');
+})->name('pdf4');
+
+Route::get('/pdf5', function () {
+    return Excel::download(new RessourcerecolteExport, 'RessourcerecolteExport.xlsx');
+})->name('pdf5');
+Route::get('/pdf6', function () {
+    return Excel::download(new ControlExport, 'ControlExport.xlsx');
+})->name('pdf6');
+Route::get('/pdf7', function () {
+    return Excel::download(new Finance_CultureExport, 'Finance_CultureExport.xlsx');
+})->name('pdf7');
+Route::get('/pdf8', function () {
+    return Excel::download(new Finance_RecolteExport, 'Finance_RecolteExport.xlsx');
+})->name('pdf8');
+Route::get('/pdf9', function () {
+    return Excel::download(new Finance_employeExport, 'Finance_employeExport.xlsx');
+})->name('pdf9');
+/* fin de route pour le pdf */
 
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->middleware(['auth'])->name('home');

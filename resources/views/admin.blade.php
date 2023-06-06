@@ -60,7 +60,7 @@
                                 <div class="float-left">
                                     <span class="text-danger">
 
-                                        <i class="fa-solid fa-users-viewfinder highlight-icon" aria-hidden="true" ></i>
+                                        <i class="fa-solid fa-users-viewfinder highlight-icon" aria-hidden="true"></i>
                                     </span>
                                 </div>
                                 <div class="float-right text-right">
@@ -69,7 +69,8 @@
                                 </div>
                             </div>
                             <p class="text-muted pt-3 mb-0 mt-2 border-top">
-                                <i class="fa fa-exclamation-circle mr-1" aria-hidden="true"></i>Nombre total des Responsables
+                                <i class="fa fa-exclamation-circle mr-1" aria-hidden="true"></i>Nombre total des
+                                Responsables
                             </p>
                         </div>
                     </div>
@@ -90,7 +91,8 @@
                                 </div>
                             </div>
                             <p class="text-muted pt-3 mb-0 mt-2 border-top">
-                            <i class="fa-solid fa-coins" aria-hidden="true"></i> La somme des capitaux attribués                            </p>
+                                <i class="fa-solid fa-coins" aria-hidden="true"></i> La somme des capitaux attribués
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -105,11 +107,11 @@
                                 </div>
                                 <div class="float-right text-right">
                                     <p class="card-text text-dark">Reste</p>
-                                    <h4>{{ $ct-$cout_CRE }}</h4>
+                                    <h4>{{ $ct - $cout_CRE }}</h4>
                                 </div>
                             </div>
                             <p class="text-muted pt-3 mb-0 mt-2 border-top">
-                            <i class="fa-solid fa-coins" aria-hidden="true"></i> Reste Par rapport au Capital total
+                                <i class="fa-solid fa-coins" aria-hidden="true"></i> Reste Par rapport au Capital total
                             </p>
                         </div>
                     </div>
@@ -145,27 +147,27 @@
                             <button type="button" class="dropdown-toggle-split text-muted" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false"><i class="ti-more"></i></button>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#"><i
+                                <a class="dropdown-item" href="{{ route('admin') }}"><i
                                         class="text-primary ti-reload"></i>Refresh</a>
                                 <a class="dropdown-item" href="#"><i class="text-secondary ti-eye"></i>View
                                     all</a>
                             </div>
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title">Market summary</h5>
-                            <h4>$50,500 </h4>
+                            <h5 class="card-title">Résumé du finance</h5>
+                            <h4>${{ $cout_CRE }} </h4>
                             <div class="row mt-20">
                                 <div class="col-4">
-                                    <h6>Apple</h6>
-                                    <b class="text-info">+ 82.24 % </b>
+                                    <h6>culture</h6>
+                                    <b class="text-info">+ {{ round(($cout_total * 100) / $ct, 2) }} % </b>
                                 </div>
                                 <div class="col-4">
-                                    <h6>Instagram</h6>
-                                    <b class="text-danger">- 12.06 % </b>
+                                    <h6>Recolte</h6>
+                                    <b class="text-success">+ {{ round(($cout_recolte * 100) / $ct, 2) }} % </b>
                                 </div>
                                 <div class="col-4">
-                                    <h6>Google</h6>
-                                    <b class="text-warning">+ 24.86 % </b>
+                                    <h6>Employee</h6>
+                                    <b class="text-warning">+{{ round(($employe * 100) / $ct, 2) }}% </b>
                                 </div>
                             </div>
                         </div>
@@ -187,20 +189,20 @@
                         <div class="card-body">
                             <div class="d-block d-md-flexx justify-content-between">
                                 <div class="d-block">
-                                    <h5 class="card-title">Site Visits Growth </h5>
+                                    <h5 class="card-title">Statistiques Finance (Par Année)</h5>
                                 </div>
                                 <div class="d-flex">
                                     <div class="clearfix mr-30">
-                                        <h6 class="text-success">Income</h6>
-                                        <p>+584</p>
+                                        <h6 class="text-success">Capital</h6>
+                                        <p class="text-info" style="font-weight: 700">+{{ $ct }}</p>
                                     </div>
                                     <div class="clearfix  mr-50">
-                                        <h6 class="text-danger"> Outcome</h6>
-                                        <p>-255</p>
+                                        <h6 class="text-danger">C_R_E</h6>
+                                        <p class="text-info" style="font-weight: 700">+{{ $cout_CRE }}</p>
                                     </div>
                                 </div>
                             </div>
-                            <div id="morris-area" style="height: 320px;"></div>
+                            <div id="morris-bar" style="height: 320px;"></div>
                         </div>
                     </div>
                 </div>
@@ -437,7 +439,7 @@
                     </div>
                 </div>
             </div> --}}
-            <div class="row">
+            {{-- <div class="row">
                 <div class="col-xl-4 mb-30">
                     <div class="card card-statistics h-100">
                         <div class="card-body">
@@ -589,7 +591,8 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
+            
 
 
 
@@ -609,6 +612,46 @@
  footer -->
 
     @include('layot.footer-scripts')
+
+    <script>
+        (function($) {
+            "use strict";
+            var capital = @json($ct);
+            var cre = @json($cout_CRE);
+            $(document).ready(function() {
+                if ($('#morris-bar').exists()) {
+                    Morris.Bar({
+                        element: 'morris-bar',
+                        data: [{
+                                y: '2021',
+                                a: capital - 5000,
+                                b: cre - 2000
+                            },
+                            {
+                                y: '2022',
+                                a: capital - 3000,
+                                b: cre - 1000
+                            },
+                            {
+                                y: '2023',
+                                a: capital,
+                                b: cre
+                            }
+                        ],
+                        xkey: 'y',
+                        ykeys: ['a', 'b'],
+                        labels: ['capital', 'CRE'],
+                        hideHover: 'auto',
+                        resize: true,
+                        gridLineColor: '#efefef',
+                        barSizeRatio: 0.4,
+                        xLabelAngle: 35,
+                        barColors: ['green', 'red']
+                    });
+                }
+            });
+        })(jQuery);
+    </script>
 
 </body>
 

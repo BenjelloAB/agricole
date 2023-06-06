@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Form</title>
+    <link rel="stylesheet" href="loginForm.css" />
+
+    <!-- ? jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.js"
+        integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="loader">
+        <img src="imgs//816.svg" alt="">
+    </div>
+    <main class="content">
+        <div class="box">
+            <div class="inner-box">
+                <div class="forms-wrap">
+                     <form class="sign-in-form" method="POST" action="{{ route('login') }}">
+                        @csrf
+                        <div class="logo">
+                            <img src="./imgs/iconagri.png" alt="" />
+                            <h4>Gestion Agricole</h4>
+                        </div>
+                        <div class="heading">
+                            <h2>Welcome Back</h2>
+                            <h6>Not Registered ?</h6>
+                            <a href="" class="toggle">Sign Up</a>
+                        </div>
+
+                        <div class="actual-form">
+                            <div class="input-wrap">
+                                <input type="email" id="email"
+                                    class="input-field @error('email') is-invalid @enderror" name="email"
+                                    value="{{ old('email') }}" required autocomplete="email" autofocus />
+                                <label for="email">E-mail</label>
+                                <div class="errore">
+                                    @error('email')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+
+                            </div>
+                            <div class="input-wrap">
+                                <input type="password" id="password" minlength="4"
+                                    class="input-field @error('password') is-invalid @enderror" name="password" required
+                                    autocomplete="current-password">
+                                <label for="">Password</label>
+                                <div class="errore1">
+                                    @error('password')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <input type="submit" value="Submit" class="sign-btn" />
+                            <p class="text">
+                                Forgot Password ? <a href="Get Help"></a> Signing In
+                            </p>
+                        </div>
+                    </form>
+
+
+                </div>
+
+                <div class="carousel">
+                    <div class="images-wrapper">
+                        <img src="./imgs/gif3businees.svg" class="image img-1 show" alt="" />
+                        <img src="./imgs/gif2business.svg" class="image img-2" alt="" />
+                        <img src="./imgs/gif1.svg" class="image img-3" alt="" />
+                    </div>
+                    <div class="text-slider">
+                        <div class="text-wrap">
+                            <div class="text-group">
+                                <h2>Organiser Vos Parcelles</h2>
+                                <h2>Ameliorer Vos Profits</h2>
+                                <h2>Gestionner vos employés</h2>
+                            </div>
+                        </div>
+
+                        <div class="bullets">
+                            <span class="active" data-value="1"></span>
+                            <span data-value="2"></span>
+                            <span data-value="3"></span>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </main>
+    <script>
+
+        // ? pre loader:
+        $(document).ready(function () {
+            setTimeout(function () {
+                $(".loader").fadeOut("smooth", function () {
+                    $(".content").fadeIn("smooth");
+                });
+            }, 500);
+        });
+
+    </script>
+
+    <script src="loginForm.js"></script>
+</body>
+
+</html>

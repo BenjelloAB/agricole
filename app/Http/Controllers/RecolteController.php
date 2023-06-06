@@ -9,6 +9,8 @@ use App\Models\Ressourcerecolte;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ContactFormMail;
 class RecolteController extends Controller
 {
     public function index()
@@ -160,6 +162,22 @@ $output = implode(' ', $result);
         $ressource->delete();
         return redirect()->route('ressource.show')->with('warning', 'Les données ont été supprimer avec succès!');
     }
+    public function submitForm(Request $request)
+    {
+        // Validez les données du formulaire ici si nécessaire
 
+        // Envoie de l'e-mail
+        $data = [
+            'nom' => $request->input('nom'),
+            'prenom' => $request->input('prenom'),
+            'email' => $request->input('email'),
+            'message' => $request->input('message')
+        ];
+
+        Mail::to('saadboutirhiten@gmail.com')->send(new ContactFormMail($data));
+
+        // Redirigez ou affichez un message de succès ici
+        return redirect()->back()->with('success', 'Votre message a été envoyé avec succès!');
+    }
 
 }

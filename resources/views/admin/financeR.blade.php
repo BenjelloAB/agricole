@@ -60,6 +60,7 @@
                     </select @required(true)>
                     <button type="submit" class="he">Filtrer</button>
                 </form>
+                <a href="{{ route('pdf8') }}">  <button type="submit" class="he">Excel</button></a>
                 <br><br>
                 <?php $i = 0; ?>
                 <div class="table-responsive">

@@ -60,6 +60,7 @@
                     </select @required(true)>
                     <button type="submit" class="he">Filtrer</button>
                 </form>
+                <a href="{{ route('pdf5') }}"><button type="submit" class="he">Excel</button></a>
                 <br><br>
                 <?php $i = 0; ?>
                 <div class="table-responsive">
@@ -76,7 +77,7 @@
                             @foreach ($ressource as $ressource)
                                 <?php $i++; ?>
                                 <tr>
-                                  
+
                                     <td>{{ $i }}</td>
                                     <td>{{ $ressource->parcelle->nom }}</td>
                                     <td>{{ $ressource->machine_recolte }}</td>

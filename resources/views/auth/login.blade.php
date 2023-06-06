@@ -26,7 +26,7 @@
             width: 100%;
             min-height: 100vh;
             /* overflow: hidden; */
-            background-color: #009e9e;
+            background-color: #84BD3A;
             padding: 2rem;
             display: flex;
             align-items: center;
@@ -225,7 +225,7 @@
         }
 
         .sign-btn:hover {
-            background-color: #009e9e;
+            background-color: #84BD3A;
         }
 
         .text {
@@ -270,7 +270,7 @@
             width: 55%;
             left: 45%;
             top: 0;
-            background-color: #00cbcc;
+            background-color: #84BD3A;
             border-radius: 2rem;
             display: grid;
             -webkit-border-radius: 2rem;
@@ -291,6 +291,7 @@
             display: grid;
             grid-template-columns: 1fr;
             grid-template-rows: 1fr;
+
         }
 
         .image {
@@ -437,7 +438,8 @@
 
             form {
                 max-width: revert;
-                padding: 1.5rem 2.5rem 2rem;
+                /* padding: 1.5rem 2.5rem 2rem; */
+                padding: 23px;
                 transition: transform 0.8s ease-in-out, opacity 0.45s linear;
                 -webkit-transition: transform 0.8s ease-in-out, opacity 0.45s linear;
                 -moz-transition: transform 0.8s ease-in-out, opacity 0.45s linear;
@@ -484,7 +486,7 @@
         }
 
         .text a:hover {
-            color: #00cbcc;
+            color: #84BD3A;
         }
 
         /* ?Terms and conditions :  */
@@ -586,14 +588,14 @@
 
         @-moz-keyframes splash-12 {
             40% {
-                background: #00cbcc;
-                box-shadow: 0 -18px 0 -8px #00cbcc, 16px -8px 0 -8px #00cbcc,
-                    16px 8px 0 -8px #00cbcc, 0 18px 0 -8px #00cbcc, -16px 8px 0 -8px #00cbcc,
-                    -16px -8px 0 -8px #00cbcc;
+                background: #84BD3A;
+                box-shadow: 0 -18px 0 -8px #84BD3A, 16px -8px 0 -8px #84BD3A,
+                    16px 8px 0 -8px #84BD3A, 0 18px 0 -8px #84BD3A, -16px 8px 0 -8px #84BD3A,
+                    -16px -8px 0 -8px #84BD3A;
             }
 
             100% {
-                background: #00cbcc;
+                background: #84BD3A;
                 box-shadow: 0 -36px 0 -10px transparent, 32px -16px 0 -10px transparent,
                     32px 16px 0 -10px transparent, 0 36px 0 -10px transparent,
                     -32px 16px 0 -10px transparent, -32px -16px 0 -10px transparent;
@@ -602,14 +604,14 @@
 
         @-webkit-keyframes splash-12 {
             40% {
-                background: #00cbcc;
-                box-shadow: 0 -18px 0 -8px #00cbcc, 16px -8px 0 -8px #00cbcc,
-                    16px 8px 0 -8px #00cbcc, 0 18px 0 -8px #00cbcc, -16px 8px 0 -8px #00cbcc,
-                    -16px -8px 0 -8px #00cbcc;
+                background: #84BD3A;
+                box-shadow: 0 -18px 0 -8px #84BD3A, 16px -8px 0 -8px #84BD3A,
+                    16px 8px 0 -8px #84BD3A, 0 18px 0 -8px #84BD3A, -16px 8px 0 -8px #84BD3A,
+                    -16px -8px 0 -8px #84BD3A;
             }
 
             100% {
-                background: #00cbcc;
+                background: #84BD3A;
                 box-shadow: 0 -36px 0 -10px transparent, 32px -16px 0 -10px transparent,
                     32px 16px 0 -10px transparent, 0 36px 0 -10px transparent,
                     -32px 16px 0 -10px transparent, -32px -16px 0 -10px transparent;
@@ -618,14 +620,14 @@
 
         @-o-keyframes splash-12 {
             40% {
-                background: #00cbcc;
-                box-shadow: 0 -18px 0 -8px #00cbcc, 16px -8px 0 -8px #00cbcc,
-                    16px 8px 0 -8px #00cbcc, 0 18px 0 -8px #00cbcc, -16px 8px 0 -8px #00cbcc,
-                    -16px -8px 0 -8px #00cbcc;
+                background: #84BD3A;
+                box-shadow: 0 -18px 0 -8px #84BD3A, 16px -8px 0 -8px #84BD3A,
+                    16px 8px 0 -8px #84BD3A, 0 18px 0 -8px #84BD3A, -16px 8px 0 -8px #84BD3A,
+                    -16px -8px 0 -8px #84BD3A;
             }
 
             100% {
-                background: #00cbcc;
+                background: #84BD3A;
                 box-shadow: 0 -36px 0 -10px transparent, 32px -16px 0 -10px transparent,
                     32px 16px 0 -10px transparent, 0 36px 0 -10px transparent,
                     -32px 16px 0 -10px transparent, -32px -16px 0 -10px transparent;
@@ -634,14 +636,14 @@
 
         @keyframes splash-12 {
             40% {
-                background: #00cbcc;
-                box-shadow: 0 -18px 0 -8px #00cbcc, 16px -8px 0 -8px #00cbcc,
-                    16px 8px 0 -8px #00cbcc, 0 18px 0 -8px #00cbcc, -16px 8px 0 -8px #00cbcc,
-                    -16px -8px 0 -8px #00cbcc;
+                background: #84BD3A;
+                box-shadow: 0 -18px 0 -8px #84BD3A, 16px -8px 0 -8px #84BD3A,
+                    16px 8px 0 -8px #84BD3A, 0 18px 0 -8px #84BD3A, -16px 8px 0 -8px #84BD3A,
+                    -16px -8px 0 -8px #84BD3A;
             }
 
             100% {
-                background: #00cbcc;
+                background: #84BD3A;
                 box-shadow: 0 -36px 0 -10px transparent, 32px -16px 0 -10px transparent,
                     32px 16px 0 -10px transparent, 0 36px 0 -10px transparent,
                     -32px 16px 0 -10px transparent, -32px -16px 0 -10px transparent;
@@ -676,7 +678,7 @@
             align-items: center;
             z-index: 9999;
             background-color: rgba(255, 255, 255, 0.15);
-            background-color: #00cbcc;
+            background-color: #84BD3A;
         }
 
         .loader img {
@@ -693,15 +695,74 @@
         }
 
         body {
-            background-color: #00cbcc;
+            background-color: #84BD3A;
         }
 
+        @media screen and (max-width:530px) {
+            .logo img {
+                width: 52px;
+
+            }
+
+            .heading {
+                margin: 39px 0;
+            }
+
+            .heading h2 {
+                font-size: 23px;
+                text-align: center;
+            }
+
+            .carousel {
+                display: none;
+            }
+
+            .inner-box {
+                padding: 0;
+            }
+
+            .logo h4 {
+                font-size: 1.7rem;
+            }
+
+            main {
+                padding: 1.2rem;
+            }
+        }
+
+        @media screen and (max-width:280px) {
+            .logo h4 {
+                font-size: 0.9rem;
+            }
+
+            .heading h2 {
+                font-size: 21px;
+            }
+
+            .heading {
+                margin: 39px 0;
+                margin-bottom: 0;
+            }
+        }
+
+        @media screen and (max-width:310px) {
+            .logo h4 {
+                font-size: 1.3rem;
+            }
+
+            .heading {
+                margin: 39px 0;
+                margin-bottom: 0;
+            }
+
+        }
         .errore {
             color: red;
             transform: translate(0px, 111px);
             font-size: 10px;
         }
     </style>
+
     <!-- ? jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="
         crossorigin="anonymous"></script>
@@ -722,17 +783,18 @@
                             <h4>Gestion Agricole</h4>
                         </div>
                         <div class="heading">
-                            <h2>Welcome Back</h2>
-                            <h6>Not Registered ?</h6>
-                            <a href="" class="toggle">Sign Up</a>
+                            <h2>Bienvenue</h2>
+                            <!-- <h6>Not Registered ?</h6>
+                <a href="" class="toggle">Sign Up</a> -->
                         </div>
 
                         <div class="actual-form">
                             <div class="input-wrap">
                                 <input type="email" id="email"
-                                    class="input-field @error('email') is-invalid @enderror" name="email"
-                                    value="{{ old('email') }}" required autocomplete="email" autofocus />
+                                    class="input-field active @error('email') is-invalid @enderror" name="email"
+                                    required autocomplete="email" autofocus />
                                 <label for="email">E-mail</label>
+
                                 <div class="errore">
                                     @error('email')
                                         <span class="invalid-feedback" role="alert">
@@ -744,9 +806,10 @@
                             </div>
                             <div class="input-wrap">
                                 <input type="password" id="password" minlength="4"
-                                    class="input-field @error('password') is-invalid @enderror" name="password" required
-                                    autocomplete="current-password">
-                                <label for="">Password</label>
+                                    class="input-field active @error('password') is-invalid @enderror" name="password"
+                                    required autocomplete="current-password" />
+                                    {{-- <img src="image/red_eye.png" id="eye" onclick="changer()"> --}}
+                                    <label for="password">password</label>
                                 <div class="errore1">
                                     @error('password')
                                         <span class="invalid-feedback" role="alert">
@@ -755,70 +818,15 @@
                                     @enderror
                                 </div>
                             </div>
-                            <input type="submit" value="Submit" class="sign-btn" />
-                            <p class="text">
-                                Forgot Password ? <a href="Get Help"></a> Signing In
-                            </p>
+                            <input type="submit" value="Se Connecter" class="sign-btn" />
+                            {{-- <p class="text">
+                                <!-- ? link -->
+                                <a href="#" style="text-decoration: none;"> Mot de passe oublié ?</a>
+                            </p> --}}
                         </div>
                     </form>
 
-                    <form action="formLogin1.html" autocomplete="off" class="sign-up-form">
-                        <div class="logo">
-                            <img src="./imgs/iconagri.png" alt="logo" />
-                            <h4>G-Agricole</h4>
-                        </div>
 
-                        <div class="heading">
-                            <h2>Get Started</h2>
-                            <h6>Already Have an Account ?</h6>
-                            <a href="#" class="toggle">Sign In</a>
-                        </div>
-                        <div class="actual-form">
-                            <div class="input-wrap">
-                                <input type="text" name="" id="" minlength="4" autocomplete="off"
-                                    class="input-field" required />
-                                <label for="">Name</label>
-                            </div>
-                            <div class="input-wrap">
-                                <input type="email" name="" id="" class="input-field"
-                                    autocomplete="off" required />
-                                <label for="">Email</label>
-                            </div>
-                            <div class="input-wrap">
-                                <input type="password" name="" id="" minlength="4" autocomplete="off"
-                                    class="input-field" />
-                                <label for="">Password</label>
-                            </div>
-                            <input type="submit" value="Sign Up" class="sign-btn" id="signup" />
-                            <p class="text">
-                                I agree to the
-                                <a href="#">Terms and Conditions</a> and
-                                <a href="#">Privacy and Policy </a>
-                            <div class="checkbox-wrapper-12">
-                                <div class="cbx">
-                                    <input id="cbx-12" type="checkbox">
-                                    <label for="cbx-12"></label>
-                                    <svg width="15" height="14" viewBox="0 0 15 14" fill="none">
-                                        <path d="M2 8.36364L6.23077 12L13 2"></path>
-                                    </svg>
-                                </div>
-
-                                <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
-                                    <defs>
-                                        <filter id="goo-12">
-                                            <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur">
-                                            </feGaussianBlur>
-                                            <feColorMatrix in="blur" mode="matrix"
-                                                values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7" result="goo-12">
-                                            </feColorMatrix>
-                                            <feBlend in="SourceGraphic" in2="goo-12"></feBlend>
-                                        </filter>
-                                    </defs>
-                                </svg>
-                            </div>
-                            </p>
-                        </div>
-                    </form>
                 </div>
 
                 <div class="carousel">
@@ -867,15 +875,7 @@
         const images = document.querySelectorAll('.image');
 
 
-        inputs.forEach((inp) => {
-            inp.addEventListener('focus', () => {
-                inp.classList.add("active");
-            });
-            inp.addEventListener("blur", () => {
-                if (inp.value !== '') return;
-                inp.classList.remove("active");
-            });
-        });
+
 
         toggle_btn.forEach((btn) => {
             btn.addEventListener('click', (e) => {
@@ -888,28 +888,6 @@
 
 
 
-        // function moveSlider(){
-        //     let index = this.dataset.value;
-
-        //     let currentImage = document.querySelector(`.img-${index}`);
-        //     images.forEach((img) =>{
-        //         img.classList.remove('show');
-        //     });
-        //     currentImage.classList.add('show');
-
-        //     const textSlider = document.querySelector('.text-group');
-        //     textSlider.style.transform = `translateY(${-(index - 1) * 2.2}rem)`;
-
-        //     bullets.forEach((bull) =>{
-        // bull.classList.remove("active");
-        //     });
-        //     this.classList.add("active");
-
-        // }
-
-        // bullets.forEach((bullet) =>{
-        //     bullet.addEventListener("click", moveSlider);
-        // })
 
 
 
@@ -935,7 +913,7 @@
             const nextBullet = this.nextElementSibling || bullets[0]; // Get the next sibling or the first bullet
             setTimeout(function() {
                 nextBullet.click(); // Simulate a click on the next bullet element
-            }, 2000); // Wait for 3 seconds before moving to the next slide
+            }, 3000); // Wait for 3 seconds before moving to the next slide
         }
 
         bullets.forEach((bullet) => {
@@ -952,17 +930,19 @@
         let checky = document.getElementById("cbx-12");
         let signup = document.getElementById("signup");
 
-        checky.addEventListener('change', (e) => {
+        if (checky) {
+            checky.addEventListener('change', (e) => {
 
-            if (e.target.checked === true) {
-                signup.classList.add("agree");
-            }
-            if (e.target.checked === false) {
-                console.log("Checkbox is not checked - boolean value: ", e.target.checked)
-                signup.classList.remove("agree");
-            }
+                if (e.target.checked === true) {
+                    signup.classList.add("agree");
+                }
+                if (e.target.checked === false) {
+                    console.log("Checkbox is not checked - boolean value: ", e.target.checked)
+                    signup.classList.remove("agree");
+                }
 
-        })
+            })
+        }
     </script>
 </body>
 
