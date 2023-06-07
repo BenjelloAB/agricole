@@ -297,7 +297,7 @@ Route::post('full-calender/action', [FullCalenderController::class, 'action']);
 
 
 Auth::routes([
-   // 'register' => false,
+    'register' => false,
 ]);
 
 
