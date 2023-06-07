@@ -2,7 +2,7 @@
 @section('css')
 
 @section('title')
-    empty
+    finance totale
 @stop
 @endsection
 @section('page-header')

@@ -12,7 +12,7 @@
         }
     </style>
 @section('title')
-    parcelle
+Ressources Cultivation
 @stop
 @endsection
 @section('page-header')

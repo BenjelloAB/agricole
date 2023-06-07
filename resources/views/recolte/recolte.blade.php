@@ -2,7 +2,7 @@
 @section('css')
 
 @section('title')
-    Culture
+    recolte
 @stop
 @endsection
 

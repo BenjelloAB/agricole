@@ -2,7 +2,7 @@
 @section('css')
 
 @section('title')
-    empty
+    finance employé
 @stop
 @endsection
 @section('page-header')
@@ -115,7 +115,7 @@
                                                                     {{ $item->prenom }} {{ $item->nom }}</option>
                                                             @endforeach
 
-                                                            
+
 
 
                                                         </select>
@@ -168,7 +168,7 @@
                                                 <form action="{{ route('finance_employe.delete') }}" method="post">
                                                     @method('DELETE')
                                                     @csrf
-                                                    <span style="color: red">Voulez-vous effacer 
+                                                    <span style="color: red">Voulez-vous effacer
                                                         cet employé</span>
                                                     <input id="id" type="hidden" name="id"
                                                         class="form-control" value="{{ $finance_employee->id }}">
@@ -215,7 +215,7 @@
                                Nom
                             </label>
                             <select name="employe_id" id="" class="form-control">
-                                <option value="selectioner le parcelle">Selectioner 
+                                <option value="selectioner le parcelle">Selectioner
                                     employé</option>
                                 @foreach ($employe as $employe)
                                     <option value="{{ $employe->id }}">

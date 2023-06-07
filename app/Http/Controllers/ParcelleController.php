@@ -18,7 +18,7 @@ class ParcelleController extends Controller
         try {
             $request->validate([
                 'nom' => 'required',
-                'emplacement' => 'required',
+                'emplacement' => 'required|alpha',
                 'taille' => ['required','numeric'],
                 'type_de_sol' => 'required',
             ]);
@@ -30,16 +30,17 @@ class ParcelleController extends Controller
 
             return redirect()->back()->with('success', 'Les données ont été enregistrées avec succès!');
         } catch (\Exception $e) {
-            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+            return redirect()->back()->withErrors(['error' => 'Nous sommes désolés. Une erreur est survenue lors de l\'enregistrement des données. Veuillez réessayer plus tard.']);
         }
     }
+    //Nous sommes désolés. Une erreur est survenue lors de l\'enregistrement des données. Veuillez réessayer plus tard.
     public function update(Request $request)
     {
         try{
 
         $request->validate([
-            'nom' => 'required|alpha',
-            'emplacement' => 'required',
+            'nom' => 'required',
+            'emplacement' => 'required|alpha',
             'taille' => ['required','numeric'],
             'type_de_sol' => 'required',
         ]);
@@ -58,7 +59,7 @@ class ParcelleController extends Controller
     }
     public function destroy(Request $request){
         $parcelle = Parcelle::findOrFail($request->id)->delete();
-        return redirect()->back()->with('warning', 'Les données ont été supprime avec succe!');
+        return redirect()->back()->withErrors(['error' => 'Nous sommes désolés. Une erreur est survenue lors de l\'enregistrement des données. Veuillez réessayer plus tard.']);
         // warning + info + success + error + danger
     }
 

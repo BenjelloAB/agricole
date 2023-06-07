@@ -12,7 +12,7 @@
         }
     </style>
 @section('title')
-    parcelle
+    culture
 @stop
 @endsection
 @section('page-header')

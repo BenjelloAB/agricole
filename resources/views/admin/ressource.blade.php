@@ -12,7 +12,7 @@
         }
     </style>
 @section('title')
-    parcelle
+Récolte
 @stop
 @endsection
 @section('page-header')

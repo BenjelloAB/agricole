@@ -2,7 +2,7 @@
 @section('css')
 
 @section('title')
-    empty
+    finance récolte
 @stop
 @endsection
 @section('page-header')
@@ -39,7 +39,7 @@
                     </div>
                 @endif
                 <button type="button" class="button x-small" data-toggle="modal" data-target="#exampleModal">
-                Gérer Finance Récolte 
+                Gérer Finance Récolte
                 </button>
 
                 <br><br>
@@ -53,7 +53,7 @@
                                 <th>Nom Parcelle</th>
                                 <th>Coût Récolte (Dh)</th>
                                 <th>Status</th>
-                                
+
                             </tr>
                         </thead>
 
@@ -206,7 +206,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 style="font-family: 'Cairo', sans-serif;" class="modal-title" id="exampleModalLabel">
-                    Gérer Finance Récolte 
+                    Gérer Finance Récolte
                     </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>

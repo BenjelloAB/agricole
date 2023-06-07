@@ -12,7 +12,7 @@
         }
     </style>
 @section('title')
-    parcelle
+    Controle Qualité
 @stop
 @endsection
 @section('page-header')

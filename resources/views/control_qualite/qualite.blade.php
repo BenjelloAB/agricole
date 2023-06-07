@@ -2,7 +2,7 @@
 @section('css')
 
 @section('title')
-    empty
+    controle qualité
 @stop
 @endsection
 @section('page-header')
@@ -39,7 +39,7 @@
                     </div>
                 @endif
                 <button type="button" class="button x-small" data-toggle="modal" data-target="#exampleModal">
-                commencer contrôle qualité
+                    commencer contrôle qualité
                 </button>
 
                 <br><br>
@@ -90,7 +90,7 @@
                                                 <h5 style="font-family: 'Cairo', sans-serif;" class="modal-title"
                                                     id="exampleModalLabel">
                                                     <span style="color:rgb(0, 0, 0)"> changer les données
-                                                        </span>
+                                                    </span>
                                                 </h5>
                                                 <button type="button" class="close" data-dismiss="modal"
                                                     aria-label="Close">
@@ -110,7 +110,7 @@
                                                             Nom recolte
                                                         </label>
                                                         <select name="recolte_id" id="" class="form-control">
-                                                            <option value="selectioner le parcelle">selectioner le
+                                                            <option selected disabled>selectioner le
                                                                 recolte</option>
                                                             @foreach ($recolte as $item)
                                                                 <option value="{{ $item->id }}">
@@ -125,8 +125,10 @@
                                                         <div class="form-group">
                                                             <label for="exampleFormControlTextarea1">Texture du sol
                                                             </label>
-                                                            <select name="texture_du_sol" id="" class="form-control">
-                                                                <option selected disabled>Selectioner le recolte</option>
+                                                            <select name="texture_du_sol" id=""
+                                                                class="form-control">
+                                                                <option selected disabled>Selectioner le recolte
+                                                                </option>
                                                                 <option value="sable">Sable</option>
                                                                 <option value="limon">Limon</option>
                                                                 <option value="argil">Argil</option>
@@ -137,16 +139,20 @@
                                                         <div class="form-group">
                                                             <label for="exampleFormControlTextarea1">PH du sol
                                                             </label>
-                                                            <input type="number" class="form-control" id="exampleFormControlTextarea1"
-                                                                name="ph_du_sol" min="0" max="14" required>
+                                                            <input type="number" class="form-control"
+                                                                id="exampleFormControlTextarea1" name="ph_du_sol"
+                                                                min="0" max="14" required>
                                                         </div>
                                                     </div>
                                                     <div class="col">
                                                         <div class="form-group">
-                                                            <label for="exampleFormControlTextarea1">Etat de produit recolte
+                                                            <label for="exampleFormControlTextarea1">Etat de produit
+                                                                recolte
                                                             </label>
-                                                            <select name="etat_de_produit_recolte" id="" class="form-control">
-                                                                <option selected disabled>Selectioner le recolte</option>
+                                                            <select name="etat_de_produit_recolte" id=""
+                                                                class="form-control">
+                                                                <option selected disabled>Selectioner le recolte
+                                                                </option>
                                                                 <option value="Bien">Bien</option>
                                                                 <option value="passable">Passable</option>
                                                                 <option value="mauvaise">Mauvaise</option>
@@ -157,8 +163,10 @@
                                                         <div class="form-group">
                                                             <label for="exampleFormControlTextarea1">Etat santé
                                                             </label>
-                                                            <select name="etat_sante" id="" class="form-control">
-                                                                <option selected disabled>Selectioner le recolte</option>
+                                                            <select name="etat_sante" id=""
+                                                                class="form-control">
+                                                                <option selected disabled>Selectioner le recolte
+                                                                </option>
                                                                 <option value="Bien">Bien</option>
                                                                 <option value="passable">Passable</option>
                                                                 <option value="mauvaise">Mauvaise</option>
@@ -181,8 +189,8 @@
                                 </div>
 
                                 <!-- delete_modal_parcelle -->
-                                <div class="modal fade" id="delete{{ $control->id }}" tabindex="-1" role="dialog"
-                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal fade" id="delete{{ $control->id }}" tabindex="-1"
+                                    role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -246,7 +254,8 @@
                                 Nom parcelle
                             </label>
                             <select name="recolte_id" id="" class="form-control">
-                                <option value="selectioner le parcelle">Selectioner le recolte</option>
+                                <option selected disabled>selectioner le
+                                    recolte</option>
                                 @foreach ($recolte as $recolte)
                                     <option value="{{ $recolte->id }}">{{ $recolte->nom }}</option>
                                 @endforeach

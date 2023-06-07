@@ -12,6 +12,7 @@ class CqualiteController extends Controller
 {
    public function index()
    {
+
         $recolte=Parcelle::where('user_id',Auth::user()->id)->get();
         $control=Control::where('user_id',Auth::user()->id)->get();
        return view('control_qualite.qualite',compact('recolte','control'));
@@ -20,6 +21,15 @@ class CqualiteController extends Controller
    public function add(Request $request)
     {
         try {
+           $request->validate([
+                'recolte_id' => 'required',
+                'etat_sante' => 'required',
+                'texture_du_sol' => 'required',
+                'ph_du_sol' => 'required|nullable',
+                'etat_de_produit_recolte' => 'required',
+
+           ]);
+
             $so = Control::create([
                 'parcelle_id' => $request->recolte_id,
                 'etat_sante' => $request->etat_sante,
@@ -38,6 +48,15 @@ class CqualiteController extends Controller
     public function update(Request $request){
         try {
             $so = Control::find($request->id);
+            $request->validate([
+                'recolte_id' => 'required',
+                'etat_sante' => 'required',
+                'texture_du_sol' => 'required',
+                'ph_du_sol' => 'required|nullable',
+                'etat_de_produit_recolte' => 'required',
+
+           ]);
+
             $so->update([
                 'parcelle_id' => $request->recolte_id,
                 'etat_sante' => $request->etat_sante,

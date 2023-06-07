@@ -15,7 +15,6 @@ class Ressourceculture extends Model
         'engrais',
         'pesticides',
         'besoin_en_eau',
-        'besoin_en_pesticides_culture',
         'nummachine',
         'nom_machine',
         'user_id'

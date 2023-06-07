@@ -79,7 +79,7 @@
     }
 </style>
 @section('title')
-    empty
+    ajouter une culture
 @stop
 @endsection
 @section('page-header')
@@ -129,7 +129,7 @@
                             </select> --}}
                             <select style="background-color: #f6f7f8" class="custom-select custom-select-lg mb-3"
                                 name="nom_parcelle">
-                                <option>selectioner le parcelle</option>
+                                <option selected disabled>selectioner le parcelle</option>
                                 @foreach ($parcelle as $parcelle)
                                     <option value="{{ $parcelle->id }}"> {{ $parcelle->nom }}</option>
                                 @endforeach
@@ -175,7 +175,7 @@
                         <div class="col-sm-3 mb-3">
                             <label for="validationDefault01"><span style="color: red">*</span>Type de Plante</label>
                             <select style="background-color: #f6f7f8" class="custom-select custom-select-lg mb-3"
-                                name="nom">
+                                name="type_de_plante">
                                 <option selected disabled>selectioner le nom</option>
                                 @foreach ($legume as $legume)
                                     <option value="{{ $legume->nom }}"> {{ $legume->nom }}</option>

@@ -2,7 +2,7 @@
 @section('css')
 
 @section('title')
-    respo
+Creation du Responsable
 @stop
 @endsection
 @section('page-header')

@@ -16,6 +16,7 @@ class RecolteController extends Controller
     public function index()
     {
 
+
         $recolte=Recolte::where('user_id',Auth::user()->id)->get();
         return view('recolte.recolte',compact('recolte'));
     }
@@ -34,6 +35,9 @@ class RecolteController extends Controller
             $request->validate([
                 'nom_parcelle' => 'required',
                 'nom_employe' => 'required',
+                'quantité_récoltée' => 'required|numeric',
+                'date_récolte_debut' => 'required',
+                'date_récolte_fin' => 'required',
                  ]);
                  $so = Recolte::create([
                     'parcelle_id' => $request->nom_parcelle,
@@ -72,6 +76,11 @@ class RecolteController extends Controller
     public function add(Request $request)
     {
         try {
+            $request->validate([
+
+                'recolte_id' => 'required',
+                'nom_machine' => 'required',
+            ]);
             $nomMachines = $request->input('nom_machine');
             $numMachines = $request->input('numMachine');
             $array1=[];

@@ -66,7 +66,7 @@
         #exampleModal>div>div>div.modal-body>form>div>div>ul>li>div>label>input[type=checkbox] {}
     </style>
 @section('title')
-    empty
+    Ressources pour la Cultivation
 @stop
 @endsection
 @section('page-header')
@@ -118,7 +118,6 @@
                                 <th>Engrais(Kg)</th>
                                 <th>Pesticides(Kg)</th>
                                 <th>Irrigation(L)</th>
-                                <th>besoin_en_pesticides_culture</th>
                                 <th>Machines utilisées</th>
                                 <th>Status</th>
                             </tr>
@@ -135,7 +134,6 @@
                                     <td>{{ $ressorce->engrais }}</td>
                                     <td>{{ $ressorce->pesticides }}</td>
                                     <td>{{ $ressorce->besoin_en_eau }}</td>
-                                    <td>{{ $ressorce->besoin_en_pesticides_culture }}</td>
                                     <td>
                                         {{ $ressorce->nom_machine }}
                                         @if (!$loop->last)
@@ -215,13 +213,6 @@
                                                         </label>
                                                         <input type="number" class="form-control" name="besoin_en_eau"
                                                             required>
-                                                    </div>
-                                                    <div class="col">
-                                                        <label for="Name_en"
-                                                            class="mr-sm-2">besoin_en_pesticides_culture
-                                                        </label>
-                                                        <input type="number" class="form-control"
-                                                            name="besoin_en_pesticides_culture" required>
                                                     </div>
                                                     <br>
                                                     <div class="col">
@@ -415,11 +406,6 @@
                             <label for="Name_en" class="mr-sm-2">Irrigation(L)
                             </label>
                             <input type="number" class="form-control" name="besoin_en_eau" required>
-                        </div>
-                        <div class="col">
-                            <label for="Name_en" class="mr-sm-2">besoin_en_pesticides_culture
-                            </label>
-                            <input type="number" class="form-control" name="besoin_en_pesticides_culture" required>
                         </div>
                         <br>
                         <div class="col">

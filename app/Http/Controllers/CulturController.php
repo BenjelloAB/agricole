@@ -41,7 +41,7 @@ class CulturController extends Controller
             $request->validate([
                 'nom_parcelle' => 'required',
                 'nom_employe' => 'required',
-                'nom'=>['required','alpha'],
+                'type_de_plante'=>'required',
                 'debut_culture'=>['required','date'],
                 'fin_culture'=> ['required','date'],
                  ]);
@@ -55,7 +55,7 @@ class CulturController extends Controller
                 //   $employeeIds = implode(',',$case);
                  $so = Cultur::create([
                     'parcelle_id' => $request->nom_parcelle,
-                    'nom'=>$request->nom,
+                    'nom'=>$request->type_de_plante,
                     'type' =>  $request->type,
                     'debut_culture' => $request->debut_culture,
                     'fin_culture' => $request->fin_culture,
@@ -97,16 +97,15 @@ class CulturController extends Controller
     {
 
         try {
-            // $so = Ressourceculture::create([
-            //     'parcelle_id' => $request->parcelle,
-            //     'semences'=>$request->semences,
-            //     'engrais' =>  $request->engrais,
-            //     'pesticides' => $request->pesticides,
-            //     'besoin_en_pesticides_culture' => $request->besoin_en_pesticides_culture,
-            //     'besoin_en_eau' => $request->besoin_en_eau,
-            //     'machines_culture' => $nomMachine,$numMachine,
-            //     'user_id' =>auth()->user()->id,
-            // ]);
+            $request->validate([
+                'parcelle' => 'required',
+                'semences'=>'required|numeric',
+                'engrais' => 'required|numeric',
+                'pesticides' => 'required|numeric',
+                'besoin_en_eau'=> 'required|numeric',
+                'nom_machine'=>'required',
+                'numMachine'=>'required',
+                    ]);
             $nomMachines = $request->input('nom_machine');
             $numMachines = $request->input('numMachine');
             $array1=[];
@@ -143,12 +142,13 @@ $output = implode(' ', $result);
 // Output the final merged string
  // Output: Tracteur(1) Charrue(2)
 
+;
+
     Ressourceculture::create([
         'parcelle_id' => $request->parcelle,
         'semences'=>$request->semences,
         'engrais' =>  $request->engrais,
         'pesticides' => $request->pesticides,
-        'besoin_en_pesticides_culture' => $request->besoin_en_pesticides_culture,
         'besoin_en_eau' => $request->besoin_en_eau,
         'nom_machine' => $output,
         'user_id' =>auth()->user()->id,
@@ -162,6 +162,15 @@ public function edit(Request $request)
 {
 
     try {
+        $request->validate([
+            'parcelle' => 'required',
+            'semences'=>'required|numeric',
+            'engrais' => 'required|numeric',
+            'pesticides' => 'required|numeric',
+            'besoin_en_eau'=> 'required|numeric',
+            'nom_machine'=>'required',
+            'numMachine'=>'required',
+             ]);
         $ressource = Ressourceculture::findOrFail($request->id);
          $nomMachines = $request->input('nom_machine');
             $numMachines = $request->input('numMachine');
@@ -203,7 +212,6 @@ $output = implode(' ', $result);
             'semences'=>$request->semences,
             'engrais' =>  $request->engrais,
             'pesticides' => $request->pesticides,
-            'besoin_en_pesticides_culture' => $request->besoin_en_pesticides_culture,
             'besoin_en_eau' => $request->besoin_en_eau,
             'nom_machine' => $output,
             'user_id' =>auth()->user()->id,

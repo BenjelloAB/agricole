@@ -3,7 +3,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.16.17/dist/css/uikit.min.css" />
 
 @section('title')
-    empty
+    ajouter un recolte
 @stop
 @endsection
 @section('page-header')

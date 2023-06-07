@@ -26,14 +26,14 @@ class EmployeController extends Controller
 
             $request->validate([
 
-                'nom'=>['required','alpha'],
-                'prenom'=>['required','alpha'],
+                'nom'=>'required|alpha',
+                'prenom'=>'required|alpha',
                  'date'=>'required',
-                  'lieu'=>['required','alpha'],
+                  'lieu'=>'required|alpha',
                   'situation'=>'required',
                   'adress'=>'required',
                   'cin'=>'required',
-                'tele'=>['required','numeric'],
+                  'tele'=> 'required|numeric',
                   'experiance'=>'required',
             ]);
 
@@ -55,7 +55,7 @@ class EmployeController extends Controller
 
             return redirect()->route('employe.index')->with('success', 'Les données ont été enregistrées avec succès!');
          }catch (\Exception $e){
-              return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
           }
 
    }
@@ -64,15 +64,15 @@ class EmployeController extends Controller
        try{
         $request->validate([
 
-            'nom'=>['required','alpha'],
-            'prenom'=>['required','alpha'],
-             'date'=>'required',
-              'lieu'=>['required','alpha'],
-              'situation'=>'required',
-              'adress'=>'required',
-              'cin'=>'required',
-            'tele'=>['required','numeric'],
-              'experiance'=>'required',
+            'nom'=>'required|alpha',
+                'prenom'=>'required|alpha',
+                 'date'=>'required',
+                  'lieu'=>'required|alpha',
+                  'situation'=>'required',
+                  'adress'=>'required',
+                  'cin'=>'required',
+                'tele'=> 'required|numeric',
+                  'experiance'=>'required',
         ]);
 
        $parcelle = Employe::findOrFail($request->id);
@@ -93,7 +93,7 @@ class EmployeController extends Controller
 
        return redirect()->back()->with('success', 'Les données ont été enregistrées avec succès!');
    }catch (\Exception $e){
-       return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+    return redirect()->back()->withErrors(['error' => $e->getMessage()]);
    }
    }
     public function destroy(Request $request)
@@ -103,7 +103,7 @@ class EmployeController extends Controller
               $parcelle->delete();
               return redirect()->back()->with('warning', 'Les données ont été supprimer avec succès!');
          }catch (\Exception $e){
-              return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
          }
     }
 }

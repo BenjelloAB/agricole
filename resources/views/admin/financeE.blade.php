@@ -12,7 +12,7 @@
         }
     </style>
 @section('title')
-    parcelle
+    finance employe
 @stop
 @endsection
 @section('page-header')

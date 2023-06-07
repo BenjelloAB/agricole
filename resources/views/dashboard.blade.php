@@ -35,7 +35,7 @@
 
 </head>
 @section('title')
-    parcelle
+    dashboard
 @stop
 
 <body>
@@ -323,7 +323,7 @@
                                                         <span>Salaire</span>
                                                     </div>
                                                     <div class="col-md-2 col-sm-6 col-6 sm-mt-20">
-                                                        <h5 class="text-secondary mb-0"><b>Recolte</b></h5>
+                                                        <h5 class="text-secondary mb-0"><b>{{ $salaire_emps->role }}</b></h5>
                                                         <span>Role</span>
                                                     </div>
                                                 @endforeach

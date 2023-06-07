@@ -28,6 +28,17 @@ class FinanceCultureController extends Controller
     public function store(Request $request)
     {
         try {
+             $request->validate([
+                'cultur_id' => 'required',
+                // 'ressourceculture_id' => 'required',
+                'coût_semences' => 'required|numeric',
+                'coût_engrais' => 'required|numeric',
+                'coût_pesticides' => 'required|numeric',
+                'coût_machines_culture' => 'required|numeric',
+                'cout_consommation_eau' => 'required|numeric',
+
+             ]);
+
             $finance_culture = new Finance_Culture();
             $finance_culture->parcelle_id = $request->cultur_id;
             // $finance_culture->ressourceculture_id = $request->ressourceculture_id;
@@ -47,6 +58,16 @@ class FinanceCultureController extends Controller
     public function updat(Request $request)
     {
         try {
+            $request->validate([
+                'cultur_id' => 'required',
+                // 'ressourceculture_id' => 'required',
+                'coût_semences' => 'required|numeric',
+                'coût_engrais' => 'required|numeric',
+                'coût_pesticides' => 'required|numeric',
+                'coût_machines_culture' => 'required|numeric',
+                'cout_consommation_eau' => 'required|numeric',
+
+             ]);
             $finance_culture = Finance_Culture::find($request->id);
             $finance_culture->parcelle_id = $request->cultur_id;
             // $finance_culture->ressourceculture_id = $request->ressourceculture_id;
@@ -84,6 +105,11 @@ class FinanceCultureController extends Controller
     {
 
         try {
+
+            $request->validate([
+                'recolte_id' => 'required',
+                'coût_récolte' => 'required|numeric',
+             ]);
             $finance_recolte = new Finance_Recolte();
             $finance_recolte->parcelle_id = $request->recolte_id;
             $finance_recolte->coût_récolte = $request->coût_récolte;
@@ -99,6 +125,10 @@ class FinanceCultureController extends Controller
     {
 
         try {
+            $request->validate([
+                'recolte_id' => 'required',
+                'coût_récolte' => 'required|numeric',
+             ]);
             $finance_recolte = Finance_Recolte::find($request->id);
             $finance_recolte->parcelle_id = $request->recolte_id;
             $finance_recolte->coût_récolte = $request->coût_récolte;
@@ -132,6 +162,11 @@ class FinanceCultureController extends Controller
     {
 
         try {
+            $request->validate([
+                'employe_id' => 'required',
+                'salair' => 'required|numeric',
+                'role' => 'required',
+            ]);
             $finance_employee = new Finance_employe();
             $finance_employee->employe_id = $request->employe_id;
             $finance_employee->salair = $request->salair;
@@ -148,6 +183,11 @@ class FinanceCultureController extends Controller
     {
 
         try {
+            $request->validate([
+                'employe_id' => 'required',
+                'salair' => 'required|numeric',
+                'role' => 'required',
+            ]);
             $finance_employee = Finance_employe::find($request->id);
             $finance_employee->employe_id = $request->employe_id;
             $finance_employee->salair = $request->salair;

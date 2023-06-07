@@ -2,7 +2,7 @@
 @section('css')
 
 @section('title')
-    empty
+    finance cultivation
 @stop
 @endsection
 @section('page-header')
@@ -113,7 +113,7 @@
                                                           Nom parcelle
                                                         </label>
                                                         <select name="cultur_id" id="" class="form-control">
-                                                            <option value="selectioner le parcelle">Sélectionner 
+                                                            <option value="selectioner le parcelle">Sélectionner
                                                                 parcelle</option>
                                                             @foreach ($cultur as $item)
                                                                 <option value="{{ $item->id }}">
@@ -163,32 +163,32 @@
                                                     <div class="col">
                                                         <label for="Name_en" class="mr-sm-2">Coût semences (dh)
                                                         </label>
-                                                        <input type="text" class="form-control" name="coût_semences"
+                                                        <input type="number" class="form-control" name="coût_semences"
                                                             required>
                                                     </div>
                                                     <div class="col">
                                                         <label for="Name_en" class="mr-sm-2">Coût engrais (dh)
                                                         </label>
-                                                        <input type="text" class="form-control"
+                                                        <input type="number" class="form-control"
                                                             name="coût_engrais" required>
                                                     </div>
 
                                                     <div class="col">
                                                         <label for="Name_en" class="mr-sm-2">Coût pesticides (dh)
                                                         </label>
-                                                        <input type="text" class="form-control"
+                                                        <input type="number" class="form-control"
                                                             name="coût_pesticides" required>
                                                     </div>
                                                     <div class="col">
                                                         <label for="Name_en" class="mr-sm-2">Coût machines culture (dh)
                                                         </label>
-                                                        <input type="text" class="form-control"
+                                                        <input type="number" class="form-control"
                                                             name="coût_machines_culture" required>
                                                     </div>
                                                     <div class="col">
                                                         <label for="Name_en" class="mr-sm-2">Coût consommation eau (dh)
                                                         </label>
-                                                        <input type="text" class="form-control"
+                                                        <input type="number" class="form-control"
                                                             name="cout_consommation_eau" required>
                                                     </div>
 
@@ -271,7 +271,7 @@
                             </label>
                             <select name="cultur_id" id="" class="form-control"
                                 onchange="console.log($(this).val())">
-                                <option value="selectioner le parcelle">Sélectionner 
+                                <option value="selectioner le parcelle">Sélectionner
                                     parcelle</option>
                                 @foreach ($cultur as $cultur)
                                     <option value="{{ $cultur->id }}">{{ $cultur->nom }}</option>
@@ -336,29 +336,29 @@
                         <div class="col">
                             <label for="Name_en" class="mr-sm-2">Coût semences (dh)
                             </label>
-                            <input type="text" class="form-control" name="coût_semences" required>
+                            <input type="number" class="form-control" name="coût_semences" required>
                         </div>
                         <div class="col">
                             <label for="Name_en" class="mr-sm-2">Coût engrais (dh)
                             </label>
-                            <input type="text" class="form-control" name="coût_engrais" required>
+                            <input type="number" class="form-control" name="coût_engrais" required>
                         </div>
 
                         <div class="col">
                             <label for="Name_en" class="mr-sm-2">Coût pesticides (dh)
                             </label>
-                            <input type="text" class="form-control" name="coût_pesticides" required>
+                            <input type="number" class="form-control" name="coût_pesticides" required>
                         </div>
                         <div class="col">
                             <label for="Name_en" class="mr-sm-2">Coût machines culture (dh)
                             </label>
-                            <input type="text" class="form-control" name="coût_machines_culture" required>
+                            <input type="number" class="form-control" name="coût_machines_culture" required>
                         </div>
 
                         <div class="col">
                             <label for="Name_en" class="mr-sm-2">Coût consommation eau (dh)
                             </label>
-                            <input type="text" class="form-control" name="cout_consommation_eau" required>
+                            <input type="number" class="form-control" name="cout_consommation_eau" required>
                         </div>
 
 

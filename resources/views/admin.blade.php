@@ -15,7 +15,7 @@
     @include('layot.head')
 </head>
 @section('title')
-    parcelle
+    dashboard
 @stop
 
 <body>

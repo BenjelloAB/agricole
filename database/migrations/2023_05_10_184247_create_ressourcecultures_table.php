@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('engrais');
             $table->string('pesticides');
             $table->string('besoin_en_eau');
-            $table->string('besoin_en_pesticides_culture');
+         //   $table->string('besoin_en_pesticides_culture');
             // $table->string('nummachine');
             $table->string('nom_machine');
             // $table->foreign('culture_id')->references('id')->on('culturs');

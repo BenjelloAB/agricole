@@ -67,7 +67,7 @@
         #exampleModal>div>div>div.modal-body>form>div>div>ul>li>div>label>input[type=checkbox] {}
     </style>
 @section('title')
-    empty
+    ressource pour la récolte
 @stop
 @endsection
 @section('page-header')
@@ -166,7 +166,7 @@
                                                             Nom de la Parcelle
                                                         </label>
                                                         <select name="recolte_id" id="" class="form-control">
-                                                            <option value="selectioner le parcelle">selectioner le nom de Parcelle</option>
+                                                            <option selected disabled>selectioner le nom de Parcelle</option>
                                                             @foreach ($recolte as $item)
                                                                 <option value="{{ $item->id }}">
                                                                     {{ $item->nom }}
@@ -176,7 +176,7 @@
                                                         </select>
                                                     </div>
 
-                                                    
+
 
 
                                                     <div class="col">
@@ -331,7 +331,7 @@
                                 Nom_recolte
                             </label>
                             <select name="recolte_id" id="" class="form-control">
-                                <option value="selectioner le parcelle">selectioner le recolte</option>
+                                <option selected disabled>selectioner le nom de Parcelle</option>
                                 @foreach ($recolte as $recolte)
                                     <option value="{{ $recolte->id }}">{{ $recolte->nom }}</option>
                                 @endforeach
