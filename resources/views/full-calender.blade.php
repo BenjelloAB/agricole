@@ -42,7 +42,7 @@
                 selectable: true,
                 selectHelper: true,
                 select: function(start, end, allDay) {
-                    var title = prompt('Event Title:');
+                    var title = prompt('Titre de l\'événement:');
 
                     if (title) {
                         var start = $.fullCalendar.formatDate(start, 'Y-MM-DD HH:mm:ss');
@@ -60,7 +60,7 @@
                             },
                             success: function(data) {
                                 calendar.fullCalendar('refetchEvents');
-                                alert("Event Created Successfully");
+                                alert("Événement créé avec succès");
                             }
                         })
                     }
@@ -83,7 +83,7 @@
                         },
                         success: function(response) {
                             calendar.fullCalendar('refetchEvents');
-                            alert("Event Updated Successfully");
+                            alert("Événement mis à jour avec succès");
                         }
                     })
                 },
@@ -104,13 +104,13 @@
                         },
                         success: function(response) {
                             calendar.fullCalendar('refetchEvents');
-                            alert("Event Updated Successfully");
+                            alert("Événement mis à jour avec succès");
                         }
                     })
                 },
 
                 eventClick: function(event) {
-                    if (confirm("Are you sure you want to remove it?")) {
+                    if (confirm("Êtes-vous sûr de vouloir le supprimer ?")) {
                         var id = event.id;
                         $.ajax({
                             url: "/Agridev/full-calender/action",
@@ -121,7 +121,7 @@
                             },
                             success: function(response) {
                                 calendar.fullCalendar('refetchEvents');
-                                alert("Event Deleted Successfully");
+                                alert("Événement supprimé avec succès");
                             }
                         })
                     }
