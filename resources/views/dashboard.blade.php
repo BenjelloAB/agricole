@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    @livewireStyles
+
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
@@ -642,7 +642,7 @@
             </div> --}}
             <div class="calendar-main mb-30">
                 <div class="row">
-                    <div class="col-lg-3">
+                    {{-- <div class="col-lg-3">
                         <div class="row">
                             <div class="col-12 sm-mb-30">
                                 <a href="#" data-toggle="modal" data-target="#add-category"
@@ -664,10 +664,11 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="col-lg-9">
-                        <div id="calendar"></div>
-                        <div class="modal" tabindex="-1" role="dialog" id="event-modal">
+                        {{-- <div id="calendar"></div> --}}
+
+                        {{-- <div class="modal" tabindex="-1" role="dialog" id="event-modal">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -687,9 +688,9 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                         <!-- Modal Add Category -->
-                        <div class="modal" tabindex="-1" role="dialog" id="add-category">
+                        {{-- <div class="modal" tabindex="-1" role="dialog" id="add-category">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -733,8 +734,10 @@
                                     </form>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
+
                     </div>
+                    @include('full-calender')
                 </div>
 
             </div>
@@ -814,9 +817,6 @@
             window.myLine3 = new Chart(ctx3, config3);
         };
     </script>
-    <livewire:calendar />
-    @livewireScripts
-    @stack('scripts')
 
 </body>
 

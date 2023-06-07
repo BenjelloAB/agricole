@@ -159,15 +159,29 @@
                             <div class="row mt-20">
                                 <div class="col-4">
                                     <h6>culture</h6>
-                                    <b class="text-info">+ {{ round(($cout_total * 100) / $ct, 2) }} % </b>
+                                    @if ($ct == 0)
+                                        <b class="text-info">+ ... % </b>
+                                    @else
+                                        <b class="text-info">+ {{ round(($cout_total * 100) / $ct, 2) }} % </b>
+                                    @endif
+
                                 </div>
                                 <div class="col-4">
                                     <h6>Recolte</h6>
-                                    <b class="text-success">+ {{ round(($cout_recolte * 100) / $ct, 2) }} % </b>
+                                    @if ($ct == 0)
+                                        <b class="text-success">+ ... % </b>
+                                    @else
+                                        <b class="text-success">+ {{ round(($cout_recolte * 100) / $ct, 2) }} % </b>
+                                    @endif
+
                                 </div>
                                 <div class="col-4">
                                     <h6>Employee</h6>
-                                    <b class="text-warning">+{{ round(($employe * 100) / $ct, 2) }}% </b>
+                                    @if ($ct == 0)
+                                        <b class="text-warning">+ ... % </b>
+                                    @else
+                                        <b class="text-warning">+{{ round(($employe * 100) / $ct, 2) }}% </b>
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -592,7 +606,109 @@
                     </div>
                 </div>
             </div> --}}
-            
+
+
+            <div class="calendar-main mb-30">
+                <div class="row">
+                    {{-- <div class="col-lg-3">
+                        <div class="row">
+                            <div class="col-12 sm-mb-30">
+                                <a href="#" data-toggle="modal" data-target="#add-category"
+                                    class="btn btn-primary btn-block m-t-20">
+                                    <i class="fa fa-plus pr-2"></i>ajouter nouveau
+                                </a>
+                                <div id="external-events" class="m-t-20">
+                                    <br>
+                                    <p class="text-muted">Faites glisser et déposez votre événement ou cliquez dans le
+                                        calendrier</p>
+                                    @foreach ($categorie as $categorie)
+                                        <div class="external-event bg-success fc-event">
+
+                                            <i class="fa fa-circle mr-2 vertical-middle"></i><span
+                                                style="color: rgb(0, 0, 0); font-weight:800;">{{ $categorie->nom }}*{{ $categorie->couleur }}</span>
+
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+                    </div> --}}
+                    <div class="col-lg-9">
+                        {{-- <div id="calendar"></div> --}}
+
+                        {{-- <div class="modal" tabindex="-1" role="dialog" id="event-modal">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Add New Event</h5>
+                                        <button type="button" class="close" data-dismiss="modal"
+                                            aria-label="Close">
+                                            <span aria-hidden="true">&times;</span></button>
+                                    </div>
+                                    <div class="modal-body p-20"></div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger"
+                                            data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-success save-event">Create
+                                            event</button>
+                                        <button type="button" class="btn btn-danger delete-event"
+                                            data-dismiss="modal">Delete</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> --}}
+                        <!-- Modal Add Category -->
+                        {{-- <div class="modal" tabindex="-1" role="dialog" id="add-category">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Add a category</h5>
+                                        <button type="button" class="close" data-dismiss="modal"
+                                            aria-hidden="true">&times;</button>
+                                    </div>
+                                    <div class="modal-body p-20">
+                                        <form action="{{ route('categories.store') }}" method="POST">
+                                            @method('POST')
+                                            @csrf
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label class="control-label">employe</label>
+                                                    <select class="form-control form-white"
+                                                        data-placeholder="Choose a color..." name="nom">
+                                                        <option value="">selection le champs</option>
+                                                        @foreach ($employee as $employee)
+                                                            <option
+                                                                value="{{ $employee->prenom }} {{ $employee->nom }}">
+                                                                {{ $employee->prenom }} {{ $employee->nom }}
+                                                            </option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="control-label">selectionner le role</label>
+                                                    <select class="form-control form-white"
+                                                        data-placeholder="Choose a color..." name="color">
+                                                        <option value="Culture">Culture</option>
+                                                        <option value="Recolte">Recolte</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger">Close</button>
+                                        <button type="submit" class="btn btn-success save-category">Save</button>
+                                    </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div> --}}
+
+                    </div>
+                    @include('full-calender')
+                </div>
+
+            </div>
 
 
 

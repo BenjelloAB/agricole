@@ -31,6 +31,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Calendar;
 use App\Models\Event;
 use Maatwebsite\Excel\Facades\Excel;
+use App\Http\Controllers\FullCalenderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -290,6 +291,10 @@ Route::get('/pdf9', function () {
     return Excel::download(new Finance_employeExport, 'Finance_employeExport.xlsx');
 })->name('pdf9');
 /* fin de route pour le pdf */
+Route::get('full-calender', [FullCalenderController::class, 'index']);
+
+Route::post('full-calender/action', [FullCalenderController::class, 'action']);
+
 
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->middleware(['auth'])->name('home');

@@ -88,7 +88,7 @@
                 <li class="nav-item dropdown mr-30">
                     <a class="nav-link nav-pill user-avatar" data-toggle="dropdown" href="#" role="button"
                         aria-haspopup="true" aria-expanded="false">
-                        <img src="iconagri.png" alt="avatar">
+                        <img src="{{ URL::asset('avatar.png') }}" alt="avatar">
                     </a>
                     <div class="dropdown-menu dropdown-menu-right">
                         <div class="dropdown-header">
