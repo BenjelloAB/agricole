@@ -136,7 +136,7 @@
         <h1><span>GESTION</span> AGRICOLE</h1>
         <h3>Meilleure application de gestion des parcelles</h3>
         <!-- ? link -->
-        <a href="#"><span></span>Voir Nos Services</a>
+        <a href="{{ route('etape') }}"><span></span>Voir Nos Services</a>
     </div>
     <div class="goDown">
         <a href="#content1">

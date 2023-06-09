@@ -38,7 +38,7 @@
                     center: 'title',
                     right: 'month,agendaWeek,agendaDay'
                 },
-                events: '/agricole/full-calender',
+                events: '/Agridev/full-calender',
                 selectable: true,
                 selectHelper: true,
                 select: function(start, end, allDay) {
@@ -50,7 +50,7 @@
                         var end = $.fullCalendar.formatDate(end, 'Y-MM-DD HH:mm:ss');
 
                         $.ajax({
-                            url: "/agricole/full-calender/action",
+                            url: "/Agridev/full-calender/action",
                             type: "POST",
                             data: {
                                 title: title,
@@ -72,7 +72,7 @@
                     var title = event.title;
                     var id = event.id;
                     $.ajax({
-                        url: "/agricole/full-calender/action",
+                        url: "/Agridev/full-calender/action",
                         type: "POST",
                         data: {
                             title: title,
@@ -93,7 +93,7 @@
                     var title = event.title;
                     var id = event.id;
                     $.ajax({
-                        url: "/agricole/full-calender/action",
+                        url: "/Agridev/full-calender/action",
                         type: "POST",
                         data: {
                             title: title,
@@ -113,7 +113,7 @@
                     if (confirm("Êtes-vous sûr de vouloir le supprimer ?")) {
                         var id = event.id;
                         $.ajax({
-                            url: "/agricole/full-calender/action",
+                            url: "/Agridev/full-calender/action",
                             type: "POST",
                             data: {
                                 id: id,
