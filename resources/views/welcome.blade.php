@@ -407,7 +407,7 @@
                                     <div class="circle">
                                         <span class="icon arrow"></span>
                                     </div>
-                                    <p class="button-text">Commencer !</p>
+                                    <a href="{{ route('login') }}"><p class="button-text">Commencer !</p></a>
                                 </button>
                             </div>
                         </div>
@@ -437,7 +437,7 @@
         <div class="contenar2">
             <ul class="contacLinks">
                 <!-- ? link -->
-                <li><a href="#">Contactez-nous</a></li>
+                <li><a href="{{ route('contact') }}">Contactez-nous</a></li>
                 <li><a href="#">A propos </a></li>
                 <li><a href="#">Services</a></li>
             </ul>
@@ -459,7 +459,7 @@
                 <!-- ? link -->
                 <li><a href="#">Etapes</a></li>
                 <li><a href="#">Dev Team</a></li>
-                <li><a href="#">Inscrire</a></li>
+                <li><a href="{{ route('contact') }}">Inscrire</a></li>
             </ul>
         </div>
 

@@ -129,20 +129,20 @@
         <div class="contenar2">
             <ul class="contacLinks">
                 <!-- ? link -->
-                <li><a href="#">Contactez-nous</a></li>
+                <li><a href="{{ route('contact') }}">Contactez-nous</a></li>
                 <li><a href="#">A propos </a></li>
                 <li><a href="#">Services</a></li>
             </ul>
 
             <ul class="comm">
                 <h3><span>GESTIONNER</span> Votre Parcelle</h3>
-                <li class="simp footer"><a href="#">COMMENCER</a></li>
+                <li class="simp footer"><a href="{{route('login')}}">COMMENCER</a></li>
             </ul>
             <ul class="moreLinks">
                 <!-- ? link -->
                 <li><a href="#">Etapes</a></li>
                 <li><a href="#">Dev Team</a></li>
-                <li><a href="#">Inscrire</a></li>
+                <li><a href="{{ route('contact') }}">Inscrire</a></li>
             </ul>
         </div>
 
