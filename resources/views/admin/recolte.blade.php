@@ -1,6 +1,6 @@
 @extends('layot.master')
 @section('css')
-    <style>
+<style>
         .he {
             border-radius: 5px;
             background-color: #28a745;
@@ -9,7 +9,21 @@
             transform: translate(9px, -5px);
             width: 82px;
             height: 32px;
+            cursor:pointer;
         }
+        .card-body{
+        position:relative;
+    }
+.he.he2{
+    position: absolute;
+    width: 92px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 12px;
+    top: 24px;
+    right: 25px;
+}
     </style>
 @section('title')
     recolte
@@ -60,7 +74,7 @@
                     </select @required(true)>
                     <button type="submit" class="he">Filtrer</button>
                 </form>
-                <a href="{{ route('pdf4') }}"><button type="submit" class="he">Excel</button></a>
+                <a href="{{ route('pdf4') }}"><button type="submit" class="he he2"><i class="fa-solid fa-download"></i>Exporter</button></a>
                 <br><br>
                 <?php $i = 0; ?>
                 <div class="table-responsive">

@@ -135,7 +135,12 @@
 
     <div class="middle">
       <div class="card">
-        <div class="vidCard"></div>
+        <div class="vidCard">
+        <video  class="bigVid" controls>
+         
+         <source src="./imgs/bigONev2.mp4" type="video/mp4" />
+     </video>
+        </div>
       </div>
     </div>
 
@@ -181,7 +186,10 @@
             d'aythentification. Remplissez les informations demandées dans le
             formulaire.
           </p>
-          <div class="vidInside vid1"></div>
+          <div class="vidInside vid1"><video style="width:100%; height=100%; " muted autoplay loop>
+         
+    <source src="./imgs/loginver3.mp4" type="video/mp4" />
+</video></div>
         </div>
         <div class="apt rp2">
           <div class="pulse pl2 3wj">
@@ -197,7 +205,12 @@
             Vous serez redirigé vers la page du dashboard, où vous trouverez un
             aperçu des différentes fonctionnalités
           </p>
-          <div class="vidInside vid2"></div>
+          <div class="vidInside vid2">
+          <video style="width:100%; height=100%; " muted autoplay loop>
+         
+         <source src="./imgs/dashboardver3.mp4" type="video/mp4" />
+     </video>
+          </div>
         </div>
         <div class="apt rp3">
           <div class="pulse pl3 3wj">
@@ -214,7 +227,10 @@
             "Parcelles" pour accéder à un formulaire permettant de saisir et
             sauvegarder les informations relatives aux différentes parcelles.
           </p>
-          <div class="vidInside vid3"></div>
+          <div class="vidInside vid3"> <video style="width:100%; height=100%; " muted autoplay loop>
+         
+         <source src="./imgs/parcellever3.mp4" type="video/mp4" />
+     </video></div>
         </div>
         <div class="apt rp4">
           <div class="pulse pl4 3wj">
@@ -228,14 +244,38 @@
             Suite au choix du parcelle vous puvez commencer la gestion des
             employes,du materiels,Finance,etc......
           </p>
-          <div class="vidInside vid4"></div>
+          <div class="vidInside vid4"> <video style="width:100%; height=100%; " muted autoplay loop>
+         
+         <source src="./imgs/gestionner lastver3.mp4" type="video/mp4" />
+     </video></div>
         </div>
       </div>
       <div class="SomeVideos">
-        <div class="vid vid1"></div>
-        <div class="vid vid2"></div>
-        <div class="vid vid3"></div>
-        <div class="vid vid4"></div>
+        <div class="vid vid1">
+        <video style="width: 100%;height: 100%;background-size: cover;background-position: center;" muted autoplay loop>
+         
+         <source src="./imgs/loginver3.mp4" type="video/mp4" />
+     </video>
+
+        </div>
+        <div class="vid vid2">
+        <video style="width: 100%;height: 100%;background-size: cover;background-position: center;" muted autoplay loop>
+         
+         <source src="./imgs/dashboardver3.mp4" type="video/mp4" />
+     </video>
+
+        </div>
+        <div class="vid vid3">
+<video style="width: 100%;height: 100%;background-size: cover;background-position: center;" muted autoplay loop>
+         
+         <source src="./imgs/parcellever3.mp4" type="video/mp4" />
+     </video>
+
+        </div>
+        <div class="vid vid4"><video style="width: 100%;height: 100%;background-size: cover;background-position: center;" muted autoplay loop>
+         
+         <source src="./imgs/gestionner lastver3.mp4" type="video/mp4" />
+     </video></div>
       </div>
     </div>
 
