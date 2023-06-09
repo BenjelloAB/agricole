@@ -30,7 +30,7 @@ class ParcelleController extends Controller
 
             return redirect()->back()->with('success', 'Les données ont été enregistrées avec succès!');
         } catch (\Exception $e) {
-            return redirect()->back()->withErrors(['error' => 'Nous sommes désolés. Une erreur est survenue lors de l\'enregistrement des données. Veuillez réessayer plus tard.']);
+            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
     }
     //Nous sommes désolés. Une erreur est survenue lors de l\'enregistrement des données. Veuillez réessayer plus tard.
@@ -58,8 +58,13 @@ class ParcelleController extends Controller
     }
     }
     public function destroy(Request $request){
-        $parcelle = Parcelle::findOrFail($request->id)->delete();
-        return redirect()->back()->withErrors(['error' => 'Nous sommes désolés. Une erreur est survenue lors de l\'enregistrement des données. Veuillez réessayer plus tard.']);
+        try{
+            $parcelle = Parcelle::findOrFail($request->id)->delete();
+            return redirect()->back()->with('warning', 'Les données ont été supprimer avec succès!');
+        }
+        catch (\Exception $e){
+            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+        }
         // warning + info + success + error + danger
     }
 
