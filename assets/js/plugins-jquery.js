@@ -1,49 +1,4 @@
-/*
 
-Template:  Webmin - Bootstrap 4 & Angular 5 Admin Dashboard Template
-Author: potenzaglobalsolutions.com
-Design and Developed by: potenzaglobalsolutions.com
-
-NOTE:  This file includes main plugins which are applied on most of all pages. Other plugins will load automatic when needed. If you don't want to use any plugins from below. You can simply remove that from this file.
-
-*/
-
-/*================================================
-[  Table of contents  ]
-================================================
-
- :: Appear
- :: Modernizr
- :: jquery-ui
- :: popper js
- :: Bootstrap
- :: SmoothScroll
- :: Moment
- :: Bootstrap Colorpicker
- :: sweetalert2
- :: FullCalendar
- :: Bootstrap TouchSpin
- :: JQuery Raty fa
- :: Sparkline
- :: Morris
- :: Simplemde
- :: Summernote 
- :: Raphaël
- :: Chart.js
- :: chart utils
- :: bootstrap-datepicker
- :: jquery.dataTables
- :: jquery.validate
- :: repeater
- :: lobilist
- :: jquery.ui.touch-punch-improved
- :: jquery-steps
- :: toastr
- :: dataTables.bootstrap4 
- 
-======================================
-[ End table content ]
-======================================*/
 
 /*************************
 	 Appear Start

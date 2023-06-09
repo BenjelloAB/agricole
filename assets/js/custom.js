@@ -1,46 +1,6 @@
-/*
 
-Template:  Webmin - Bootstrap 4 & Angular 5 Admin Dashboard Template
-Author: potenzaglobalsolutions.com
-Design and Developed by: potenzaglobalsolutions.com
 
-NOTE: This file contains all scripts for the actual Template.
 
-*/
-
-/*================================================
-[  Table of contents  ]
-================================================
-
-:: Predefined Variables
-:: Tooltip
-:: Preloader
-:: PHP Contact Form
-:: Counter
-:: Back to top
-:: NiceScroll
-:: Mailchimp
-:: PieChart
-:: DataTable
-:: Wow animation on scroll
-:: Select
-:: Accordion
-:: Search
-:: Sidebarnav
-:: Fullscreenwindow
-:: Today date and time
-:: Summernote
-:: Colorpicker
-:: Touchspin
-:: Editormarkdown
-:: Rating
-:: Calendar List View
-:: Repeater form
-:: Wizard form
-
-======================================
-[ End table content ]
-======================================*/
 //POTENZA var
 
 (function ($) {
