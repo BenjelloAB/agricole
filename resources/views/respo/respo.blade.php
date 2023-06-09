@@ -1,5 +1,15 @@
 @extends('layot.master')
 @section('css')
+<style>
+    .card-body{
+        position:relative;
+    }
+.he{
+    position: absolute;
+    top: 24px;
+    right: 25px;
+}
+</style>
 
 @section('title')
 Creation du Responsable
@@ -208,13 +218,13 @@ Creation du Responsable
                                                 <form action="{{ route('respo.delete') }}" method="post">
                                                     @method('DELETE')
                                                     @csrf
-                                                    <span style="color: red">Voullez-vous effacer cette
+                                                    <span style="color: red">Voulez-vous effectuer cette
                                                         operation</span>
                                                     <input id="id" type="hidden" name="id"
                                                         class="form-control" value="{{ $user->id }}">
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary"
-                                                            data-dismiss="modal">fermer</button>
+                                                            data-dismiss="modal">Fermer</button>
                                                         <button type="submit" class="btn btn-danger">Valider</button>
                                                     </div>
                                                 </form>

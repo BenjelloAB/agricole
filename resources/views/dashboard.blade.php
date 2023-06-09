@@ -31,6 +31,21 @@
         }
 
         .emp {}
+        .Empty{
+            width: 100%;
+            display: flex;
+            height: 226px;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .Empty img{
+            width: 200px;
+        }
+        .Empty p{
+            font-size: 16px;
+    font-weight: 700;
+        }
     </style>
 
 </head>
@@ -284,7 +299,7 @@
                                             <li class="nav-item">
                                                 <a class="nav-link active show" id="months-tab" data-toggle="tab"
                                                     href="#months" role="tab" aria-controls="months"
-                                                    aria-selected="true">Par année</a>
+                                                    aria-selected="true">Par Saison</a>
                                             </li>
                                             {{-- <li class="nav-item">
                                                 <a class="nav-link" id="year-tab" data-toggle="tab" href="#year"
@@ -328,7 +343,11 @@
                                                     </div>
                                                 @endforeach
                                             @else
-                                                <p class="emp">il n'ya pas les donnees</p>
+                                               
+                                                <div class="Empty">
+                                                    <img src="./imgs/empty-box.png" alt="">
+                                                    <p>Pas d'Employés</p>
+                                                </div>
                                             @endif
                                             <div class="paggi">
                                                 {{ $hhh->links() }}
@@ -811,11 +830,34 @@
             }
         };
 
-        window.onload = function() {
+
+
+        if(legumeData.length !== 0){
+            window.onload = function() {
             // Créez le graphique Chart.js en utilisant la configuration
             var ctx3 = document.getElementById("canvas2").getContext("2d");
             window.myLine3 = new Chart(ctx3, config3);
         };
+}else{
+    var container = document.createElement("div");
+
+// Create an image element
+var image = document.createElement("img");
+image.src = "./imgs/empty-box.png";
+
+// Create a text element
+var text = document.createElement("p");
+text.textContent = "Pas de leguems ou fruits ajoutés";
+
+// Append the image and text elements to the container element
+container.appendChild(image);
+container.appendChild(text);
+
+// Add a CSS class to the container element
+container.classList.add("Empty");
+    document.getElementById("canvas-holder").replaceWith(container);
+}
+
     </script>
 
 </body>

@@ -582,9 +582,14 @@ body.hidden-scrolling{
 
   /* ? Additionnal stuff in page 2 : */
   .middle .card {
+    /* width: 75%; */
+    /* width: 85%;
+    min-width: 800px;
+    height: 593px; */
+    /* width: 87%; */
     width: 75%;
     min-width: 800px;
-    height: 593px;
+    height: 675px;
     background: rgb(223, 225, 235);
     border-radius: 50px;
     box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
@@ -593,8 +598,8 @@ body.hidden-scrolling{
     justify-content: center;
   }
   .middle .card .vidCard{
-    width: 75%;background-color: #000;
-    height: 65%;
+    width: 100%;
+    height: 90%;
   }
   .middle{
     height: 715px;
@@ -605,12 +610,17 @@ body.hidden-scrolling{
 
   .holder2{
     width: 100%;
-    /* height: 1800px; */
-    height: auto;
+    /*height: 1800px;
+    */height: auto;
     display: grid;
     grid-template-columns: 14% 1fr 39%;
     padding: 44px;
-  }
+    transform: translateY(-79px);
+    -webkit-transform: translateY(-79px);
+    -moz-transform: translateY(-79px);
+    -ms-transform: translateY(-79px);
+    -o-transform: translateY(-79px);
+}
   .holder2 .progressive{
     width: 100%;
     height: 100%;
@@ -646,14 +656,14 @@ body.hidden-scrolling{
     align-items: center;
     justify-content: center;
     gap:300px;
-    padding: 20px;
+    /* padding: 20px; */
 
   }
   .holder2 .SomeVideos .vid{
     /* width: 100%; */
-    width: 477px;
+    /* width: 477px; */
     height: 300px;
-    background-color: #000;
+    /* background-color: #000; */
 
   } 
   
@@ -933,7 +943,12 @@ transform: scale(2);
 .holder2 .LesEtapes{
   gap: 300px;
 }
-
+.bigVid{
+  width: 84%;
+    height: 100%;
+    margin-left: 9%;
+    margin-top: -3%;
+}
 
 @media screen and (max-width:1227px) {
 
@@ -1034,7 +1049,8 @@ transform: scale(2);
 .vidInside{
   display: block;
     width: 100%;
-    height: 300px;
+    max-width: 815px;
+    /* height: 300px; */
     visibility: visible;
 }
 
@@ -1049,10 +1065,31 @@ transform: scale(2);
 .LesEtapes{
   gap: 497px;
 }
-
+.bigVid{
+  margin-top: -5%;
+}
+}
+@media screen and (max-width: 933px) {
+  .bigVid{
+    margin-top: -7%;
+  }
+  
+}
+/* @media screen and (max-width: 1160px) {
+  footer{
+    margin-top: -200px;
+    
+  }
+  
 }
 
+@media screen and (max-width: 700px) {
+  footer{
+    margin-top: -400px;
 
+  }
+  
+} */
 
 @media screen and (max-width:660px) {
   .holder2{
@@ -1273,16 +1310,53 @@ height: 225px;
 }
   
 }
-@media screen and (max-width:330px) {
+
+@media screen and (max-width:540px) {
+  footer{
+    margin-top: -200px;
+  }
   .LesEtapes .apt .pl4{
+    margin-top: -575px;
+  }
+  .LesEtapes .apt .pl3{
+    margin-top: -628px;
+  }
+  .LesEtapes .apt .pl2{
+    margin-top: -608px;
+  }
+  
+}
+@media screen and (max-width: 500px){
+  .fot{
+    display: none;
+  }
+}
+
+@media screen and (max-width:345px) {
+  /* .LesEtapes .apt .pl4{
+    margin-top: -700px;
+  }
+  .LesEtapes .apt .pl3{
+    margin-top: -700px;
+  } */
+  /* .LesEtapes .apt .pl2{
+    margin-top: -700px;
+  } */
+  /* footer{
+    margin-top: -470px;
+  } */
+  
+}
+@media screen and (max-width:330px) {
+  /* .LesEtapes .apt .pl4{
     margin-top:-270px;
   }
   .LesEtapes .apt .pl3{
     margin-top: -400px;
-  }
-  .LesEtapes .apt .pl2{
+  } */
+  /* .LesEtapes .apt .pl2{
     margin-top: -483px;
-  }
+  } */
   
 }
 @media screen and (max-width: 300px) {
@@ -1296,3 +1370,4 @@ height: 225px;
 }
 }
  
+
